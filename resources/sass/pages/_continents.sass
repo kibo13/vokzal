@@ -1,0 +1,40 @@
+.bk-continents
+
+  &-table
+    .dataTables_empty
+      padding: 5px 10px !important
+      text-align: left !important
+    .dataTables_length,
+    .dataTables_info,
+    .dataTables_paginate
+      display: none
+    .dataTables_filter
+      position: relative
+      margin-bottom: 5px
+      display: flex
+      justify-content: flex-start
+      vertical-align: middle
+      flex-basis: 100%
+      overflow: hidden
+      label,
+      input
+        width: 100%
+      label
+        margin-bottom: 0
+
+  &-list
+    padding: 5px 10px
+    margin: 0
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(200px, auto))
+    max-height: 200px
+    background: #fff
+    border: 1px solid #ced4da
+    border-radius: .25rem
+    overflow-y: auto
+
+.custom-control-label
+  cursor: pointer
+  user-select: none
+
+

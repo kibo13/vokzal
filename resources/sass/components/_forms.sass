@@ -1,0 +1,64 @@
+.bk-form
+  padding-top: 10px
+  &__wrapper
+    position: relative
+    margin-bottom: 15px
+    padding: 15px
+    border-radius: 4px
+    border: 1px solid $gray
+    &::before
+      content: attr(data-info)
+      padding: 0 5px
+      position: absolute
+      top: -12px
+      left: 6px
+      font-size: $text-base
+      font-weight: bold
+      background: $light
+  &__block
+    padding: 0
+    margin: 0
+    display: flex
+    flex-direction: column
+  &__field-100
+    width: 100px
+  &__field-200
+    width: 200px
+  &__field-300
+    width: 300px
+  &__field-full
+    width: 100%
+  &__title
+    padding: 3px 0
+    margin-bottom: 6px
+    width: 100%
+    font-size: 13px
+    font-weight: bold
+    border-bottom: 1px solid $gray
+  &__file
+    position: relative
+    &--btn
+      position: absolute
+      top: 50%
+      right: 4px
+      transform: translateY(-50%)
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 70px
+      font-size: $text-sm
+    &--upload
+      position: absolute
+      top: 0
+      left: 0
+      opacity: 0
+      cursor: pointer
+  &__alert
+    font-size: 11px
+
+@media (max-width: $width-sm)
+  .bk-form
+    &__field-100,
+    &__field-200,
+    &__field-300
+      width: 100%

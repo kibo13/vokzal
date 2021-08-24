@@ -1,0 +1,126 @@
+// custom options table 
+.bk-table 
+	font-size: $text-base
+	th, 
+	td
+		padding: 5px 10px !important
+	th
+		cursor: pointer !important
+	.no-sort 
+		cursor: default !important
+	&__img 
+		width: 100%
+		height: auto
+
+.table-bordered 
+	border: none	
+
+// START general options jquery-datatables  
+.dataTables
+	// set up grid 
+	&_wrapper 
+		display: flex 
+		flex-wrap: wrap
+	&_length,
+	&_filter,
+	&_info,
+	&_paginate
+		display: flex
+		flex-basis: 50%
+		font-size: $text-base
+	&_length,
+	&_info 
+		justify-content: flex-start
+	&_filter,
+	&_paginate
+		justify-content: flex-end
+	&_info,
+	&_paginate
+		margin: 5px 0
+	// set up select and input 
+	&_length,
+	&_filter
+		label 
+			display: flex
+			font-size: 0
+		select,
+		input
+			padding: 5px 10px
+			width: 200px
+			height: 35px
+			font-size: $text-base
+			color: #495057
+			background-color: #ffffff
+			border: 1px solid $gray
+			outline: none 
+// set up pagination 
+.dataTables_paginate
+	display: flex
+	align-items: center
+	grid-gap: 3px
+	span 
+		display: flex
+		grid-gap: 3px
+.paginate_button
+	display: flex
+	justify-content: center
+	align-items: center
+	width: 25px	
+	height: 25px
+	color: $blue
+	border: 1px solid $gray 
+	box-shadow: 0 0 1px
+	cursor: pointer
+	&:hover 
+		color: $light
+		background: $blue
+	&.disabled:hover 
+		color: $blue
+		background: transparent
+		cursor: default
+	&.current
+		color: $light
+		background: $blue
+		&:hover 
+			cursor: default
+// set up display arrows for sort 
+table.dataTable thead
+	.sorting 
+		background-image: url('/icons/datatable/sort_both.png') 
+		background-repeat: no-repeat
+		background-position: center right
+	.sorting_asc
+		background-image: url('/icons/datatable/sort_asc.png') 
+		background-repeat: no-repeat
+		background-position: center right
+	.sorting_desc
+		background-image: url('/icons/datatable/sort_desc.png') 
+		background-repeat: no-repeat
+		background-position: center right	
+	.sorting_asc_disabled
+		background-image: url('/icons/datatable/sort_asc_disabled.png') 
+		background-repeat: no-repeat
+		background-position: center right	
+	.sorting_desc_disabled
+		background-image: url('/icons/datatable/sort_desc_disabled.png') 
+		background-repeat: no-repeat
+		background-position: center right		
+
+@media screen and ( max-width: $width-sm )
+	.dataTables
+		&_wrapper 
+			display: flex 
+			flex-direction: column
+		&_length,
+		&_filter,
+		&_info,
+		&_paginate
+			flex-basis: 100%
+			justify-content: center
+		&_length,
+		&_filter
+			label,
+			select,
+			input 
+				width: 100%
+// END general options jquery-datatables 

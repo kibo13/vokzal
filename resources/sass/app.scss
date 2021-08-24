@@ -1,0 +1,27 @@
+// fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+// bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// utils
+@import "utils/variables";
+@import "utils/base";
+
+// vendors
+@import "vendors/datatable";
+
+// partials
+@import "partials/navbar";
+@import "partials/sidebar";
+
+// components
+@import "components/forms";
+@import "components/buttons";
+
+// pages
+@import "pages/auth";
+@import "pages/categories";
+@import "pages/gallery";
+@import "pages/continents";
+@import "pages/dishes";

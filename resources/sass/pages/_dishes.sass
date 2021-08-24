@@ -1,0 +1,59 @@
+.bk-dishes
+
+  &-list
+    margin: 0
+    padding: 0
+    display: flex
+    flex-direction: column
+
+    &__title
+      font-size: 18px
+      font-weight: bold
+      color: #4B515D
+
+    &__category
+      font-size: 12px
+      font-weight: bold
+      color: rgba($dark, .65)
+
+    &__desc
+      margin-top: 5px
+      font-size: 13px
+
+  &-zoom
+    position: relative
+    overflow: hidden
+    -moz-user-select: none
+    user-select: none
+
+    &__img
+      position: absolute
+      top: 0
+      left: 0
+      opacity: 0
+      cursor: zoom-in
+
+      &:focus
+        position: fixed
+        top: 50%
+        left: 50%
+        z-index: 31
+        max-width: 100%
+        max-height: 100%
+        opacity: 1
+        outline: none
+        pointer-events: none
+        -webkit-transform: translate(-50%, -50%)
+        transform: translate(-50%, -50%)
+        -moz-user-select: none
+        user-select: none
+
+        ~ .bk-dishes-zoom__bg
+          position: fixed
+          top: 0
+          left: 0
+          right: 0
+          bottom: 0
+          z-index: 30
+          background: rgba($dark, 0.7)
+          cursor: zoom-out

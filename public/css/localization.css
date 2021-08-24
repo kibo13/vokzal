@@ -1,0 +1,39 @@
+.header__lang {
+  position: relative;
+  width: 50px !important;
+  cursor: pointer;
+}
+
+.active__lang {
+  text-transform: uppercase;
+}
+
+.header__lang-list {
+  margin: 0;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.31);
+}
+
+.header__lang-list > li {
+  padding: 0;
+  height: 34px;
+  transition: 0.2s;
+}
+
+.header__lang-list > li:hover {
+  box-shadow: inset 0 0 10px 0 rgba(255, 255, 255, 0.31);
+}
+
+.header__lang-list > li > a {
+  display: block;
+  line-height: 34px;
+}
+
+.header__lang svg {
+  margin-left: 5px;
+}
