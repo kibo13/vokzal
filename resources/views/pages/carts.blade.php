@@ -36,8 +36,7 @@
           <div class="form__wrapper--form">
 
             <!-- /.step-1 -->
-            @if($order->step == 1)
-            <div class="form__contacts active">
+            <div class="form__contacts @if($order->step == 1) active @endif">
               <form action="{{ route('carts.step_1', $order->id) }}" method="POST">
                 @csrf
                 <div class="form__contacts--title form-title">
@@ -84,8 +83,7 @@
               </form>
             </div>
             <!-- /.step-2 -->
-            @elseif($order->step == 2)
-            <div class="form__delivery active">
+            <div class="form__delivery @if($order->step == 2) active @endif">
               <form action="{{ route('carts.step_2', $order->id) }}" method="POST">
                 @csrf
                 <div class="form-title">2. {{ __('main.delivery') }}</div>
@@ -148,8 +146,7 @@
               </form>
             </div>
             <!-- /.step-3 -->
-            @elseif($order->step == 3)
-            <div class="form__payment active">
+            <div class="form__payment @if($order->step == 3) active @endif">
               <div class="form-title">3. {{ __('main.pay') }}</div>
               <div class="form__payment--inner d-flex">
                 <div class="form__payment--item position-relative">
@@ -170,6 +167,7 @@
                 <input type="hidden" id="total" value="{{ $order->getFullPrice() }}">
               </div>
             </div>
+            @if($order->step == 3)
             <button class="form__submit block-button" id="confirm-order" data-id="{{ $order->id }}">
               {{ __('main.buy') }}
             </button>

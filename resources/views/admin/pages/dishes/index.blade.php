@@ -61,13 +61,6 @@
               @endif
             </li>
           </ul>
-          {{-- @if(getCurrentLang() === 'ru')
-          {{ $dish->continent->name_ru }}
-          @elseif(getCurrentLang() === 'en')
-          {{ $dish->continent->name_en }}
-          @else
-          {{ $dish->continent->name_kk }}
-          @endif --}}
         </td>
         <td>
           {{ number_format($dish->price, 2, ',', ' '); }} &#8376;

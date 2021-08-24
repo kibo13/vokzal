@@ -116,6 +116,15 @@ return [
   'atyrau'            => 'Atyrau',
   'fn_hint'           => 'Ivan',
   'ln_hint'           => 'Ivanov',
-  'order_in'          => 'Checkout'
+  'order_in'          => 'Checkout',
+  'order_more'        => 'Order details',
+  'order_time'        => 'Date and time',
+  'customer'          => 'Customer',
+  'order_list'        => 'Order list',
+  'order_check'       => 'Payment State',
+  'count'             => 'Count',
+  'order_card'        => 'By card',
+  'order_cash'        => 'In cash',
+  'state'             => 'Status',
 
 ];

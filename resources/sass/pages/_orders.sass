@@ -1,0 +1,43 @@
+.orders
+
+  &-icon
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    svg
+      width: 25px
+      height: 25px
+
+  &-text
+    margin-bottom: 0
+    padding: 0 2px
+    font-size: $text-base
+    color: rgba($dark, .65)
+
+  &-list
+    margin: 0
+    padding: 0
+    &__title
+      font-weight: bold
+    &__category
+      font-size: 12px
+      font-weight: bold
+      color: rgba($dark, .65)
+    &__desc
+      margin-top: 5px
+      font-size: 13px
+
+  &-control
+    padding: 0 2px
+    display: flex
+    align-items: center
+    grid-gap: 5px
+    user-select: none
+    &__check
+      padding: 0 !important
+      width: 16px
+      height: 16px
+    &__label
+      margin-bottom: 2px
+      cursor: pointer

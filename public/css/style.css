@@ -988,7 +988,11 @@ h6 {
   font-size: 18px;
   line-height: 24px;
   text-align: center;
-  margin: 30px 0 34px;
+  /* new */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
 }
 .kitchen-price {
   font-size: 24px;
@@ -1005,8 +1009,11 @@ h6 {
   line-height: 150%;
   text-align: center;
   color: #989898;
-  /* custom style */
-  min-height: 80px;
+  /* new */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
 }
 .georgian__kitchen--section .container-md {
   padding-top: 5rem;
@@ -1442,6 +1449,11 @@ h6 {
   font-size: 24px;
   line-height: 33px;
   color: #e1915c;
+}
+.form__contacts,
+.form__delivery,
+.form__payment {
+  overflow: hidden;
 }
 .form__payment--item {
   width: 120px;

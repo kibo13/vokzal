@@ -10819,3 +10819,55 @@ table.dataTable thead .sorting_desc_disabled {
   background: rgba(66, 66, 66, 0.7);
   cursor: zoom-out;
 }
+
+.orders-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.orders-icon svg {
+  width: 25px;
+  height: 25px;
+}
+.orders-text {
+  margin-bottom: 0;
+  padding: 0 2px;
+  font-size: 14px;
+  color: rgba(66, 66, 66, 0.65);
+}
+.orders-list {
+  margin: 0;
+  padding: 0;
+}
+.orders-list__title {
+  font-weight: bold;
+}
+.orders-list__category {
+  font-size: 12px;
+  font-weight: bold;
+  color: rgba(66, 66, 66, 0.65);
+}
+.orders-list__desc {
+  margin-top: 5px;
+  font-size: 13px;
+}
+.orders-control {
+  padding: 0 2px;
+  display: flex;
+  align-items: center;
+  grid-gap: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.orders-control__check {
+  padding: 0 !important;
+  width: 16px;
+  height: 16px;
+}
+.orders-control__label {
+  margin-bottom: 2px;
+  cursor: pointer;
+}
