@@ -78,6 +78,24 @@
               required />
           </div>
 
+          <!-- /.desc_ru -->
+          <h6 class="bk-form__title">{{ __('main.t_desc') }} [RU]</h6>
+          <div class="bk-form__field-full mb-2">
+            <textarea class="form-control" name="desc_ru" placeholder="Введите описание">{{ old('desc_ru', isset($vip) ? $vip->desc_ru : null) }}</textarea>
+          </div>
+
+          <!-- /.desc_en -->
+          <h6 class="bk-form__title">{{ __('main.t_desc') }} [EN]</h6>
+          <div class="bk-form__field-full mb-2">
+            <textarea class="form-control" name="desc_en" placeholder="Enter a description">{{ old('desc_en', isset($vip) ? $vip->desc_en : null) }}</textarea>
+          </div>
+
+          <!-- /.desc_kk -->
+          <h6 class="bk-form__title">{{ __('main.t_desc') }} [KK]</h6>
+          <div class="bk-form__field-full mb-2">
+            <textarea class="form-control" name="desc_kk" placeholder="Сипаттаманы енгізіңіз">{{ old('desc_kk', isset($vip) ? $vip->desc_kk : null) }}</textarea>
+          </div>
+
           <!-- /.image -->
           <h6 class="bk-form__title">{{ __('main.image') }}</h6>
           <div class="bk-form__field-300">

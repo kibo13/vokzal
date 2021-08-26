@@ -13,6 +13,9 @@ class Vip extends Model
     'name_ru',
     'name_kk',
     'name_en',
+    'desc_ru',
+    'desc_kk',
+    'desc_en',
     'image',
     'note'
   ];

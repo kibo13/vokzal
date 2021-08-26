@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-<section id="vip-index" class="bk-page section">
+<section id="vip-index" class="bk-page section info-form">
   <h2 class="mb-3">{{ $title }}</h2>
 
   <div class="bk-btn-group">
@@ -18,7 +18,8 @@
     <thead class="thead-light">
       <tr>
         <th scope="col">#</th>
-        <th scope="col" class="w-100">{{ __('main.t_name') }}</th>
+        <th scope="col" class="w-25">{{ __('main.t_name') }}</th>
+        <th scope="col" class="w-75 no-sort">{{ __('main.t_desc') }}</th>
         <th scope="col" class="no-sort">{{ __('main.t_action') }}</th></th>
       </tr>
     </thead>
@@ -34,6 +35,21 @@
           @else
           {{ $vip->name_kk }}
           @endif
+        </td>
+        <td>
+          <div class="bk-btn-info">
+            @if(getCurrentLang() === 'ru')
+            {{ $vip->desc_ru }}
+            @elseif(getCurrentLang() === 'en')
+            {{ $vip->desc_en }}
+            @else
+            {{ $vip->desc_kk }}
+            @endif
+            <button
+              class="bk-btn-info__triangle bk-btn-info__triangle--down"
+              title="{{ __('main.more') }}">
+            </button>
+          </div>
         </td>
         <td>
           <div class="bk-btn-actions">
