@@ -567,11 +567,17 @@ h6 {
   font-size: 18px;
   line-height: 24px;
 }
+.bars__gallery--image {
+  height: 125px;
+}
+.bars__gallery--image img {
+  object-fit: cover !important;
+}
 
 /* MAIN BACKGROUND WRAPPER */
 
 .main__background--wrapper {
-  /* background: url(../img/gallery-bg.png); */
+  background: url(../images/gallery-bg.png);
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: cover;
@@ -1151,7 +1157,7 @@ h6 {
 /* PAGES FOOTER BG */
 
 .custom__footer {
-  /* background: url(../images/custom-footerBg.png); */
+  background: url(../images/custom-footerBg.png);
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: cover;

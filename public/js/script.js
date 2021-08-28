@@ -416,13 +416,21 @@ $(document).on("click", ".cart-destroy", function (e) {
 
 var is_cart = document.getElementById("phone");
 
+// validation for fields in cart
 if (is_cart) {
-  if (is_cart) {
-    var maskOptions = {
-      mask: "+{7} 000 000 00 00",
-    };
-    var mask = IMask(is_cart, maskOptions);
-  }
+  // field for last_name
+  $("#last_name").on("input", function (e) {
+    this.value = this.value.replace(/[^a-zа-яё\s]/gi, "");
+  });
+  // field for first_name
+  $("#first_name").on("input", function (e) {
+    this.value = this.value.replace(/[^a-zа-яё\s]/gi, "");
+  });
+  // field for phone
+  var maskOptions = {
+    mask: "+{7} 000 000 00 00",
+  };
+  var mask = IMask(is_cart, maskOptions);
 }
 
 $(document).on("change", ".payment-toggle", function (e) {

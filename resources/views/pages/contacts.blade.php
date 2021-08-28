@@ -42,7 +42,7 @@
         <a class="inner-email" href="mailto:{{ $contact->email }}">{{ $contact->email }}</a>
       </div>
       <div class="col-12 col-sm-4 col-lg-2 offset-lg-1">
-        <div class="inner__contacts--title">{{ __('main.address') }}</div>
+        <div class="inner__contacts--title">Адрес Gastrobara</div>
         <div class="inner-adress mt-2">
           @if(getCurrentLang() === 'ru')
           {{ $contact->address_ru }}
