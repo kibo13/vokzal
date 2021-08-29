@@ -66,7 +66,9 @@
     <div class="delivery__page--slider">
       <div class="delivery__page__inner--slider">
         @foreach (getContinents() as $item)
-        <a class="delivery__page-slide__item" href="{{ route('deliveries.menu', $item->id) }}">
+        <a
+          class="delivery__page-slide__item @if($continent->id == $item->id) active-tab @endif"
+          href="{{ route('deliveries.menu', $item->id) }}">
           <div class="delivery__page-slide__image">
             <img src="{{ asset('images/' . $item->image) }}" alt="" />
           </div>

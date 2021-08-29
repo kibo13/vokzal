@@ -167,11 +167,17 @@
                 <input type="hidden" id="total" value="{{ $order->getFullPrice() }}">
               </div>
             </div>
-            @if($order->step == 3)
-            <button class="form__submit block-button" id="confirm-order" data-id="{{ $order->id }}">
-              {{ __('main.buy') }}
-            </button>
-            @endif
+
+            <input
+              class="form__submit block-button"
+              id="confirm-order"
+              type="submit"
+              data-id="{{ $order->id }}"
+              @if($order->step != 3)
+              disabled="disabled"
+              style="cursor: not-allowed; background: #DEDEDE"
+              @endif
+              value="{{ __('main.buy') }}" />
           </div>
         </div>
       </div>

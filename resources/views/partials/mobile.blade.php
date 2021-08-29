@@ -1,4 +1,5 @@
 <div class="overlay hide">
+
   <div class="mobile__menu closed">
     <div class="container-md">
       <div class="our__menu--title">{{ __('main.o_menu') }}</div>
@@ -84,6 +85,7 @@
       </div>
     </div>
   </div>
+
   <div class="gallery__popup visibilited">
     <div class="gallery__popup--cross">
       @include('assets.icons.cross')
@@ -103,5 +105,6 @@
       </div>
     </div>
   </div>
+  
   <div class="overlay-wrapper"></div>
 </div>

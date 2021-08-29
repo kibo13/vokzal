@@ -21,9 +21,9 @@
 @section('section-content')
 <div class="team__section section">
   <div class="container-md">
-    <div class="row gx-2 gy-4 g-sm-3 g-lg-5">
+    <div class="row-cst gx-2 gy-4">
       @foreach ($teams as $team)
-      <div class="col-12 col-sm-4">
+      <div class="team-container-item">
         <div class="team__item d-flex flex-column">
           <div class="team__image">
             <img src="{{ asset('images/' . $team->image) }}" alt="">

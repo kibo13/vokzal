@@ -934,6 +934,7 @@ h6 {
   text-align: center;
   cursor: pointer;
   transition: background 0.5s ease-in;
+  position: relative;
 }
 .delivery__page-slide__item:hover {
   background: linear-gradient(180deg, #e6e6e6 0%, rgba(196, 196, 196, 0) 100%);
@@ -962,6 +963,30 @@ h6 {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+.delivery__page-slide__image {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+.active-tab .delivery__page-slide__image {
+  -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(0%);
+}
+@media screen and (max-width: 576px) {
+  .slick-active .delivery__page-slide__image {
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+  }
+}
+@media screen and (max-width: 1320px) {
+  .slick-active:nth-child(2) .delivery__page-slide__image {
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+  }
+}
+.slick-active:nth-of-type(3) .delivery__page-slide__image {
+  -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(0%);
 }
 
 /* GEORGIAN KITCHEN */
@@ -1482,10 +1507,20 @@ h6 {
   position: absolute;
   opacity: 0;
 }
-.form__payment--item:hover .payment-item {
+.active-pay .payment-item {
   border: 1px solid #e1915c;
 }
-.form__payment--item:hover path {
+.active-pay .payment-item path {
+  fill: #e1915c;
+}
+.form__payment--item:hover .payment-item,
+.form__payment--item:active .payment-item,
+.form__payment--item:focus .payment-item {
+  border: 1px solid #e1915c;
+}
+.form__payment--item:hover path,
+.form__payment--item:active path,
+.form__payment--item:focus path {
   fill: #e1915c;
 }
 .form__payment--item p {
@@ -1667,6 +1702,44 @@ h6 {
 .team__image {
   border: 20px solid rgba(237, 241, 243, 0.27);
   margin-bottom: 18px;
+  display: flex;
+  align-items: flex-start;
+  height: 364px;
+}
+.team__item {
+  min-width: 186px;
+  max-width: 324px;
+}
+.row-cst {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 991px) {
+  .team__image {
+    height: 250px;
+  }
+  .team__item {
+    max-width: 280px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .team-container-item {
+    flex: 0 0 100% !important;
+  }
+  .team__item {
+    min-width: 186px;
+    max-width: 324px;
+  }
+  .team__image {
+    height: 364px;
+  }
+}
+.team-container-item {
+  flex: 0 0 30%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 .team__item > div {
   text-align: center;
@@ -2006,6 +2079,28 @@ h6 {
 }
 .center-popup {
   top: 50%;
+}
+
+.delivery__page-slide__item.active-tab::after {
+  content: "";
+  display: block;
+  width: 17px;
+  height: 10px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background: url(../icons/arr.svg);
+}
+@media only screen and (min-width: 577px) {
+  .arr-of-slide {
+    display: none;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .delivery__page-slide__item::after {
+    display: none !important;
+  }
 }
 
 /* BASKET */
