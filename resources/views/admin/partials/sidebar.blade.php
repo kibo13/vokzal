@@ -45,6 +45,8 @@
           href="{{ route($category->slug . '.galleries.index') }}"
           @elseif($category->slug == 'continents')
           href="{{ route($category->slug . '.dishes.index') }}"
+          @elseif($category->slug == 'vips')
+          href="{{ route($category->slug . '.photos.index') }}"
           @else
           href="{{ route($category->slug . '.index') }}"
           @endif>

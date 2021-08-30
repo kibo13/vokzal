@@ -17,10 +17,13 @@ class VipController extends Controller
     // category
     $category = getCategory(config('constants.slug.vips'));
 
+    // flag
+    $isVip = true;
+
     // vips
     $vips = Vip::get();
 
-    return view('pages.vips', compact('title', 'category', 'vips'));
+    return view('pages.vips', compact('title', 'category', 'isVip', 'vips'));
   }
 
   public function index()

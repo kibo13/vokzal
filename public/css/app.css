@@ -10713,6 +10713,46 @@ table.dataTable thead .sorting_desc_disabled {
   transition: all 0.3s;
 }
 
+.bk-photo {
+  margin-top: 20px;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+  grid-gap: 5px;
+}
+.bk-photo__item {
+  position: relative;
+  display: flex;
+  box-shadow: 0 0 4px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.bk-photo__item:hover .bk-photo__crud {
+  transform: translateY(0);
+}
+.bk-photo__img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.bk-photo__info {
+  padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(248, 250, 252, 0.85);
+  border-radius: 2px;
+  box-shadow: 0 0 2px;
+}
+.bk-photo__crud {
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+  background: transparent;
+  transform: translateY(150%);
+  transition: all 0.3s;
+}
+
 .bk-continents-table .dataTables_empty {
   padding: 5px 10px !important;
   text-align: left !important;

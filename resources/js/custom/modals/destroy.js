@@ -46,6 +46,10 @@ $(document).ready(function () {
         $("#bk-delete-form").attr("action", `${url}/${data_id}`);
         break;
 
+      case "photo":
+        $("#bk-delete-form").attr("action", `${url}/${data_id}`);
+        break;
+
       case "assortment":
         $("#bk-delete-form").attr("action", `${url}/${data_id}`);
         break;

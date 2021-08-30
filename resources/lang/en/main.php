@@ -12,6 +12,7 @@ return [
   'rights'            => 'All rights reserved',
   'site'              => 'Site',
   'bar'               => 'Bar',
+  'cabins'            => 'Cabins',
 
   // sections
   'home'              => 'Home',
@@ -36,6 +37,7 @@ return [
   'kitchen'           => 'Kitchen',
   'select_kitchen'    => 'Select kitchen',
   'select_cat'        => 'Select category',
+  'select_cabin'      => 'Select cabine',
   'compound'          => 'Compound',
   'price'             => 'Price',
 

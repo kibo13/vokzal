@@ -25,13 +25,14 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\AssortmentController;
 use App\Http\Controllers\Admin\DishController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\Admin\FeatureController;
 
 // halls
 use App\Http\Controllers\Admin\TypeHallController;
 use App\Http\Controllers\Admin\HallController;
 
-// orders 
+// orders
 use App\Http\Controllers\Admin\OrderController;
 
 // news
@@ -39,6 +40,7 @@ use App\Http\Controllers\Admin\NewsController;
 
 // profile
 use App\Http\Controllers\Admin\UserController;
+use App\Models\Photo;
 
 Route::group(
   [
@@ -105,6 +107,7 @@ Route::group(
       Route::resource('/assortments', AssortmentController::class, ['as' => 'continents']);
       Route::resource('/dishes', DishController::class, ['as' => 'continents']);
       Route::resource('/galleries', GalleryController::class, ['as' => 'bars']);
+      Route::resource('/photos', PhotoController::class, ['as' => 'vips']);
       Route::resource('/features', FeatureController::class, ['as' => 'children']);
 
       // halls

@@ -10,6 +10,9 @@
     <a class="btn btn-outline-primary" href="{{ route('vips.create') }}" >
       {{ __('main.create') }}
     </a>
+    <a class="btn btn-outline-secondary" href="{{ route('vips.photos.index') }}">
+      {{ __('main.galleries') }}
+    </a>
   </div>
 
   <table

@@ -16,6 +16,7 @@ return [
   'type_halls'        => 'Типы залов',
   'site'              => 'Сайт',
   'bar'               => 'Бар',
+  'cabins'            => 'Кабины',
 
   // sections
   'home'              => 'Главная',
@@ -36,6 +37,7 @@ return [
   'kitchen'           => 'Кухня',
   'select_kitchen'    => 'Выберите кухню',
   'select_cat'        => 'Выберите категорию',
+  'select_cabin'      => 'Выберите кабину',
   'compound'          => 'Состав',
   'price'             => 'Цена',
 

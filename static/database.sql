@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 24/08/2021 00:26:28
+ Date: 30/08/2021 16:19:55
 */
 
 SET NAMES utf8mb4;
@@ -338,7 +338,21 @@ CREATE TABLE `dish_order`  (
   INDEX `dish_order_dish_id_foreign`(`dish_id`) USING BTREE,
   CONSTRAINT `dish_order_dish_id_foreign` FOREIGN KEY (`dish_id`) REFERENCES `dishes` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `dish_order_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of dish_order
+-- ----------------------------
+INSERT INTO `dish_order` VALUES (2, 2, 6, 1, '2021-08-24 16:06:45', '2021-08-24 16:06:45');
+INSERT INTO `dish_order` VALUES (3, 2, 5, 1, '2021-08-24 16:06:46', '2021-08-24 16:06:46');
+INSERT INTO `dish_order` VALUES (4, 3, 9, 1, '2021-08-24 16:29:11', '2021-08-24 16:29:11');
+INSERT INTO `dish_order` VALUES (5, 4, 9, 1, '2021-08-24 17:49:45', '2021-08-24 17:49:45');
+INSERT INTO `dish_order` VALUES (6, 5, 9, 1, '2021-08-25 18:19:46', '2021-08-25 18:19:46');
+INSERT INTO `dish_order` VALUES (7, 6, 9, 1, '2021-08-28 09:14:27', '2021-08-28 09:14:27');
+INSERT INTO `dish_order` VALUES (8, 7, 6, 1, '2021-08-29 15:23:04', '2021-08-29 15:23:04');
+INSERT INTO `dish_order` VALUES (9, 7, 7, 1, '2021-08-29 15:23:06', '2021-08-29 15:23:06');
+INSERT INTO `dish_order` VALUES (10, 8, 9, 1, '2021-08-29 15:53:47', '2021-08-29 15:53:47');
+INSERT INTO `dish_order` VALUES (11, 9, 6, 1, '2021-08-29 15:55:36', '2021-08-29 15:55:36');
 
 -- ----------------------------
 -- Table structure for dishes
@@ -524,7 +538,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 79 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 81 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -554,6 +568,8 @@ INSERT INTO `migrations` VALUES (51, '2021_08_14_192332_create_assortment_contin
 INSERT INTO `migrations` VALUES (52, '2021_08_14_192651_create_dishes_table', 20);
 INSERT INTO `migrations` VALUES (77, '2021_08_15_181208_create_orders_table', 21);
 INSERT INTO `migrations` VALUES (78, '2021_08_15_181218_create_dish_order_table', 21);
+INSERT INTO `migrations` VALUES (79, '2021_08_26_143100_alter_table_vips', 22);
+INSERT INTO `migrations` VALUES (80, '2021_08_30_085803_create_photos_table', 23);
 
 -- ----------------------------
 -- Table structure for news
@@ -599,7 +615,53 @@ CREATE TABLE `orders`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of orders
+-- ----------------------------
+INSERT INTO `orders` VALUES (2, '2021-08-24', '22:13:00', 1, 3, 'Иван', 'Иванович', '+7 888 888 88 88', 'Атырау', 'Авиационная', '7', NULL, '15', 1, 2440, 1, '2021-08-24 16:06:45', '2021-08-24 17:19:48');
+INSERT INTO `orders` VALUES (3, '2021-08-24', '22:29:00', 1, 3, 'Игорь', 'Сергеев', '+7 777 777 77 77', 'Атырау', 'Карпова', '9', NULL, '11', 2, 1500, 0, '2021-08-24 16:29:11', '2021-08-24 16:29:33');
+INSERT INTO `orders` VALUES (4, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-08-24 17:49:45', '2021-08-24 17:49:45');
+INSERT INTO `orders` VALUES (5, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-08-25 18:19:46', '2021-08-25 18:19:46');
+INSERT INTO `orders` VALUES (6, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-08-28 09:14:27', '2021-08-28 09:14:27');
+INSERT INTO `orders` VALUES (7, '2021-08-29', '21:52:00', 1, 3, 'Сидоров', 'Петр', '+7 232 323 23 23', 'Атырау', 'Комарова', '10', NULL, '12', 2, 2440, 0, '2021-08-29 15:23:04', '2021-08-29 15:52:58');
+INSERT INTO `orders` VALUES (8, NULL, NULL, 0, 3, 'Быстряков', 'Иван', '+7 123 131 23 12', 'Атырау', 'Кома', '11', NULL, '11', NULL, 0, 0, '2021-08-29 15:53:47', '2021-08-29 15:54:17');
+INSERT INTO `orders` VALUES (9, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-08-29 15:55:36', '2021-08-29 15:55:36');
+
+-- ----------------------------
+-- Table structure for photos
+-- ----------------------------
+DROP TABLE IF EXISTS `photos`;
+CREATE TABLE `photos`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `vip_id` int(11) NOT NULL,
+  `image` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `note` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of photos
+-- ----------------------------
+INSERT INTO `photos` VALUES (1, 1, 'photos/gVdiRRKJK7T88286SUNpMXXy0TXdf3cUck7BHQYq.jpg', 'cabine1.jpg', '2021-08-30 09:58:32', '2021-08-30 09:58:32');
+INSERT INTO `photos` VALUES (2, 1, 'photos/plmmfejPH3ADF18HjquFoWAG8OHVvKOGWKByErbA.jpg', 'cabine1.jpg', '2021-08-30 09:59:22', '2021-08-30 09:59:56');
+INSERT INTO `photos` VALUES (3, 1, 'photos/0h2nq7NMyISgw9SoUuQ4hCCDkPGdYhLzoq3BJPpu.jpg', 'cabine1.jpg', '2021-08-30 09:59:30', '2021-08-30 10:00:02');
+INSERT INTO `photos` VALUES (4, 1, 'photos/FPEwRBfWFAhUDRBs7yiJ7rGYQMPa5TYb6eyTzF3R.jpg', 'cabine1.jpg', '2021-08-30 09:59:34', '2021-08-30 09:59:39');
+INSERT INTO `photos` VALUES (5, 2, 'photos/hFlQelXblVvWeUSXrsnO0ktQs3aIvi8Khx2gnCaq.jpg', 'cabine2.jpg', '2021-08-30 09:59:50', '2021-08-30 09:59:50');
+INSERT INTO `photos` VALUES (6, 2, 'photos/EIqqpbe0axvSUGpsv07PIQmBBoWktKYLh7UPBDZd.jpg', 'cabine2.jpg', '2021-08-30 10:00:11', '2021-08-30 10:00:11');
+INSERT INTO `photos` VALUES (7, 2, 'photos/v1uPGdiBDNeFKqWKd8P9reXiyYgbN0OWblMEpGpg.jpg', 'cabine2.jpg', '2021-08-30 10:00:18', '2021-08-30 10:00:18');
+INSERT INTO `photos` VALUES (8, 2, 'photos/uzsHAjjnTUUTKgXQdPiCTQ81OdZ2Hlv44A9yaEFP.jpg', 'cabine2.jpg', '2021-08-30 10:00:23', '2021-08-30 10:00:23');
+INSERT INTO `photos` VALUES (9, 3, 'photos/BXMLqJLgwq7OTG46hS9LhYDaI6m0FHxsTD9LjMqs.jpg', 'cabine3.jpg', '2021-08-30 10:00:29', '2021-08-30 10:00:29');
+INSERT INTO `photos` VALUES (10, 3, 'photos/XXzcx08z6qByInJa1z2zCXyGeKRt2miIXFtkiVJZ.jpg', 'cabine3.jpg', '2021-08-30 10:00:36', '2021-08-30 10:00:36');
+INSERT INTO `photos` VALUES (11, 3, 'photos/ybM9jvNf2cJucBMLvH1V1wlDk6tGX5FMKlXCP2iw.jpg', 'cabine3.jpg', '2021-08-30 10:00:43', '2021-08-30 10:00:43');
+INSERT INTO `photos` VALUES (12, 3, 'photos/5VlWvFIOy1LI4K5q0XT17xDM2xhqSW0kfudK9Rd5.jpg', 'cabine3.jpg', '2021-08-30 10:00:50', '2021-08-30 10:00:50');
+INSERT INTO `photos` VALUES (13, 4, 'photos/a4kcByupJVY9N2B2LOiyCWrvDR001SFQkXzUZWsc.jpg', 'cabine4.jpg', '2021-08-30 10:00:57', '2021-08-30 10:00:57');
+INSERT INTO `photos` VALUES (14, 4, 'photos/gFTAJhLM4uitm54RsYftuTJC5BcuWyttZOqoTYFA.jpg', 'cabine4.jpg', '2021-08-30 10:01:04', '2021-08-30 10:01:04');
+INSERT INTO `photos` VALUES (15, 4, 'photos/a2zwCHOSKlLXVJerOX0lBfCFuh5sYBY85VAfX11F.jpg', 'cabine4.jpg', '2021-08-30 10:01:10', '2021-08-30 10:01:10');
+INSERT INTO `photos` VALUES (17, 4, 'photos/7QKUCulz7rT4xYFi9fVJhuXFtJyAmgY4FaZcJ5Y0.jpg', 'cabine4.jpg', '2021-08-30 10:01:52', '2021-08-30 10:01:52');
 
 -- ----------------------------
 -- Table structure for studios
@@ -644,12 +706,12 @@ CREATE TABLE `teams`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of teams
 -- ----------------------------
-INSERT INTO `teams` VALUES (6, 9, 'Теймураз Тагвиашвили', 'Теймураз Тагвиашвили', 'Teimuraz Tagviashvili', 'Шеф-повар грузинской кухни гастробара VOKZAL, владелец и бренд-шеф ресторана  грузинской кухни «Shavlego», шеф-повар координатор сети ресторанов «Дареджани» и Georgian reastaurant by Parmogiano Group.', 'VOKZAL gastrobar-да грузин тағамдарының аспазшысы, шавлего грузин тағамдары мейрамханасының иесі және бренд-аспазшысы, Дарежани мейрамханалар желісінің аспаз үйлестірушісі және Parmogiano Group грузин рестораны.', 'Georgian cuisine at VOKZAL gastrobar, owner and brand chef of Shavlego Georgian cuisine restaurant, chef coordinator of Darejani restaurant chain and Georgian restaurant Parmogiano Group.', 'teams/qG5Rk0LDg9jkjqSUDaroD7unMuehqhqt9KvNbQBo.jpg', 'team1.jpg', '2021-08-10 19:04:43', '2021-08-10 19:12:06');
+INSERT INTO `teams` VALUES (6, 9, 'Теймураз Тагвиашвили', 'Теймураз Тагвиашвили', 'Teimuraz Tagviashvili', 'Шеф-повар грузинской кухни гастробара VOKZAL, владелец и бренд-шеф ресторана  грузинской кухни «Shavlego», шеф-повар координатор сети ресторанов «Дареджани» и Georgian reastaurant by Parmogiano Group.', 'VOKZAL gastrobar-да грузин тағамдарының аспазшысы, шавлего грузин тағамдары мейрамханасының иесі және бренд-аспазшысы, Дарежани мейрамханалар желісінің аспаз үйлестірушісі және Parmogiano Group грузин рестораны.', 'Georgian cuisine at VOKZAL gastrobar, owner and brand chef of Shavlego Georgian cuisine restaurant, chef coordinator of Darejani restaurant chain and Georgian restaurant Parmogiano Group.', 'teams/9yHH379t9vjNt7cB0gBTFlZcxBmIbRgIQRkmeprk.jpg', 'team1.jpg', '2021-08-10 19:04:43', '2021-08-29 14:16:31');
 
 -- ----------------------------
 -- Table structure for type_halls
@@ -706,15 +768,18 @@ CREATE TABLE `vips`  (
   `note` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `desc_ru` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `desc_en` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `desc_kk` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of vips
 -- ----------------------------
-INSERT INTO `vips` VALUES (1, 'Париж', 'Париж', 'Paris', 'vips/cdttIJYEVdNO2dSGHBWiGiJ66tDpUW0CBhCMtNRl.jpg', 'vip1.jpg', '2021-08-10 18:23:58', '2021-08-10 18:24:08');
-INSERT INTO `vips` VALUES (2, 'АК Сити', 'АК қаласы', 'AK City', 'vips/QeEkngUS38CIIVJrSrXsNANxiPj42oiTdrQcsMrt.jpg', 'vip2.jpg', '2021-08-10 18:27:09', '2021-08-10 18:27:09');
-INSERT INTO `vips` VALUES (3, 'Нью Йорк', 'Нью Йорк', 'New York', 'vips/15VC4TNrhfhg2dGQSbpFD9x0GMvtnN9RzjFpJymW.jpg', 'vip3.jpg', '2021-08-10 18:27:29', '2021-08-10 18:27:29');
-INSERT INTO `vips` VALUES (4, 'Оксфорд', 'Оксфорд', 'Oxford', 'vips/2la3Dvf1iBHdFcOnN3D8PCv1uLjlHECLwt1gU6iE.jpg', 'vip4.jpg', '2021-08-10 18:27:48', '2021-08-10 18:27:48');
+INSERT INTO `vips` VALUES (1, 'Париж', 'Париж', 'Paris', 'vips/cdttIJYEVdNO2dSGHBWiGiJ66tDpUW0CBhCMtNRl.jpg', 'vip1.jpg', '2021-08-10 18:23:58', '2021-08-30 08:48:34', 'Просторные караоке залы , оформлены в классическом стиле,которые помимо эстетической ценности несут в себе ценность акустическую, прекрасно поглощая звук, предотвращая его искажения и обеспечивая максимальный комфорт для исполнителяv', 'Просторные караоке залы , оформлены в классическом стиле,которые помимо эстетической ценности несут в себе ценность акустическую, прекрасно поглощая звук, предотвращая его искажения и обеспечивая максимальный комфорт для исполнителя', 'Просторные караоке залы , оформлены в классическом стиле,которые помимо эстетической ценности несут в себе ценность акустическую, прекрасно поглощая звук, предотвращая его искажения и обеспечивая максимальный комфорт для исполнителя');
+INSERT INTO `vips` VALUES (2, 'АК Сити', 'АК қаласы', 'AK City', 'vips/QeEkngUS38CIIVJrSrXsNANxiPj42oiTdrQcsMrt.jpg', 'vip2.jpg', '2021-08-10 18:27:09', '2021-08-30 08:48:40', 'Просторные караоке залы , оформлены в классическом стиле,которые помимо эстетической ценности несут в себе ценность акустическую, прекрасно поглощая звук, предотвращая его искажения и обеспечивая максимальный комфорт для исполнителя', 'Просторные караоке залы , оформлены в классическом стиле,которые помимо эстетической ценности несут в себе ценность акустическую, прекрасно поглощая звук, предотвращая его искажения и обеспечивая максимальный комфорт для исполнителя', 'Просторные караоке залы , оформлены в классическом стиле,которые помимо эстетической ценности несут в себе ценность акустическую, прекрасно поглощая звук, предотвращая его искажения и обеспечивая максимальный комфорт для исполнителя');
+INSERT INTO `vips` VALUES (3, 'Нью Йорк', 'Нью Йорк', 'New York', 'vips/15VC4TNrhfhg2dGQSbpFD9x0GMvtnN9RzjFpJymW.jpg', 'vip3.jpg', '2021-08-10 18:27:29', '2021-08-30 08:48:45', 'Просторные караоке залы , оформлены в классическом стиле,которые помимо эстетической ценности несут в себе ценность акустическую, прекрасно поглощая звук, предотвращая его искажения и обеспечивая максимальный комфорт для исполнителя', 'Просторные караоке залы , оформлены в классическом стиле,которые помимо эстетической ценности несут в себе ценность акустическую, прекрасно поглощая звук, предотвращая его искажения и обеспечивая максимальный комфорт для исполнителя', 'Просторные караоке залы , оформлены в классическом стиле,которые помимо эстетической ценности несут в себе ценность акустическую, прекрасно поглощая звук, предотвращая его искажения и обеспечивая максимальный комфорт для исполнителя');
+INSERT INTO `vips` VALUES (4, 'Оксфорд', 'Оксфорд', 'Oxford', 'vips/2la3Dvf1iBHdFcOnN3D8PCv1uLjlHECLwt1gU6iE.jpg', 'vip4.jpg', '2021-08-10 18:27:48', '2021-08-30 08:48:50', 'Просторные караоке залы , оформлены в классическом стиле,которые помимо эстетической ценности несут в себе ценность акустическую, прекрасно поглощая звук, предотвращая его искажения и обеспечивая максимальный комфорт для исполнителя', 'Просторные караоке залы , оформлены в классическом стиле,которые помимо эстетической ценности несут в себе ценность акустическую, прекрасно поглощая звук, предотвращая его искажения и обеспечивая максимальный комфорт для исполнителя', 'Просторные караоке залы , оформлены в классическом стиле,которые помимо эстетической ценности несут в себе ценность акустическую, прекрасно поглощая звук, предотвращая его искажения и обеспечивая максимальный комфорт для исполнителя');
 
 SET FOREIGN_KEY_CHECKS = 1;

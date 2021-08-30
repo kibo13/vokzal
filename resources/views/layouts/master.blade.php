@@ -63,7 +63,17 @@
     </div>
 
     <!-- /.mobile -->
-    @include('partials.mobile')
+    <div class="overlay hide">
+      @include('partials.mobile')
+
+      @isset($isGallery)
+        @include('components.index-slider')
+      @endisset
+
+      @isset($isVip)
+        @include('components.vip-slider')
+      @endisset
+    </div>
   </div>
 
   <script src="{{ asset('js/vendors/jquery.min.js') }}"></script>

@@ -16,6 +16,7 @@ return [
   'type_halls'        => 'Залдардың түрлері',
   'site'              => 'Сайт',
   'bar'               => 'Бар',
+  'cabins'            => 'Кабиналар',
 
   // sections
   'home'              => 'Басты',
@@ -36,6 +37,7 @@ return [
   'kitchen'           => 'Ас үй',
   'select_kitchen'    => 'Асүйді таңдаңыз',
   'select_cat'        => 'Санатты таңдаңыз',
+  'select_cabin'      => 'Кабинаны таңдаңыз',
   'compound'          => 'Құрама',
   'price'             => 'Бағасы',
 

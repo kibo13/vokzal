@@ -108,7 +108,7 @@ if (site) {
       barsGallerySliderData.removeClass("active-slide");
       $(this).addClass("active-slide");
       var slideNo = $(this).data("slide");
-      console.log(slideNo);
+      // console.log(slideNo);
       barsGallerySlider.slick("slickGoTo", slideNo - 1);
     });
     barsGallerySliderDataN.click(function (e) {
@@ -235,7 +235,7 @@ if (site) {
         vips__list.css("display", "block").addClass("showed");
         vipText__list.css("display", "block").addClass("showed");
         var tab_target = $(this).data("tab");
-        console.log(tab_target);
+        // console.log(tab_target);
         if (tab_target) {
           vips__list
             .filter((i, elem) => {
@@ -259,7 +259,7 @@ if (site) {
             .removeClass("showed");
         }
 
-        console.log(tab_target);
+        // console.log(tab_target);
         $(".gallery__popup .main__section--title").text(
           `Кабина VIP ${tab_target}`
         );
