@@ -31,50 +31,25 @@
         <div class="bk-form__block">
 
           <!-- /.continent_id -->
-          <h6 class="bk-form__title">{{ __('main.kitchen') }}</h6>
-          <div class="bk-form__field-300 mb-2">
-            <select class="form-control" id="continent_id" name="continent_id">
-              <option disabled selected>{{ __('main.select_kitchen') }}</option>
-              @foreach($continents as $continent)
-              <option
-                value="{{ $continent->id }}"
-                @isset($dish)
-                  @if($dish->continent_id == $continent->id)
-                    selected
-                  @endif
-                @endisset>
-                @if(getCurrentLang() === 'ru')
-                {{ $continent->name_ru }}
-                @elseif(getCurrentLang() === 'en')
-                {{ $continent->name_en }}
-                @else
-                {{ $continent->name_kk }}
-                @endif
-              </option>
-              @endforeach
-            </select>
-          </div>
-
-          <!-- /.lang -->
           <input
             class="form-control mb-2"
-            id="lang"
             type="hidden"
-            value="{{ getCurrentLang() }}"
-          >
+            name="continent_id"
+            value="{{ isset($dish) ? $dish->continent_id : $continent->id }}" >
 
           <!-- /.assortment_id -->
           <h6 class="bk-form__title">{{ __('main.category') }}</h6>
           <div class="bk-form__field-300 mb-2">
             <select class="form-control" id="assortment_id" name="assortment_id">
               <option disabled selected>{{ __('main.select_cat') }}</option>
-              @isset($dish)
-              @foreach ($dish->continent->assortments as $assortment)
+              @foreach($continent->assortments as $assortment)
               <option
                 value="{{ $assortment->id }}"
-                @if($dish->assortment_id == $assortment->id)
-                  selected
-                @endif>
+                @isset($dish)
+                  @if($dish->assortment_id == $assortment->id)
+                    selected
+                  @endif
+                @endisset>
                 @if(getCurrentLang() === 'ru')
                 {{ $assortment->name_ru }}
                 @elseif(getCurrentLang() === 'en')
@@ -84,7 +59,6 @@
                 @endif
               </option>
               @endforeach
-              @endisset
             </select>
           </div>
 
@@ -198,7 +172,7 @@
           type="submit">{{ __('main.save') }}</button>
         <a
           class="btn btn-outline-secondary"
-          href="{{ route('continents.dishes.index') }}">
+          href="{{ route('continents.dishes.show', $continent->id) }}">
           {{ __('main.back') }}
         </a>
       </div>

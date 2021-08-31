@@ -22,11 +22,13 @@ use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\ContactController;
 
 // subsections
-use App\Http\Controllers\Admin\AssortmentController;
-use App\Http\Controllers\Admin\DishController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\Admin\FeatureController;
+
+// menu
+use App\Http\Controllers\Admin\AssortmentController;
+use App\Http\Controllers\Admin\DishController;
 
 // halls
 use App\Http\Controllers\Admin\TypeHallController;
@@ -104,11 +106,15 @@ Route::group(
       Route::resource('/contacts', ContactController::class);
 
       // subsections
-      Route::resource('/assortments', AssortmentController::class, ['as' => 'continents']);
-      Route::resource('/dishes', DishController::class, ['as' => 'continents']);
       Route::resource('/galleries', GalleryController::class, ['as' => 'bars']);
       Route::resource('/photos', PhotoController::class, ['as' => 'vips']);
       Route::resource('/features', FeatureController::class, ['as' => 'children']);
+
+      // menu
+      Route::resource('/assortments', AssortmentController::class, ['as' => 'continents']);
+      Route::resource('/dishes', DishController::class, ['as' => 'continents']);
+      Route::get('/dishes/{continent}/create', [DishController::class, 'create'])->name('continents.dishes.create');
+      Route::delete('/dishes/{continent}/destroy/{dish}', [DishController::class, 'destroy'])->name('continents.dishes.destroy');
 
       // halls
       Route::resource('/hall-types', TypeHallController::class);

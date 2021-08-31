@@ -30,7 +30,7 @@ class ContinentController extends Controller
     $title = getCategoryTitle(config('constants.slug.continents'));
 
     // continents
-    $continents = Continent::where('id', '!=', 5)->get();
+    $continents = Continent::get();
 
     return view('admin.pages.continents.index', compact('title', 'continents'));
   }

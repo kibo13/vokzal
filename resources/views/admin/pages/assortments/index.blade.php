@@ -11,7 +11,7 @@
       {{ __('main.create') }}
     </a>
     <a class="btn btn-outline-secondary" href="{{ route('continents.index') }}" >
-      {{ __('main.kitchens') }}
+      {{ __('main.back') }}
     </a>
   </div>
 

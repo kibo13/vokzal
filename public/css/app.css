@@ -10544,8 +10544,8 @@ table.dataTable thead .sorting_desc_disabled {
 .bk-btn-actions__link--agree {
   background-image: url("/icons/agree.svg");
 }
-.bk-btn-actions__link--alarm {
-  background-image: url("/icons/mail.svg");
+.bk-btn-actions__link--menu {
+  background-image: url("/icons/menu.svg");
 }
 .bk-btn-actions__link::after {
   content: attr(data-tip);
@@ -10753,30 +10753,45 @@ table.dataTable thead .sorting_desc_disabled {
   transition: all 0.3s;
 }
 
-.bk-continents-table .dataTables_empty {
-  padding: 5px 10px !important;
-  text-align: left !important;
+.bk-continents {
+  margin-top: 20px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  grid-gap: 5px;
 }
-.bk-continents-table .dataTables_length,
-.bk-continents-table .dataTables_info,
-.bk-continents-table .dataTables_paginate {
-  display: none;
-}
-.bk-continents-table .dataTables_filter {
+.bk-continents__item {
   position: relative;
-  margin-bottom: 5px;
   display: flex;
-  justify-content: flex-start;
-  vertical-align: middle;
-  flex-basis: 100%;
+  height: 200px;
+  box-shadow: 0 0 4px;
+  cursor: pointer;
   overflow: hidden;
 }
-.bk-continents-table .dataTables_filter label,
-.bk-continents-table .dataTables_filter input {
-  width: 100%;
+.bk-continents__item:hover .bk-continents__crud {
+  transform: translateY(0);
 }
-.bk-continents-table .dataTables_filter label {
-  margin-bottom: 0;
+.bk-continents__img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.bk-continents__info {
+  padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(248, 250, 252, 0.85);
+  border-radius: 2px;
+  box-shadow: 0 0 2px;
+}
+.bk-continents__crud {
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+  background: transparent;
+  transform: translateY(150%);
+  transition: all 0.3s;
 }
 .bk-continents-list {
   padding: 5px 10px;
@@ -10798,6 +10813,12 @@ table.dataTable thead .sorting_desc_disabled {
           user-select: none;
 }
 
+@media screen and (max-width: 640px) {
+  .bk-continents {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
 .bk-dishes-list {
   margin: 0;
   padding: 0;

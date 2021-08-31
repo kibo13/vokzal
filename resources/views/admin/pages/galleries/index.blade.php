@@ -35,7 +35,7 @@
         <a
           class="bk-btn-actions__link bk-btn-actions__link--edit btn btn-warning"
           href="{{ route('bars.galleries.edit', $gallery) }}"
-          data-tip="Редактировать" ></a>
+          data-tip="{{ __('main.t_edit') }}" ></a>
         <a
           class="bk-btn-actions__link bk-btn-actions__link--delete btn btn-danger"
           href="javascript:void(0)"
@@ -43,7 +43,7 @@
           data-table-name="gallery"
           data-toggle="modal"
           data-target="#bk-delete-modal"
-          data-tip="Удалить" ></a>
+          data-tip="{{ __('main.t_delete') }}" ></a>
       </div>
     </li>
     @endforeach

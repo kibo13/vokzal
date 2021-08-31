@@ -10,26 +10,17 @@ use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
-  public function index()
+  public function index($continent)
   {
-    // title
-    $title = getCategoryTitle(config('constants.slug.continents'));
-
-    // dishes
-    $dishes = Dish::get();
-
-    return view('admin.pages.dishes.index', compact('title', 'dishes'));
+    return redirect()->back();
   }
 
-  public function create()
+  public function create(Continent $continent)
   {
     // title
     $title = getCategoryTitle(config('constants.slug.continents'));
 
-    // continents
-    $continents = Continent::get();
-
-    return view('admin.pages.dishes.form', compact('title', 'continents'));
+    return view('admin.pages.dishes.form', compact('title', 'continent'));
   }
 
   public function store(Request $request)
@@ -43,7 +34,18 @@ class DishController extends Controller
 
     Dish::create($params);
 
-    return redirect()->route('continents.dishes.index');
+    return redirect()->route('continents.dishes.show', $request->continent_id);
+  }
+
+  public function show($continent)
+  {
+    // title
+    $title = getCategoryTitle(config('constants.slug.continents'));
+
+    // dishes
+    $dishes = Dish::where('continent_id', $continent)->get();
+
+    return view('admin.pages.dishes.index', compact('title', 'continent', 'dishes'));
   }
 
   public function edit(Dish $dish)
@@ -51,10 +53,10 @@ class DishController extends Controller
     // title
     $title = getCategoryTitle(config('constants.slug.continents'));
 
-    // continents
-    $continents = Continent::get();
+    // continent
+    $continent = Continent::where('id', $dish->continent_id)->first();
 
-    return view('admin.pages.dishes.form', compact('title', 'continents', 'dish'));
+    return view('admin.pages.dishes.form', compact('title', 'continent', 'dish'));
   }
 
   public function update(Request $request, Dish $dish)
@@ -69,13 +71,13 @@ class DishController extends Controller
 
     $dish->update($params);
 
-    return redirect()->route('continents.dishes.index');
+    return redirect()->route('continents.dishes.show', $request->continent_id);
   }
 
-  public function destroy(Dish $dish)
+  public function destroy(Continent $continent, Dish $dish)
   {
     $dish->delete();
     Storage::delete($dish->image);
-    return redirect()->route('continents.dishes.index');
+    return redirect()->back();
   }
 }

@@ -4,14 +4,14 @@
 
 @section('content')
 <section id="dish-index" class="bk-page section">
-  <h2 class="mb-3">{{ $title }}</h2>
+  <h2 class="mb-3">{{ __('main.menu') }}</h2>
 
   <div class="bk-btn-group">
-    <a class="btn btn-outline-primary" href="{{ route('continents.dishes.create') }}" >
+    <a class="btn btn-outline-primary" href="{{ route('continents.dishes.create', $continent) }}" >
       {{ __('main.create') }}
     </a>
     <a class="btn btn-outline-secondary" href="{{ route('continents.index') }}" >
-      {{ __('main.kitchens') }}
+      {{ __('main.back') }}
     </a>
   </div>
 

@@ -1,26 +1,63 @@
 .bk-continents
+  margin-top: 20px
+  padding: 0
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto))
+  grid-gap: 5px
 
-  &-table
-    .dataTables_empty
-      padding: 5px 10px !important
-      text-align: left !important
-    .dataTables_length,
-    .dataTables_info,
-    .dataTables_paginate
-      display: none
-    .dataTables_filter
-      position: relative
-      margin-bottom: 5px
-      display: flex
-      justify-content: flex-start
-      vertical-align: middle
-      flex-basis: 100%
-      overflow: hidden
-      label,
-      input
-        width: 100%
-      label
-        margin-bottom: 0
+  &__item
+    position: relative
+    display: flex
+    height: 200px
+    box-shadow: 0 0 4px
+    cursor: pointer
+    overflow: hidden
+    &:hover
+      .bk-continents__crud
+        transform: translateY(0)
+
+  &__img
+    width: 100%
+    object-fit: cover
+
+  &__info
+    padding: 5px 10px
+    position: absolute
+    top: 10px
+    left: 10px
+    background: rgba($light, .85)
+    border-radius: 2px
+    box-shadow: 0 0 2px
+
+  &__crud
+    position: absolute
+    bottom: 7px
+    right: 7px
+    background: transparent
+    transform: translateY(150%)
+    transition: all 0.3s
+
+  // &-table
+  //   .dataTables_empty
+  //     padding: 5px 10px !important
+  //     text-align: left !important
+  //   .dataTables_length,
+  //   .dataTables_info,
+  //   .dataTables_paginate
+  //     display: none
+  //   .dataTables_filter
+  //     position: relative
+  //     margin-bottom: 5px
+  //     display: flex
+  //     justify-content: flex-start
+  //     vertical-align: middle
+  //     flex-basis: 100%
+  //     overflow: hidden
+  //     label,
+  //     input
+  //       width: 100%
+  //     label
+  //       margin-bottom: 0
 
   &-list
     padding: 5px 10px
@@ -37,4 +74,8 @@
   cursor: pointer
   user-select: none
 
+@media screen and ( max-width: $width-sm )
+  .bk-continents
+    display: grid
+    grid-template-columns: 1fr
 
