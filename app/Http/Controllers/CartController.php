@@ -55,6 +55,12 @@ class CartController extends Controller
     return session('order');
   }
 
+  // carts.age
+  public function age()
+  {
+    session(['is_age' => 1]);
+  }
+
   // carts.add
   public function add($dish)
   {

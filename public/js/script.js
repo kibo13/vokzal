@@ -170,7 +170,7 @@ if (site) {
     $(
       ".gallery__item, .gallery__popup--cross, .overlay-wrapper, .vip-button, .bk-bar-button"
     ).click(function (e) {
-      $(".bk-bar-button .bars-button").on("click", function (e) {
+      $(".bk-bar-button .bars-button").click(function (e) {
         e.stopPropagation();
       });
 
@@ -383,14 +383,37 @@ if (site) {
 // ajax for add dish to cart
 $(document).on("click", ".kitchen-button", function (e) {
   let id = this.dataset.id;
+  let age = $(this).data("age");
 
+  if (age == 0) {
+    $(".overlay").toggleClass("hide");
+    $(".gallery__popup").toggleClass("visibilited");
+    $(".gallery__popup").fadeToggle();
+  } else {
+    $.ajax({
+      url: `/carts/create/${id}`,
+      method: "get",
+      success: function (response) {
+        window.location.reload();
+      },
+    });
+  }
+});
+
+$(document).on("click", ".age-accept", function (e) {
   $.ajax({
-    url: `/carts/create/${id}`,
+    url: `/carts/age`,
     method: "get",
     success: function (response) {
       window.location.reload();
     },
   });
+});
+
+$(document).on("click", ".age-decline", function (e) {
+  $(".overlay").toggleClass("hide");
+  $("#age-modal").toggleClass("visibilited");
+  $("#age-modal").fadeToggle();
 });
 
 $(document).on("click", ".cart-plus", function (e) {
@@ -495,4 +518,8 @@ $(document).on("click", ".bk-lang", function (e) {
       window.location.href = `${hostname}/${locale}${pathname}`;
     },
   });
+});
+
+$(document).on("click", ".bk-bar-button div a", function (event) {
+  event.stopPropagation();
 });

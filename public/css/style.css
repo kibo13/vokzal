@@ -2168,3 +2168,29 @@ h6 {
     font-size: 12px;
   }
 }
+
+/* MODAL OF AGE */
+.bk-age {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.bk-age__text {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bk-age__button {
+  width: 100px;
+  height: 25px;
+  background: var(--main-color);
+  color: #fff;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  cursor: pointer;
+}

@@ -86,6 +86,14 @@
         </span>
       </a>
     </li>
+    <li @sbactive('option*')>
+      <a class="sidebar-list__link" href="{{ route('options.index') }}">
+        @include('assets.icons.conf')
+        <span class="sidebar-tip">
+          {{ __('main.config') }}
+        </span>
+      </a>
+    </li>
     <li @sbactive('user*')>
       <a class="sidebar-list__link" href="{{ route('users.index') }}">
         @include('assets.icons.user')

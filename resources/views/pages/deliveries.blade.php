@@ -126,7 +126,6 @@
           @if($assortment->id == $item->assortment_id)
             <div class="col-sm-4 col-12">
               <div class="georgian__kitchen--item">
-                {{-- @csrf --}}
                 <div class="kitchen-image">
                   <img src="{{ asset('images/' . $item->image) }}" alt="" />
                 </div>
@@ -152,11 +151,11 @@
                 <input type="hidden" name="count"   value="1">
                 <div class="kitchen-price">{{ number_format($item->price, 0, ',', ' '); }} тг</div>
                 <a
-                  id="bk-buy"
                   class="kitchen-button block-button"
                   data-id="{{ $item->id }}"
-                  {{-- href="{{ route('carts.create', $item->id) }}" --}}
-                  >
+                  @if($item->assortment_id == 25)
+                  data-age="{{ isset($is_age) ? $is_age : 0 }}"
+                  @endif>
                   {{ __('main.buy') }}
                 </a>
               </div>

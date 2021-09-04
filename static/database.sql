@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 30/08/2021 16:19:55
+ Date: 05/09/2021 01:39:03
 */
 
 SET NAMES utf8mb4;
@@ -338,7 +338,7 @@ CREATE TABLE `dish_order`  (
   INDEX `dish_order_dish_id_foreign`(`dish_id`) USING BTREE,
   CONSTRAINT `dish_order_dish_id_foreign` FOREIGN KEY (`dish_id`) REFERENCES `dishes` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `dish_order_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dish_order
@@ -353,6 +353,12 @@ INSERT INTO `dish_order` VALUES (8, 7, 6, 1, '2021-08-29 15:23:04', '2021-08-29 
 INSERT INTO `dish_order` VALUES (9, 7, 7, 1, '2021-08-29 15:23:06', '2021-08-29 15:23:06');
 INSERT INTO `dish_order` VALUES (10, 8, 9, 1, '2021-08-29 15:53:47', '2021-08-29 15:53:47');
 INSERT INTO `dish_order` VALUES (11, 9, 6, 1, '2021-08-29 15:55:36', '2021-08-29 15:55:36');
+INSERT INTO `dish_order` VALUES (13, 11, 12, 1, '2021-09-04 19:03:45', '2021-09-04 19:03:45');
+INSERT INTO `dish_order` VALUES (14, 11, 20, 1, '2021-09-04 19:03:55', '2021-09-04 19:03:55');
+INSERT INTO `dish_order` VALUES (15, 11, 19, 3, '2021-09-04 19:03:59', '2021-09-04 19:06:04');
+INSERT INTO `dish_order` VALUES (16, 12, 23, 1, '2021-09-04 19:07:45', '2021-09-04 19:07:45');
+INSERT INTO `dish_order` VALUES (17, 12, 19, 1, '2021-09-04 19:38:38', '2021-09-04 19:38:38');
+INSERT INTO `dish_order` VALUES (18, 12, 20, 1, '2021-09-04 19:38:41', '2021-09-04 19:38:41');
 
 -- ----------------------------
 -- Table structure for dishes
@@ -538,7 +544,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 81 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 82 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -570,6 +576,7 @@ INSERT INTO `migrations` VALUES (77, '2021_08_15_181208_create_orders_table', 21
 INSERT INTO `migrations` VALUES (78, '2021_08_15_181218_create_dish_order_table', 21);
 INSERT INTO `migrations` VALUES (79, '2021_08_26_143100_alter_table_vips', 22);
 INSERT INTO `migrations` VALUES (80, '2021_08_30_085803_create_photos_table', 23);
+INSERT INTO `migrations` VALUES (81, '2021_09_04_190806_create_options_table', 24);
 
 -- ----------------------------
 -- Table structure for news
@@ -590,6 +597,25 @@ CREATE TABLE `news`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for options
+-- ----------------------------
+DROP TABLE IF EXISTS `options`;
+CREATE TABLE `options`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `desc_ru` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `desc_kk` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `desc_en` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of options
+-- ----------------------------
+INSERT INTO `options` VALUES (1, '<p>Подтвердите возраст, что Вам есть 18 лет&nbsp;</p>', '<pre id=\"tw-target-text\" class=\"tw-data-text tw-text-large XcVN5d tw-ta\" dir=\"ltr\" data-placeholder=\"Перевод\"><span class=\"Y2IQFc\" lang=\"kk\">18 жастан асқан екеніңізді растаңыз</span></pre>', '<pre id=\"tw-target-text\" class=\"tw-data-text tw-text-large XcVN5d tw-ta\" dir=\"ltr\" data-placeholder=\"Перевод\"><span class=\"Y2IQFc\" lang=\"en\">Please confirm your age that you are over 18 years old</span></pre>', '2021-09-05 01:13:18', '2021-09-04 19:34:38');
 
 -- ----------------------------
 -- Table structure for orders
@@ -615,7 +641,7 @@ CREATE TABLE `orders`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders
@@ -628,6 +654,9 @@ INSERT INTO `orders` VALUES (6, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, 
 INSERT INTO `orders` VALUES (7, '2021-08-29', '21:52:00', 1, 3, 'Сидоров', 'Петр', '+7 232 323 23 23', 'Атырау', 'Комарова', '10', NULL, '12', 2, 2440, 0, '2021-08-29 15:23:04', '2021-08-29 15:52:58');
 INSERT INTO `orders` VALUES (8, NULL, NULL, 0, 3, 'Быстряков', 'Иван', '+7 123 131 23 12', 'Атырау', 'Кома', '11', NULL, '11', NULL, 0, 0, '2021-08-29 15:53:47', '2021-08-29 15:54:17');
 INSERT INTO `orders` VALUES (9, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-08-29 15:55:36', '2021-08-29 15:55:36');
+INSERT INTO `orders` VALUES (10, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-09-04 18:04:48', '2021-09-04 18:04:48');
+INSERT INTO `orders` VALUES (11, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-09-04 19:03:45', '2021-09-04 19:03:45');
+INSERT INTO `orders` VALUES (12, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-09-04 19:07:45', '2021-09-04 19:07:45');
 
 -- ----------------------------
 -- Table structure for photos
@@ -706,7 +735,7 @@ CREATE TABLE `teams`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of teams

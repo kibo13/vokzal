@@ -13,6 +13,7 @@ return [
   'site'              => 'Site',
   'bar'               => 'Bar',
   'cabins'            => 'Cabins',
+  'config'            => 'Options',
 
   // sections
   'home'              => 'Home',
@@ -129,4 +130,7 @@ return [
   'order_cash'        => 'In cash',
   'state'             => 'Status',
 
+  // age
+  'yep'               => 'Yes',
+  'nope'              => 'No',
 ];

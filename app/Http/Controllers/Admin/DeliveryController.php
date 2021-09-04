@@ -55,6 +55,7 @@ class DeliveryController extends Controller
   {
     // flag
     $isPagination = true;
+    $isAge = true;
 
     // title
     $title = getCategoryTitle(config('constants.slug.deliveries'));
@@ -73,6 +74,7 @@ class DeliveryController extends Controller
 
     // session
     $order_id = session('order_id');
+    $is_age = session('is_age');
 
     // order
     $order = Order::find($order_id);
@@ -81,11 +83,13 @@ class DeliveryController extends Controller
       'pages.deliveries',
       compact(
         'isPagination',
+        'isAge',
         'title',
         'category',
         'delivery',
         'continent',
         'menu',
+        'is_age',
         'order'
       )
     );

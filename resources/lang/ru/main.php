@@ -17,6 +17,7 @@ return [
   'site'              => 'Сайт',
   'bar'               => 'Бар',
   'cabins'            => 'Кабины',
+  'config'            => 'Настройки',
 
   // sections
   'home'              => 'Главная',
@@ -130,4 +131,7 @@ return [
   'order_code'        => 'Номер',
   'state'             => 'Статус',
 
+  // age
+  'yep'               => 'Да',
+  'nope'              => 'Нет',
 ];

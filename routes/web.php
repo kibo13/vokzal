@@ -40,9 +40,11 @@ use App\Http\Controllers\Admin\OrderController;
 // news
 use App\Http\Controllers\Admin\NewsController;
 
+// options
+use App\Http\Controllers\Admin\OptionController;
+
 // profile
 use App\Http\Controllers\Admin\UserController;
-use App\Models\Photo;
 
 Route::group(
   [
@@ -71,6 +73,7 @@ Route::group(
     // cart
     Route::get('carts', [CartController::class, 'main'])->name('carts');
     Route::get('carts/create/{id}', [CartController::class, 'create'])->name('carts.create');
+    Route::get('carts/age', [CartController::class, 'age'])->name('carts.age');
     Route::get('carts/add/{dish}', [CartController::class, 'add'])->name('carts.add');
     Route::get('carts/del/{dish}', [CartController::class, 'del'])->name('carts.del');
     Route::get('carts/destroy/{dish}', [CartController::class, 'destroy'])->name('carts.destroy');
@@ -125,6 +128,9 @@ Route::group(
 
       // news
       Route::resource('/news', NewsController::class);
+
+      // options
+      Route::resource('/options', OptionController::class);
 
       // profile
       Route::get('/profile', [UserController::class, 'index'])->name('users.index');

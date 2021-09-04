@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="{{ asset('css/hamburger.css') }}">
   <link rel="stylesheet" href="{{ asset('css/slick.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/localization.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/loader.css') }}" />
 </head>
 
 <body>
@@ -76,6 +77,10 @@
 
       @isset($isBar)
         @include('components.bar-slider')
+      @endisset
+
+      @isset($isAge)
+        @include('components.age-modal')
       @endisset
     </div>
   </div>

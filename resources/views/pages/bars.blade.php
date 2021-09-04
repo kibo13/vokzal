@@ -21,7 +21,7 @@
   <div class="custom__container">
     <div class="container-md">
       @foreach($bars as $i => $bar)
-      <div class="bk-bar-button col-12 d-flex @if($i % 2 == 0) justify-content-end @else justify-content-start @endif bars__item" data-tab="{{ $bar->name_en }}" data-tip="bars">
+      <div class="bk-bar-button col-12 d-flex @if($i % 2 == 0) justify-content-end @else justify-content-start @endif bars__item" data-tab="{{ $bar->name_en }}" data-tip="bars" style="z-index: 0;">
         <div class="bars__bg">
           <img src="{{ asset('images/' . $bar->image) }}" alt="">
         </div>
@@ -47,7 +47,7 @@
               {{ $bar->desc_kk }}
             @endif
           </div>
-          <a class="bars-button block-button" href="{{ route('deliveries.menu', 5) }}">
+          <a class="bars-button block-button" href="{{ route('deliveries.menu', 5) }}" style="z-index: 1;">
             {{ __('main.menu') }}
           </a>
         </div>
