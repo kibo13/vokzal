@@ -502,6 +502,10 @@ h6 {
 }
 .bars-gallery__image {
   flex: 0 0 50%;
+  height: 360px;
+}
+.bars-gallery__image img {
+  object-fit: cover;
 }
 .bars-gallery__content {
   flex: 0 0 40%;

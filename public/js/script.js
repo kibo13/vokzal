@@ -165,15 +165,15 @@ if (site) {
           .css("display", "none")
           .removeClass("showed");
       }
-
-      // $('html, body').animate({
-      //     scrollTop: $(".gallery__items").offset().top
-      // }, 1000);
     });
 
     $(
-      ".gallery__item, .gallery__popup--cross, .overlay-wrapper, .vip-button"
+      ".gallery__item, .gallery__popup--cross, .overlay-wrapper, .vip-button, .bk-bar-button"
     ).click(function (e) {
+      $(".bk-bar-button .bars-button").on("click", function (e) {
+        e.stopPropagation();
+      });
+
       $(".overlay").toggleClass("hide");
       $(".gallery__popup").toggleClass("visibilited");
       $(".gallery__popup").fadeToggle();
@@ -235,6 +235,7 @@ if (site) {
         vips__list.css("display", "block").addClass("showed");
         vipText__list.css("display", "block").addClass("showed");
         var tab_target = $(this).data("tab");
+        var bar_target = $(this).data("tip");
         // console.log(tab_target);
         if (tab_target) {
           vips__list
@@ -259,10 +260,13 @@ if (site) {
             .removeClass("showed");
         }
 
-        // console.log(tab_target);
-        $(".gallery__popup .main__section--title").text(
-          `Кабина VIP ${tab_target}`
-        );
+        if (bar_target == "bars") {
+          $(".gallery__popup .main__section--title").text(`${tab_target}`);
+        } else {
+          $(".gallery__popup .main__section--title").text(
+            `Кабина VIP ${tab_target}`
+          );
+        }
 
         let vipSlider = $(".popup__slider--block.showed")
           .not(".slick-initialized")

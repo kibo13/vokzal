@@ -5,18 +5,18 @@
       <div class="footer__inner d-flex justify-content-between">
         <ul class="footer__nav d-flex">
           <ul>
-            <li><a href="{{ route('about') }}">О нас</a></li>
-            <li><a href="{{ route('continents') }}">Бесконечность вкуса</a></li>
-            <li><a href="{{ route('studios') }}">Кулинарная Студия</a></li>
-            <li><a href="{{ route('bars') }}">Галерея Баров</a></li>
-            <li><a href="{{ route('vips') }}">VIP Кабины</a></li>
+            <li><a href="{{ route('about') }}">{{ getCategoryTitle('about') }}</a></li>
+            <li><a href="{{ route('continents') }}">{{ getCategoryTitle('continents') }}</a></li>
+            <li><a href="{{ route('studios') }}">{{ getCategoryTitle('studios') }}</a></li>
+            <li><a href="{{ route('bars') }}">{{ getCategoryTitle('bars') }}</a></li>
+            <li><a href="{{ route('vips') }}">{{ getCategoryTitle('vips') }}</a></li>
           </ul>
           <ul>
-            <li><a href="{{ route('children') }}">Дети</a></li>
-            <li><a href="{{ route('deliveries') }}">Доставка еды</a></li>
-            <li><a href="{{ route('teams') }}">Команда</a></li>
-            <li><a href="{{ route('home') }}">Галерея</a></li>
-            <li><a href="{{ route('contacts') }}">Контакты</a></li>
+            <li><a href="{{ route('children') }}">{{ getCategoryTitle('children') }}</a></li>
+            <li><a href="{{ route('deliveries') }}">{{ getCategoryTitle('deliveries') }}</a></li>
+            <li><a href="{{ route('teams') }}">{{ getCategoryTitle('teams') }}</a></li>
+            <li><a href="{{ route('home') }}">{{ __('main.galleries') }}</a></li>
+            <li><a href="{{ route('contacts') }}">{{ getCategoryTitle('contacts') }}</a></li>
           </ul>
         </ul>
         <a class="footer__logo" href="{{ route('home') }}">

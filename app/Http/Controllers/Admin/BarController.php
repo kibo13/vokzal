@@ -17,10 +17,13 @@ class BarController extends Controller
     // category
     $category = getCategory(config('constants.slug.bars'));
 
+    // flag
+    $isBar = true;
+
     // bars
     $bars = Bar::get();
 
-    return view('pages.bars', compact('title', 'category', 'bars'));
+    return view('pages.bars', compact('title', 'category', 'isBar', 'bars'));
   }
 
   public function index()

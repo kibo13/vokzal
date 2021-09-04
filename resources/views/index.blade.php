@@ -102,6 +102,7 @@
                 <img src="{{ asset('images/' . $bar->image)}}" alt="" />
               </div>
               <div class="bars-gallery__content">
+                <h2 class="mb-4">{{ $bar->name_en }}</h2>
                 <div class="bars-gallery__text">
                   @if(getCurrentLang() === 'ru')
                     {{ $bar->desc_ru }}
@@ -111,7 +112,9 @@
                     {{ $bar->desc_kk }}
                   @endif
                 </div>
-                <a class="bars-gallery__button block-button">
+                <a
+                  class="bars-gallery__button block-button"
+                  href="{{ route('bars') }}">
                   {{ __('main.gtc') }}
                 </a>
               </div>

@@ -32,7 +32,7 @@
             {{ $vip->name_kk }}
             @endif
           </div>
-          <div data-tab="{{ $vip->name_en }}" class="vip-button block-button">
+          <div class="vip-button block-button" data-tab="{{ $vip->name_en }}">
             {{ __('main.more') }}
           </div>
           <div class="image-bg">

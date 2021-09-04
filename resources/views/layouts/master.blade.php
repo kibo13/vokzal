@@ -73,6 +73,10 @@
       @isset($isVip)
         @include('components.vip-slider')
       @endisset
+
+      @isset($isBar)
+        @include('components.bar-slider')
+      @endisset
     </div>
   </div>
 

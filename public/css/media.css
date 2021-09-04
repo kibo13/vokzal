@@ -366,6 +366,7 @@
   }
   .bars-gallery__image {
     flex: 0 0 45%;
+    height: auto;
   }
   .bars-gallery__button {
     margin-right: auto;
