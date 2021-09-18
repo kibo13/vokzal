@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mamp
+ Source Server         : openserver
  Source Server Type    : MySQL
- Source Server Version : 50724
- Source Host           : localhost:8889
- Source Schema         : vokzal
+ Source Server Version : 50733
+ Source Host           : localhost:3306
+ Source Schema         : db_vokzal
 
  Target Server Type    : MySQL
- Target Server Version : 50724
+ Target Server Version : 50733
  File Encoding         : 65001
 
- Date: 05/09/2021 01:39:03
+ Date: 18/09/2021 18:02:36
 */
 
 SET NAMES utf8mb4;
@@ -338,27 +338,7 @@ CREATE TABLE `dish_order`  (
   INDEX `dish_order_dish_id_foreign`(`dish_id`) USING BTREE,
   CONSTRAINT `dish_order_dish_id_foreign` FOREIGN KEY (`dish_id`) REFERENCES `dishes` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `dish_order_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of dish_order
--- ----------------------------
-INSERT INTO `dish_order` VALUES (2, 2, 6, 1, '2021-08-24 16:06:45', '2021-08-24 16:06:45');
-INSERT INTO `dish_order` VALUES (3, 2, 5, 1, '2021-08-24 16:06:46', '2021-08-24 16:06:46');
-INSERT INTO `dish_order` VALUES (4, 3, 9, 1, '2021-08-24 16:29:11', '2021-08-24 16:29:11');
-INSERT INTO `dish_order` VALUES (5, 4, 9, 1, '2021-08-24 17:49:45', '2021-08-24 17:49:45');
-INSERT INTO `dish_order` VALUES (6, 5, 9, 1, '2021-08-25 18:19:46', '2021-08-25 18:19:46');
-INSERT INTO `dish_order` VALUES (7, 6, 9, 1, '2021-08-28 09:14:27', '2021-08-28 09:14:27');
-INSERT INTO `dish_order` VALUES (8, 7, 6, 1, '2021-08-29 15:23:04', '2021-08-29 15:23:04');
-INSERT INTO `dish_order` VALUES (9, 7, 7, 1, '2021-08-29 15:23:06', '2021-08-29 15:23:06');
-INSERT INTO `dish_order` VALUES (10, 8, 9, 1, '2021-08-29 15:53:47', '2021-08-29 15:53:47');
-INSERT INTO `dish_order` VALUES (11, 9, 6, 1, '2021-08-29 15:55:36', '2021-08-29 15:55:36');
-INSERT INTO `dish_order` VALUES (13, 11, 12, 1, '2021-09-04 19:03:45', '2021-09-04 19:03:45');
-INSERT INTO `dish_order` VALUES (14, 11, 20, 1, '2021-09-04 19:03:55', '2021-09-04 19:03:55');
-INSERT INTO `dish_order` VALUES (15, 11, 19, 3, '2021-09-04 19:03:59', '2021-09-04 19:06:04');
-INSERT INTO `dish_order` VALUES (16, 12, 23, 1, '2021-09-04 19:07:45', '2021-09-04 19:07:45');
-INSERT INTO `dish_order` VALUES (17, 12, 19, 1, '2021-09-04 19:38:38', '2021-09-04 19:38:38');
-INSERT INTO `dish_order` VALUES (18, 12, 20, 1, '2021-09-04 19:38:41', '2021-09-04 19:38:41');
+) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for dishes
@@ -536,6 +516,22 @@ CREATE TABLE `homes`  (
 INSERT INTO `homes` VALUES (1, '<div class=\"main__title\"><span class=\"\">VOKZAL</span>&nbsp;<br />gastrobar</div>\r\n<div class=\"main__text\">\r\n<div class=\"main__text--inner\">\r\n<p>Гастробар VOKZAL &ndash; новое направление на карте нефтяной столицы, занимающее площадь 1800 м2 и представляющее собой большое разнообразие гастрономических вкусов. Уникальность данного проекта заключается в гармоничном объединении 4 авторских кухонь и 5 баров с развернутой барной картой.</p>\r\n<p>Гости и жители города могут отведать авторское исполнение грузинской кухни, паназиатской кухни, европейской кухни, а также уже зарекомендовавшие себя бургеры Black Panther Burger, и стейки премиального качества. Для достоверной подачи блюд каждой культуры были приглашены четыре шеф-повара и лучшие специалисты Казахстана, России и Грузии.</p>\r\n<p>Знакомство со вкусами начинается со взгляда и для этого дизайнеры разработали концепцию открытой кухни. Таким образом гости могут узнать поэтапное приготовление блюд и восхититься профессиональным мастерством каждого шеф-повара и его команды. Стоит только намекнуть об этом менеджеру зала и вы займете удобное и комфортное место у любой из открытых зон.</p>\r\n</div>\r\n</div>', '<div class=\"main__title\"><span class=\"\">VOKZAL</span>&nbsp;<br />gastrobar</div>\r\n<div class=\"main__text\">\r\n<div class=\"main__text--inner\">\r\n<p>Gastrobar VOKZAL &ndash; a new direction on the map of the oil capital, covering an area of ​​1800 m2 and representing a wide variety of gastronomic tastes. The uniqueness of this project lies in the harmonious combination of 4 author\'s kitchens and 5 bars with an expanded bar card.</p>\r\n<p>Guests and residents of the city can taste the author\'s performance of Georgian cuisine, Pan-Asian cuisine, European cuisine, as well as the already proven Black Panther Burger burgers, and premium quality steaks. Four chefs and the best specialists from Kazakhstan, Russia and Georgia were invited to faithfully serve dishes of each culture.</p>\r\n<p>Acquaintance with tastes begins with a glance, and for this, the designers have developed the concept of an open kitchen. Thus, guests can learn about the step-by-step preparation of dishes and admire the professional skills of each chef and his team. One has only to hint about this to the manager of the hall and you will take a convenient and comfortable place near any of the open areas.</p>\r\n</div>\r\n</div>', '<div class=\"main__title\"><span class=\"\">VOKZAL</span>&nbsp;<br />gastrobar</div>\r\n<div class=\"main__text\">\r\n<div class=\"main__text--inner\">\r\n<p>VOKZAL gastrobar - бұл 1800 м2 аумақты алып жатқан және гастрономиялық талғамдардың алуан түрін көрсететін мұнай астанасы картасындағы жаңа бағыт. Бұл жобаның бірегейлігі 4 авторлық ас үй мен 5 бардың кеңейтілген баркартамен үйлесімді үйлесімінде.</p>\r\n<p>Қала қонақтары мен тұрғындары грузин тағамдарының, паназиялық тағамдардың, еуропалық тағамдардың, сондай-ақ қазірдің өзінде дәлелденген Black Panther Burger гамбургерлерінің авторлық қойылымынан дәм тата алады. жоғары сапалы стейктер. Әр мәдениеттің тағамдарына адал қызмет етуге Қазақстаннан, Ресейден және Грузиядан төрт аспазшы мен үздік мамандар шақырылды.</p>\r\n<p>Дәммен танысу бір қарағанда басталады, және бұл үшін дизайнерлер ашық ас үй туралы тұжырымдама жасады. Осылайша Қонақтар қадамдық пісіру туралы біліп, тамашалай алады әрбір аспазшы мен оның командасының кәсіби дағдылары. Бұл туралы залдың менеджеріне айту керек, сонда сіз оны қабылдайсыз кез келген ашық алаңның жанында ыңғайлы және жайлы орын.</p>\r\n</div>\r\n</div>', 'home/mgFe0O4nyULgwhK2LpzvLlidGxaR854fAxMjULBA.jpg', 'facade.jpg', '2021-08-13 08:53:02', '2021-08-13 03:18:34');
 
 -- ----------------------------
+-- Table structure for jobs
+-- ----------------------------
+DROP TABLE IF EXISTS `jobs`;
+CREATE TABLE `jobs`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `queue` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attempts` tinyint(3) UNSIGNED NOT NULL,
+  `reserved_at` int(10) UNSIGNED NULL DEFAULT NULL,
+  `available_at` int(10) UNSIGNED NOT NULL,
+  `created_at` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `jobs_queue_index`(`queue`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
 -- Table structure for migrations
 -- ----------------------------
 DROP TABLE IF EXISTS `migrations`;
@@ -544,7 +540,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 82 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 85 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -577,6 +573,8 @@ INSERT INTO `migrations` VALUES (78, '2021_08_15_181218_create_dish_order_table'
 INSERT INTO `migrations` VALUES (79, '2021_08_26_143100_alter_table_vips', 22);
 INSERT INTO `migrations` VALUES (80, '2021_08_30_085803_create_photos_table', 23);
 INSERT INTO `migrations` VALUES (81, '2021_09_04_190806_create_options_table', 24);
+INSERT INTO `migrations` VALUES (83, '2021_09_18_065854_alter_table_orders', 25);
+INSERT INTO `migrations` VALUES (84, '2021_09_18_113339_create_jobs_table', 26);
 
 -- ----------------------------
 -- Table structure for news
@@ -610,7 +608,7 @@ CREATE TABLE `options`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of options
@@ -623,6 +621,7 @@ INSERT INTO `options` VALUES (1, '<p>Подтвердите возраст, чт
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `date_in` date NULL DEFAULT NULL,
   `time_in` time(0) NULL DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0,
@@ -641,22 +640,7 @@ CREATE TABLE `orders`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of orders
--- ----------------------------
-INSERT INTO `orders` VALUES (2, '2021-08-24', '22:13:00', 1, 3, 'Иван', 'Иванович', '+7 888 888 88 88', 'Атырау', 'Авиационная', '7', NULL, '15', 1, 2440, 1, '2021-08-24 16:06:45', '2021-08-24 17:19:48');
-INSERT INTO `orders` VALUES (3, '2021-08-24', '22:29:00', 1, 3, 'Игорь', 'Сергеев', '+7 777 777 77 77', 'Атырау', 'Карпова', '9', NULL, '11', 2, 1500, 0, '2021-08-24 16:29:11', '2021-08-24 16:29:33');
-INSERT INTO `orders` VALUES (4, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-08-24 17:49:45', '2021-08-24 17:49:45');
-INSERT INTO `orders` VALUES (5, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-08-25 18:19:46', '2021-08-25 18:19:46');
-INSERT INTO `orders` VALUES (6, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-08-28 09:14:27', '2021-08-28 09:14:27');
-INSERT INTO `orders` VALUES (7, '2021-08-29', '21:52:00', 1, 3, 'Сидоров', 'Петр', '+7 232 323 23 23', 'Атырау', 'Комарова', '10', NULL, '12', 2, 2440, 0, '2021-08-29 15:23:04', '2021-08-29 15:52:58');
-INSERT INTO `orders` VALUES (8, NULL, NULL, 0, 3, 'Быстряков', 'Иван', '+7 123 131 23 12', 'Атырау', 'Кома', '11', NULL, '11', NULL, 0, 0, '2021-08-29 15:53:47', '2021-08-29 15:54:17');
-INSERT INTO `orders` VALUES (9, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-08-29 15:55:36', '2021-08-29 15:55:36');
-INSERT INTO `orders` VALUES (10, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-09-04 18:04:48', '2021-09-04 18:04:48');
-INSERT INTO `orders` VALUES (11, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-09-04 19:03:45', '2021-09-04 19:03:45');
-INSERT INTO `orders` VALUES (12, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-09-04 19:07:45', '2021-09-04 19:07:45');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for photos
@@ -675,20 +659,14 @@ CREATE TABLE `photos`  (
 -- ----------------------------
 -- Records of photos
 -- ----------------------------
-INSERT INTO `photos` VALUES (1, 1, 'photos/gVdiRRKJK7T88286SUNpMXXy0TXdf3cUck7BHQYq.jpg', 'cabine1.jpg', '2021-08-30 09:58:32', '2021-08-30 09:58:32');
-INSERT INTO `photos` VALUES (2, 1, 'photos/plmmfejPH3ADF18HjquFoWAG8OHVvKOGWKByErbA.jpg', 'cabine1.jpg', '2021-08-30 09:59:22', '2021-08-30 09:59:56');
 INSERT INTO `photos` VALUES (3, 1, 'photos/0h2nq7NMyISgw9SoUuQ4hCCDkPGdYhLzoq3BJPpu.jpg', 'cabine1.jpg', '2021-08-30 09:59:30', '2021-08-30 10:00:02');
 INSERT INTO `photos` VALUES (4, 1, 'photos/FPEwRBfWFAhUDRBs7yiJ7rGYQMPa5TYb6eyTzF3R.jpg', 'cabine1.jpg', '2021-08-30 09:59:34', '2021-08-30 09:59:39');
 INSERT INTO `photos` VALUES (5, 2, 'photos/hFlQelXblVvWeUSXrsnO0ktQs3aIvi8Khx2gnCaq.jpg', 'cabine2.jpg', '2021-08-30 09:59:50', '2021-08-30 09:59:50');
 INSERT INTO `photos` VALUES (6, 2, 'photos/EIqqpbe0axvSUGpsv07PIQmBBoWktKYLh7UPBDZd.jpg', 'cabine2.jpg', '2021-08-30 10:00:11', '2021-08-30 10:00:11');
-INSERT INTO `photos` VALUES (7, 2, 'photos/v1uPGdiBDNeFKqWKd8P9reXiyYgbN0OWblMEpGpg.jpg', 'cabine2.jpg', '2021-08-30 10:00:18', '2021-08-30 10:00:18');
 INSERT INTO `photos` VALUES (8, 2, 'photos/uzsHAjjnTUUTKgXQdPiCTQ81OdZ2Hlv44A9yaEFP.jpg', 'cabine2.jpg', '2021-08-30 10:00:23', '2021-08-30 10:00:23');
-INSERT INTO `photos` VALUES (9, 3, 'photos/BXMLqJLgwq7OTG46hS9LhYDaI6m0FHxsTD9LjMqs.jpg', 'cabine3.jpg', '2021-08-30 10:00:29', '2021-08-30 10:00:29');
-INSERT INTO `photos` VALUES (10, 3, 'photos/XXzcx08z6qByInJa1z2zCXyGeKRt2miIXFtkiVJZ.jpg', 'cabine3.jpg', '2021-08-30 10:00:36', '2021-08-30 10:00:36');
 INSERT INTO `photos` VALUES (11, 3, 'photos/ybM9jvNf2cJucBMLvH1V1wlDk6tGX5FMKlXCP2iw.jpg', 'cabine3.jpg', '2021-08-30 10:00:43', '2021-08-30 10:00:43');
 INSERT INTO `photos` VALUES (12, 3, 'photos/5VlWvFIOy1LI4K5q0XT17xDM2xhqSW0kfudK9Rd5.jpg', 'cabine3.jpg', '2021-08-30 10:00:50', '2021-08-30 10:00:50');
 INSERT INTO `photos` VALUES (13, 4, 'photos/a4kcByupJVY9N2B2LOiyCWrvDR001SFQkXzUZWsc.jpg', 'cabine4.jpg', '2021-08-30 10:00:57', '2021-08-30 10:00:57');
-INSERT INTO `photos` VALUES (14, 4, 'photos/gFTAJhLM4uitm54RsYftuTJC5BcuWyttZOqoTYFA.jpg', 'cabine4.jpg', '2021-08-30 10:01:04', '2021-08-30 10:01:04');
 INSERT INTO `photos` VALUES (15, 4, 'photos/a2zwCHOSKlLXVJerOX0lBfCFuh5sYBY85VAfX11F.jpg', 'cabine4.jpg', '2021-08-30 10:01:10', '2021-08-30 10:01:10');
 INSERT INTO `photos` VALUES (17, 4, 'photos/7QKUCulz7rT4xYFi9fVJhuXFtJyAmgY4FaZcJ5Y0.jpg', 'cabine4.jpg', '2021-08-30 10:01:52', '2021-08-30 10:01:52');
 

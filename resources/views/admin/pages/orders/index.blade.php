@@ -26,7 +26,7 @@
         @foreach($orders as $key => $order)
         <tr>
           <td>{{ $key+=1 }}</td>
-          <td>#{{ $key+=1 }}</td>
+          <td>{{ $order->code }}</td>
           <td>
             {{ getDMY($order->date_in) }}
             <span class="bk-small">

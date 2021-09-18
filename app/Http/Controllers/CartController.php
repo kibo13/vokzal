@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cart;
-use App\Models\Dish;
 use App\Models\Order;
+use App\Mail\OrderFormed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
 {
@@ -127,12 +127,17 @@ class CartController extends Controller
   // carts.step_3
   public function step_3(Request $request, Order $order)
   {
+    $order->code = getInvoiceId($order->id);
     $order->date_in = Carbon::now()->addHour(6)->format('Y-m-d');
     $order->time_in = Carbon::now()->addHour(6)->format('H:i');
     $order->status = $request->status;
     $order->pay = $request->pay;
     $order->total = $request->total;
     $order->save();
+
+    Mail::to('kimboris1310@gmail.com')->send(
+      new OrderFormed($order)
+    );
 
     session()->forget('order_id');
   }

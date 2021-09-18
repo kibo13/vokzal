@@ -1,14 +1,18 @@
 <?php
 
-use Carbon\Carbon;
-
-function getCode()
+function getInvoiceId($id)
 {
-  // current date
-  $current = Carbon::now()->addHour(6);
+  // max length
+  $default = 10;
 
-  // code
-  $code = preg_replace('/[- :]/', '', $current);
+  // order number template
+  $template = '0000000000' . $id;
 
-  return substr($code, 2);
+  // max length should be 10 characters
+  $length = strlen($template);
+
+  // number of characters between lines
+  $diff = $length - $default;
+
+  return substr($template, $diff);
 }
