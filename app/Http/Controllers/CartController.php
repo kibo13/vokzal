@@ -132,7 +132,8 @@ class CartController extends Controller
     $order->time_in = Carbon::now()->addHour(6)->format('H:i');
     $order->status = $request->status;
     $order->pay = $request->pay;
-    $order->total = $request->total;
+    $order->total = $request->amount;
+    $order->check = $request->check;
     $order->save();
 
     Mail::to('kimboris1310@gmail.com')->send(

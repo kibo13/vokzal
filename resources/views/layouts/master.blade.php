@@ -85,11 +85,22 @@
     </div>
   </div>
 
+  <!-- Vendors -->
   <script src="{{ asset('js/vendors/jquery.min.js') }}"></script>
   <script src="{{ asset('js/vendors/slick.min.js') }}"></script>
   <script src="{{ asset('js/vendors/imask.js') }}"></script>
+  <script src="{{ asset('js/vendors/payment-api.js') }}"></script>
+
+  <!-- General -->
   <script src="{{ asset('js/script.js') }}"></script>
-  <script src="{{ asset('js/localization.js') }}"></script>
+
+  <!-- Custom -->
+  <script src="{{ asset('js/custom/localization.js') }}"></script>
+  <script src="{{ asset('js/custom/bar.js') }}"></script>
+  <script src="{{ asset('js/custom/alcohol.js') }}"></script>
+  <script src="{{ asset('js/custom/cart.js') }}"></script>
+  <script src="{{ asset('js/custom/validation.js') }}"></script>
+  <script src="{{ asset('js/custom/payment.js') }}"></script>
 </body>
 
 </html>
