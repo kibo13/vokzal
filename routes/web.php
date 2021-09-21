@@ -81,6 +81,9 @@ Route::group(
     Route::post('carts/step_2/{order}', [CartController::class, 'step_2'])->name('carts.step_2');
     Route::get('carts/step_3/{order}', [CartController::class, 'step_3'])->name('carts.step_3');
 
+    // payment
+    Route::get('carts/payment', [CartController::class, 'payment'])->name('carts.payment');
+
     Auth::routes([
       'reset' => false,
       'confirm' => false,

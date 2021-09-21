@@ -10,7 +10,7 @@ $(".payment-item").on("click", function (e) {
 $(document).on("click", "#confirm-order", function (e) {
   let data = {
     id: this.dataset.id,
-    invoiceId: "000000001",
+    invoiceId: "8677934", // configration
     pay: $("#pay-output").val(),
     status: 1,
     check: 0,
@@ -23,51 +23,65 @@ $(document).on("click", "#confirm-order", function (e) {
     alert("Необходимо выбрать способ оплаты");
     return;
   }
-  // payment method selected
+
+  // payment is card
+  if (data.pay == 1) {
+    onlinePayment();
+    // $.ajax({
+    //   type: "POST",
+    //   url: "https://testoauth.homebank.kz/epay2/oauth2/token",
+    //   data: {
+    //   },
+    //   success: function (auth) {
+    //     halyk.pay(createPaymentObject(auth, data.invoiceId, data.amount));
+    //   },
+    // });
+  }
+  // payment is cash
   else {
-    // payment is card
-    if (data.pay == 1) {
-      $.ajax({
-        type: "POST",
-        url: "https://testoauth.homebank.kz/epay2/oauth2/token",
-        data: {
-          grant_type: "client_credentials",
-          scope: "payment",
-          client_id: "test",
-          client_secret: "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG",
-          invoiceID: "000000001",
-          amount: 100,
-          currency: "KZT",
-          terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
-          postLink: "",
-          failurePostLink: "",
-        },
-        success: function (auth) {
-          halyk.pay(createPaymentObject(auth, data));
-        },
-      });
-    }
-    // payment is cash
-    else {
-      createOrder(data);
-    }
+    createOrder(data);
   }
 });
 
+// payment
+function onlinePayment() {
+  axios
+    .post(
+      `https://testoauth.homebank.kz/epay2/oauth2/token
+  `,
+      {
+        grant_type: "client_credentials",
+        scope: "payment",
+        client_id: "test",
+        client_secret: "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG",
+        invoiceID: "21313123121",
+        amount: "1500",
+        currency: "KZT",
+        terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
+        postLink: "",
+        failurePostLink: "",
+      }
+    )
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((e) => console.log(e));
+}
+
 // creating an object for payment
-var createPaymentObject = function (auth, data) {
+var createPaymentObject = function (auth, invoiceId, amount) {
   var paymentObject = {
-    invoiceId: data.invoiceId,
-    backLink: "",
+    invoiceId: invoiceId,
+    backLink: "http://vokzal.test/ru/carts/payment",
     failureBackLink: "",
-    postLink: "",
+    postLink: "http://vokzal.test/ru/carts/payment",
     failurePostLink: "",
     language: "RU",
     description: "Оплата в интернет магазине",
     accountId: "testuser1",
     terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
-    amount: 100,
-    currency: data.currency,
+    amount: amount,
+    currency: "KZT",
     phone: "77777777777",
     email: "epay@halykbank.kz",
     cardSave: true,

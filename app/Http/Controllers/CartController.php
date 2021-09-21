@@ -142,4 +142,10 @@ class CartController extends Controller
 
     session()->forget('order_id');
   }
+
+  // carts.payment
+  public function payment(Request $request)
+  {
+    return $request;
+  }
 }
