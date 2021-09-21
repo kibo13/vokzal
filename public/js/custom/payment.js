@@ -1,3 +1,6 @@
+const test_token = "https://testoauth.homebank.kz/epay2/oauth2/token";
+const prod_token = "https://epay-oauth.homebank.kz/oauth2/token";
+
 $(document).on("change", ".payment-toggle", function (e) {
   $("#pay-output").val(this.value);
 });
@@ -10,7 +13,7 @@ $(".payment-item").on("click", function (e) {
 $(document).on("click", "#confirm-order", function (e) {
   let data = {
     id: this.dataset.id,
-    invoiceId: "8677934", // configration
+    invoiceId: "1238677934", // configration
     pay: $("#pay-output").val(),
     status: 1,
     check: 0,
@@ -26,16 +29,10 @@ $(document).on("click", "#confirm-order", function (e) {
 
   // payment is card
   if (data.pay == 1) {
-    onlinePayment();
-    // $.ajax({
-    //   type: "POST",
-    //   url: "https://testoauth.homebank.kz/epay2/oauth2/token",
-    //   data: {
-    //   },
-    //   success: function (auth) {
-    //     halyk.pay(createPaymentObject(auth, data.invoiceId, data.amount));
-    //   },
-    // });
+    // let auth = getToken();
+    // console.log(auth);
+    // halyk.pay(createPaymentObject(auth, data.invoiceId, 100));
+    getToken();
   }
   // payment is cash
   else {
@@ -43,29 +40,30 @@ $(document).on("click", "#confirm-order", function (e) {
   }
 });
 
-// payment
-function onlinePayment() {
-  axios
-    .post(
-      `https://testoauth.homebank.kz/epay2/oauth2/token
-  `,
-      {
-        grant_type: "client_credentials",
-        scope: "payment",
-        client_id: "test",
-        client_secret: "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG",
-        invoiceID: "21313123121",
-        amount: "1500",
-        currency: "KZT",
-        terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
-        postLink: "",
-        failurePostLink: "",
-      }
-    )
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((e) => console.log(e));
+// receiving a payment token
+function getToken() {
+  const data = {
+    grant_type: "client_credentials",
+    scope: "payment",
+    client_id: "test",
+    client_secret: "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG",
+    invoiceID: "1238677934",
+    amount: 100,
+    currency: "KZT",
+    terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
+    postLink: "",
+    failurePostLink: "",
+  };
+
+  let auth = $.ajax({
+    type: "POST",
+    url: test_token,
+    data: data,
+    // it's work
+    // success: (auth) => halyk.pay(createPaymentObject(auth, 1238677934, 100)),
+  }).then((response) => response);
+
+  halyk.pay(createPaymentObject(auth, 1238677934, 100));
 }
 
 // creating an object for payment
