@@ -132,7 +132,8 @@ class CartController extends Controller
     $order->time_in = Carbon::now()->addHour(6)->format('H:i');
     $order->status = $request->status;
     $order->pay = $request->pay;
-    $order->total = $request->total;
+    $order->total = $request->amount;
+    $order->check = $request->check;
     $order->save();
 
     Mail::to('kimboris1310@gmail.com')->send(
@@ -140,5 +141,16 @@ class CartController extends Controller
     );
 
     session()->forget('order_id');
+  }
+
+  // payment
+  public function payment(Request $request)
+  {
+    // $url = 'https://www.cf64514.tmweb.ru/ru/payment';
+
+    // $response = file_get_contents($url);
+
+    return $request;
+    // return view('payment', compact('response'));
   }
 }

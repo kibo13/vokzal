@@ -37,7 +37,7 @@
 
             <!-- /.step-1 -->
             <div class="form__contacts @if($order->step == 1) active @endif">
-              <form action="{{ route('carts.step_1', $order->id) }}" method="POST">
+              <form id="form-contact" action="{{ route('carts.step_1', $order->id) }}" method="POST">
                 @csrf
                 <div class="form__contacts--title form-title">
                   1. {{ __('main.contact_data') }}
@@ -146,7 +146,7 @@
               </form>
             </div>
             <!-- /.step-3 -->
-            <div class="form__payment @if($order->step == 3) active @endif">
+            <div class="form__payment  @if($order->step == 3) active @endif">
               <div class="form-title">3. {{ __('main.pay') }}</div>
               <div class="form__payment--inner d-flex">
                 <div class="form__payment--item position-relative">
