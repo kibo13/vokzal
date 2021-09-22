@@ -29,9 +29,6 @@ $(document).on("click", "#confirm-order", function (e) {
 
   // payment is card
   if (data.pay == 1) {
-    // let auth = getToken();
-    // console.log(auth);
-    // halyk.pay(createPaymentObject(auth, data.invoiceId, 100));
     getToken();
   }
   // payment is cash
@@ -42,12 +39,12 @@ $(document).on("click", "#confirm-order", function (e) {
 
 // receiving a payment token
 function getToken() {
-  const data = {
+  const body = {
     grant_type: "client_credentials",
     scope: "payment",
     client_id: "test",
     client_secret: "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG",
-    invoiceID: "1238677934",
+    invoiceID: "724278234",
     amount: 100,
     currency: "KZT",
     terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
@@ -55,33 +52,32 @@ function getToken() {
     failurePostLink: "",
   };
 
-  let auth = $.ajax({
+  $.ajax({
     type: "POST",
     url: test_token,
-    data: data,
+    data: body,
     // it's work
-    // success: (auth) => halyk.pay(createPaymentObject(auth, 1238677934, 100)),
-  }).then((response) => response);
-
-  halyk.pay(createPaymentObject(auth, 1238677934, 100));
+    success: (auth) =>
+      halyk.pay(createPaymentObject(auth, body.invoiceID, body.amount)),
+  });
 }
 
 // creating an object for payment
 var createPaymentObject = function (auth, invoiceId, amount) {
   var paymentObject = {
     invoiceId: invoiceId,
-    backLink: "http://vokzal.test/ru/carts/payment",
+    backLink: "https://www.cf64514.tmweb.ru/ru/payment",
     failureBackLink: "",
-    postLink: "http://vokzal.test/ru/carts/payment",
+    postLink: "https://www.cf64514.tmweb.ru/ru/payment",
     failurePostLink: "",
     language: "RU",
     description: "Оплата в интернет магазине",
-    accountId: "testuser1",
+    accountId: "test",
     terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
     amount: amount,
     currency: "KZT",
     phone: "77777777777",
-    email: "epay@halykbank.kz",
+    email: "example@example.com",
     cardSave: true,
   };
   paymentObject.auth = auth;

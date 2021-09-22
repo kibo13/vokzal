@@ -82,7 +82,7 @@ Route::group(
     Route::get('carts/step_3/{order}', [CartController::class, 'step_3'])->name('carts.step_3');
 
     // payment
-    Route::get('carts/payment', [CartController::class, 'payment'])->name('carts.payment');
+    Route::get('payment', [CartController::class, 'payment']);
 
     Auth::routes([
       'reset' => false,

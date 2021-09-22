@@ -143,9 +143,14 @@ class CartController extends Controller
     session()->forget('order_id');
   }
 
-  // carts.payment
+  // payment
   public function payment(Request $request)
   {
+    // $url = 'https://www.cf64514.tmweb.ru/ru/payment';
+
+    // $response = file_get_contents($url);
+
     return $request;
+    // return view('payment', compact('response'));
   }
 }
