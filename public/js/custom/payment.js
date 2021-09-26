@@ -1,5 +1,15 @@
-const test_token = "https://testoauth.homebank.kz/epay2/oauth2/token";
-const prod_token = "https://epay-oauth.homebank.kz/oauth2/token";
+const TEST_TOKEN = "https://testoauth.homebank.kz/epay2/oauth2/token";
+const PROD_TOKEN = "https://epay-oauth.homebank.kz/oauth2/token";
+
+function getPostLink() {
+  let hostname = window.location.origin;
+  let locale = "/" + $(".active__lang").data("locale");
+  let pathname = "/payment/";
+
+  let postLink = hostname + locale + pathname;
+
+  return postLink;
+}
 
 $(document).on("change", ".payment-toggle", function (e) {
   $("#pay-output").val(this.value);
@@ -12,13 +22,26 @@ $(".payment-item").on("click", function (e) {
 
 $(document).on("click", "#confirm-order", function (e) {
   let data = {
+    // for order
     id: this.dataset.id,
-    invoiceId: "1238677934", // configration
     pay: $("#pay-output").val(),
     status: 1,
     check: 0,
     amount: $("#total").val(),
-    currency: "KZT",
+
+    // for token = auth
+    token_body: {
+      grant_type: "client_credentials",
+      scope: "payment",
+      client_id: "test",
+      client_secret: "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG",
+      invoiceID: "823452", // must be changed at each request
+      amount: $("#total").val(),
+      currency: "KZT",
+      terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
+      postLink: "",
+      failurePostLink: "",
+    },
   };
 
   // payment method is not selected selected
@@ -29,7 +52,7 @@ $(document).on("click", "#confirm-order", function (e) {
 
   // payment is card
   if (data.pay == 1) {
-    getToken();
+    processPayment(data);
   }
   // payment is cash
   else {
@@ -38,27 +61,20 @@ $(document).on("click", "#confirm-order", function (e) {
 });
 
 // receiving a payment token
-function getToken() {
-  const body = {
-    grant_type: "client_credentials",
-    scope: "payment",
-    client_id: "test",
-    client_secret: "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG",
-    invoiceID: "724278234",
-    amount: 100,
-    currency: "KZT",
-    terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
-    postLink: "",
-    failurePostLink: "",
-  };
-
+function processPayment(data) {
   $.ajax({
     type: "POST",
-    url: test_token,
-    data: body,
+    url: TEST_TOKEN,
+    data: data.token_body,
     // it's work
     success: (auth) =>
-      halyk.pay(createPaymentObject(auth, body.invoiceID, body.amount)),
+      halyk.pay(
+        createPaymentObject(
+          auth,
+          data.token_body.invoiceID,
+          data.token_body.amount
+        )
+      ),
   });
 }
 
@@ -66,9 +82,9 @@ function getToken() {
 var createPaymentObject = function (auth, invoiceId, amount) {
   var paymentObject = {
     invoiceId: invoiceId,
-    backLink: "https://www.cf64514.tmweb.ru/ru/payment",
+    backLink: getPostLink(),
     failureBackLink: "",
-    postLink: "https://www.cf64514.tmweb.ru/ru/payment",
+    postLink: getPostLink(),
     failurePostLink: "",
     language: "RU",
     description: "Оплата в интернет магазине",

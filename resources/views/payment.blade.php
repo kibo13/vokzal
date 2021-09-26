@@ -8,6 +8,6 @@
 
 @section('section-content')
 <div class="container">
-  {{ $response }}
+  {{ $request }}
 </div>
 @endsection
