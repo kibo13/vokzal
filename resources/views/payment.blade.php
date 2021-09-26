@@ -9,5 +9,7 @@
 @section('section-content')
 <div class="container">
   {{ $request }}
+  <input type="text" style="border: 1px dashed red; display: flex; width: 100%">
+  <input type="text" style="border: 1px dashed red; display: flex; width: 100%">
 </div>
 @endsection

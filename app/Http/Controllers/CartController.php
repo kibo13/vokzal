@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Mail\OrderFormed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
@@ -146,7 +147,9 @@ class CartController extends Controller
   // payment
   public function payment(Request $request)
   {
-    dd($request->id);
+    $response = Http::get('https://testepay.homebank.kz/api/payment/cryptopay')[$request];
+    dd($response);
+    // dd($request->id);
     // dd($request->all());
     // $response = file_get_contents($url);
     // return $request;

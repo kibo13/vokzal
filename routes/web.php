@@ -9,6 +9,9 @@ use App\Http\Controllers\DataController;
 // cart
 use App\Http\Controllers\CartController;
 
+// payment
+use App\Http\Controllers\PaymentController;
+
 // sections
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AboutController;
@@ -82,7 +85,11 @@ Route::group(
     Route::get('carts/step_3/{order}', [CartController::class, 'step_3'])->name('carts.step_3');
 
     // payment
-    Route::get('payment', [CartController::class, 'payment']);
+    // Route::get('payment', [CartController::class, 'payment']);
+    // Route::resource('/payments', PaymentController::class);
+    Route::get('/payments', [PaymentController::class, 'index']);
+    Route::post('/payments/check', [PaymentController::class, 'store']);
+
 
     Auth::routes([
       'reset' => false,

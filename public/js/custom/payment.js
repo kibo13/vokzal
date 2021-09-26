@@ -1,10 +1,10 @@
 const TEST_TOKEN = "https://testoauth.homebank.kz/epay2/oauth2/token";
 const PROD_TOKEN = "https://epay-oauth.homebank.kz/oauth2/token";
 
-function getPostLink() {
+function getPostLink(slug) {
   let hostname = window.location.origin;
   let locale = "/" + $(".active__lang").data("locale");
-  let pathname = "/payment/";
+  let pathname = `/${slug}/`;
 
   let postLink = hostname + locale + pathname;
 
@@ -29,13 +29,13 @@ $(document).on("click", "#confirm-order", function (e) {
     check: 0,
     amount: $("#total").val(),
 
-    // for token = auth
+    // for token
     token_body: {
       grant_type: "client_credentials",
       scope: "payment",
       client_id: "test",
       client_secret: "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG",
-      invoiceID: "823452", // must be changed at each request
+      invoiceID: "4724525", // must be changed at each request
       amount: $("#total").val(),
       currency: "KZT",
       terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
@@ -82,9 +82,9 @@ function processPayment(data) {
 var createPaymentObject = function (auth, invoiceId, amount) {
   var paymentObject = {
     invoiceId: invoiceId,
-    backLink: getPostLink(),
+    backLink: getPostLink("payments"),
     failureBackLink: "",
-    postLink: getPostLink(),
+    postLink: getPostLink("payments/check"),
     failurePostLink: "",
     language: "RU",
     description: "Оплата в интернет магазине",

@@ -89,7 +89,7 @@
   <script src="{{ asset('js/vendors/jquery.min.js') }}"></script>
   <script src="{{ asset('js/vendors/slick.min.js') }}"></script>
   <script src="{{ asset('js/vendors/imask.js') }}"></script>
-  <script src="{{ asset('js/vendors/payment-api.js') }}"></script>
+  <script src="https://test-epay.homebank.kz/payform/payment-api.js"></script>
 
   <!-- General -->
   <script src="{{ asset('js/script.js') }}"></script>
