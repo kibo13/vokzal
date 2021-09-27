@@ -27,11 +27,12 @@ class PaymentController extends Controller
    */
   public function store(Request $request)
   {
-    Payment::create([
-      'id' => $request['id'],
-      'amount' => $request['amount'],
-      'invoice_id' => $request['invoiceId']
-    ]);
+    dd($request->all());
+    // Payment::create([
+    //   'id' => $request['id'],
+    //   'amount' => $request['amount'],
+    //   'invoice_id' => $request['invoiceId']
+    // ]);
 
     // // dd($request);
     // $response = [
