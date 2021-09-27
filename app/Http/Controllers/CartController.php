@@ -147,12 +147,7 @@ class CartController extends Controller
   // payment
   public function payment(Request $request)
   {
-    $response = Http::get('https://testepay.homebank.kz/api/payment/cryptopay')[$request];
-    dd($response);
-    // dd($request->id);
-    // dd($request->all());
-    // $response = file_get_contents($url);
-    // return $request;
-    // return view('payment', compact('request'));
+    // $response = Http::get('https://testepay.homebank.kz/api/payment/cryptopay')[$request];
+    // dd($response);
   }
 }

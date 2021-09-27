@@ -10,20 +10,32 @@ class PaymentController extends Controller
 
   public function success()
   {
-    $payment = Payment::first();
+    // session
+    $transaction = session('transaction');
 
-    return view('payment', compact('payment'));
+    dd($transaction);
+
+    // $payment = Payment::first();
+    // return view('payment', compact('payment'));
   }
 
   public function payment(Request $request)
   {
-
+    // response from bank
     $response = json_decode($request);
 
-    Payment::create([
-      'id' => $response->id,
-      'amount' => $response->amount,
-      'invoice_id' => $response->invoiceId
-    ]);
+    // session
+    $transaction = session('transaction');
+
+    // put response to session
+    if (is_null($transaction)) {
+      Payment::create([
+        'id' => $response->id,
+        'amount' => $response->amount,
+        'invoice_id' => $response->invoiceId
+      ]);
+
+      session(['transaction' => $response]);
+    }
   }
 }
