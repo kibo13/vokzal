@@ -85,8 +85,8 @@ Route::group(
     Route::get('carts/step_3/{order}', [CartController::class, 'step_3'])->name('carts.step_3');
 
     // payment
-    Route::get('/payments', [PaymentController::class, 'index']);
-    Route::post('/payments/check', [PaymentController::class, 'store']);
+    // Route::get('/payments', [PaymentController::class, 'index']);
+    Route::post('/payment', [PaymentController::class, 'payment']);
 
 
     Auth::routes([

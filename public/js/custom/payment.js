@@ -86,9 +86,9 @@ var createPaymentObject = function (auth, invoiceId, amount) {
   var paymentObject = {
     csrf_token: $('meta[name="csrf-token"]').attr("content"),
     invoiceId: invoiceId,
-    backLink: getPostLink("payments/check"),
+    backLink: getPostLink("payment"),
     failureBackLink: "",
-    postLink: getPostLink("payments/check"),
+    postLink: getPostLink("payment"),
     failurePostLink: "",
     language: "RU",
     description: "Оплата в интернет магазине",

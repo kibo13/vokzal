@@ -7,40 +7,45 @@ use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function index()
+
+  public function payment(Request $request)
   {
-    $request = Payment::first();
-
-    return view('payment', compact('request'));
+    dd($request);
   }
+  // /**
+  //  * Display a listing of the resource.
+  //  *
+  //  * @return \Illuminate\Http\Response
+  //  */
+  // public function index()
+  // {
+  //   $request = Payment::first();
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
-  public function store(Request $request)
-  {
-    dd($request->all());
-    // Payment::create([
-    //   'id' => $request['id'],
-    //   'amount' => $request['amount'],
-    //   'invoice_id' => $request['invoiceId']
-    // ]);
+  //   return view('payment', compact('request'));
+  // }
 
-    // // dd($request);
-    // $response = [
-    //   'id' => $request->id,
-    //   'amount' => $request->amount,
-    //   'invoice_id' => $request->invoiceId
-    // ];
+  // /**
+  //  * Store a newly created resource in storage.
+  //  *
+  //  * @param  \Illuminate\Http\Request  $request
+  //  * @return \Illuminate\Http\Response
+  //  */
+  // public function store(Request $request)
+  // {
+  //   dd($request->all());
+  //   // Payment::create([
+  //   //   'id' => $request['id'],
+  //   //   'amount' => $request['amount'],
+  //   //   'invoice_id' => $request['invoiceId']
+  //   // ]);
 
-    // return $response;
-  }
+  //   // // dd($request);
+  //   // $response = [
+  //   //   'id' => $request->id,
+  //   //   'amount' => $request->amount,
+  //   //   'invoice_id' => $request->invoiceId
+  //   // ];
+
+  //   // return $response;
+  // }
 }
