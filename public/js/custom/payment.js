@@ -31,12 +31,12 @@ $(document).on("click", "#confirm-order", function (e) {
 
     // for token
     token_body: {
-      _token: $('meta[name="csrf-token"]').attr("content"),
+      csrf_token: $('meta[name="csrf-token"]').attr("content"),
       grant_type: "client_credentials",
       scope: "payment",
       client_id: "test",
       client_secret: "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG",
-      invoiceID: "672314", // must be changed at each request
+      invoiceID: "613467574", // must be changed at each request
       amount: $("#total").val(),
       currency: "KZT",
       terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
@@ -83,7 +83,7 @@ function processPayment(data) {
 // creating an object for payment
 var createPaymentObject = function (auth, invoiceId, amount) {
   var paymentObject = {
-    _token: $('meta[name="csrf-token"]').attr("content"),
+    csrf_token: $('meta[name="csrf-token"]').attr("content"),
     invoiceId: invoiceId,
     backLink: getPostLink("payments/check"),
     failureBackLink: "",
