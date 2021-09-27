@@ -8,44 +8,22 @@ use Illuminate\Http\Request;
 class PaymentController extends Controller
 {
 
+  public function success()
+  {
+    $payment = Payment::first();
+
+    return view('payment', compact('payment'));
+  }
+
   public function payment(Request $request)
   {
-    dd($request);
+
+    $response = json_decode($request);
+
+    Payment::create([
+      'id' => $response->id,
+      'amount' => $response->amount,
+      'invoice_id' => $response->invoiceId
+    ]);
   }
-  // /**
-  //  * Display a listing of the resource.
-  //  *
-  //  * @return \Illuminate\Http\Response
-  //  */
-  // public function index()
-  // {
-  //   $request = Payment::first();
-
-  //   return view('payment', compact('request'));
-  // }
-
-  // /**
-  //  * Store a newly created resource in storage.
-  //  *
-  //  * @param  \Illuminate\Http\Request  $request
-  //  * @return \Illuminate\Http\Response
-  //  */
-  // public function store(Request $request)
-  // {
-  //   dd($request->all());
-  //   // Payment::create([
-  //   //   'id' => $request['id'],
-  //   //   'amount' => $request['amount'],
-  //   //   'invoice_id' => $request['invoiceId']
-  //   // ]);
-
-  //   // // dd($request);
-  //   // $response = [
-  //   //   'id' => $request->id,
-  //   //   'amount' => $request->amount,
-  //   //   'invoice_id' => $request->invoiceId
-  //   // ];
-
-  //   // return $response;
-  // }
 }

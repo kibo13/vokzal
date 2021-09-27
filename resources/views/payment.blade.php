@@ -8,7 +8,7 @@
 
 @section('section-content')
 <div class="container">
-  {{ $request }}
+  {{ $payment }}
   <input type="text" style="border: 1px dashed red; display: flex; width: 100%">
   <input type="text" style="border: 1px dashed red; display: flex; width: 100%">
 </div>

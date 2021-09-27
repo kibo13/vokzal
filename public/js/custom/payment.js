@@ -36,7 +36,7 @@ $(document).on("click", "#confirm-order", function (e) {
       scope: "payment",
       client_id: "test",
       client_secret: "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG",
-      invoiceID: "613467574", // must be changed at each request
+      invoiceID: "3567723", // must be changed at each request
       amount: $("#total").val(),
       currency: "KZT",
       terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
@@ -85,7 +85,7 @@ var createPaymentObject = function (auth, invoiceId, amount) {
   var paymentObject = {
     csrf_token: $('meta[name="csrf-token"]').attr("content"),
     invoiceId: invoiceId,
-    backLink: getPostLink("payment"),
+    backLink: getPostLink("success"),
     failureBackLink: "",
     postLink: getPostLink("payment"),
     failurePostLink: "",
