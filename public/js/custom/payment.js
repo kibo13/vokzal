@@ -65,6 +65,7 @@ $(document).on("click", "#confirm-order", function (e) {
 function processPayment(data) {
   $.ajax({
     type: "POST",
+    headers: $('meta[name="csrf-token"]').attr("content"),
     url: TEST_TOKEN,
     data: data.token_body,
 
