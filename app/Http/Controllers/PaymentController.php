@@ -61,6 +61,8 @@ class PaymentController extends Controller
     // response from bank
     $response = json_decode($request);
 
+    dd($response);
+
     return $response;
 
     // session
