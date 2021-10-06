@@ -89,7 +89,6 @@ Route::group(
     Route::post('/payment', [PaymentController::class, 'payment']);
     Route::get('/payment/test', [PaymentController::class, 'requestTokenAuth']);
 
-
     Auth::routes([
       'reset' => false,
       'confirm' => false,

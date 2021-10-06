@@ -14,15 +14,17 @@ class PaymentController extends Controller
     // token url
     $url = config('constants.test');
 
-    $request = Http::withToken('token')->post(
+    // dd($url['url']);
+
+    $request = Http::accept('application/json')->post(
       $url['url'],
       [
         'grant_type'      => "client_credentials",
         'scope'           => "payment",
         'client_id'       => $url['client_id'],
         'client_secret'   => $url['client_secret'],
-        'invoiceID'       => "209319741",
-        'amount'          => 100,
+        'invoiceID'       => $request->invoiceID,  // $request->invoiceId
+        'amount'          => $request->amount,          // $request->amount
         'currency'        => "KZT",
         'terminal'        => $url['terminal_id'],
         'postLink'        => "",
@@ -32,7 +34,7 @@ class PaymentController extends Controller
 
     $response = json_decode($request);
 
-    dd($request);
+    dd($response);
   }
 
   public function success()

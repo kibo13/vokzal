@@ -53,7 +53,18 @@ $(document).on("click", "#confirm-order", function (e) {
 
   // payment is card
   if (data.pay == 1) {
-    processPayment(data);
+    // processPayment(data);
+    $.ajax({
+      type: "POST",
+      url: getPostLink("payment/test"),
+      headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+      },
+      data: {
+        invoiceID: "4678234", // must be changed at each request
+        amount: $("#total").val(),
+      },
+    });
   }
   // payment is cash
   else {

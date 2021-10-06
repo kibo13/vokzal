@@ -12,8 +12,6 @@ class VerifyCsrfToken extends Middleware
    * @var array
    */
   protected $except = [
-    'https://vokzal.test/ru/payment/',
-    'https://vokzal.softdeco.kz/ru/payment/',
-    'https://www.baikonur-gupzhkh.ru/ru/payment/',
+    //
   ];
 }
