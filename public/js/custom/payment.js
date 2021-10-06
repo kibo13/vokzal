@@ -55,11 +55,11 @@ $(document).on("click", "#confirm-order", function (e) {
   if (data.pay == 1) {
     // processPayment(data);
     $.ajax({
-      type: "POST",
-      url: getPostLink("payment/test"),
-      headers: {
-        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-      },
+      type: "GET",
+      url: "http://vokzal.test/payment/test",
+      // headers: {
+      //   csrf_token: $('meta[name="csrf-token"]').attr("content"),
+      // },
       data: {
         invoiceID: "4678234", // must be changed at each request
         amount: $("#total").val(),

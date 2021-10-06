@@ -84,10 +84,7 @@ Route::group(
     Route::post('carts/step_2/{order}', [CartController::class, 'step_2'])->name('carts.step_2');
     Route::get('carts/step_3/{order}', [CartController::class, 'step_3'])->name('carts.step_3');
 
-    // payment
-    Route::get('/success', [PaymentController::class, 'success']);
-    Route::post('/payment', [PaymentController::class, 'payment']);
-    Route::get('/payment/test', [PaymentController::class, 'requestTokenAuth']);
+
 
     Auth::routes([
       'reset' => false,
@@ -148,3 +145,8 @@ Route::group(
 );
 
 Route::get('/{locale}', [HomeController::class, 'changeLocale'])->name('locale');
+
+// payment
+Route::get('/success', [PaymentController::class, 'success']);
+Route::post('/payment', [PaymentController::class, 'payment']);
+Route::get('/payment/test', [PaymentController::class, 'requestTokenAuth']);

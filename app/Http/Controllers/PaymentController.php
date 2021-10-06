@@ -21,12 +21,12 @@ class PaymentController extends Controller
       [
         'grant_type'      => "client_credentials",
         'scope'           => "payment",
-        'client_id'       => $url['client_id'],
-        'client_secret'   => $url['client_secret'],
-        'invoiceID'       => $request->invoiceID,  // $request->invoiceId
-        'amount'          => $request->amount,          // $request->amount
+        'client_id'       => 'test',
+        'client_secret'   => 'yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG',
+        'invoiceID'       => '1231312311',  // $request->invoiceId
+        'amount'          => 100,          // $request->amount
         'currency'        => "KZT",
-        'terminal'        => $url['terminal_id'],
+        'terminal'        => '67e34d63-102f-4bd1-898e-370781d0074d',
         'postLink'        => "",
         'failurePostLink' => "",
       ]
