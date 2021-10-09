@@ -12,21 +12,19 @@ class PaymentController extends Controller
   public function requestTokenAuth(Request $request)
   {
     // token url
-    $url = config('constants.test');
+    $token = config('constants.test');
 
-    // dd($url['url']);
-
-    $request = Http::accept('application/json')->post(
-      $url['url'],
+    $request = Http::asForm()->post(
+      $token['url'],
       [
         'grant_type'      => "client_credentials",
         'scope'           => "payment",
-        'client_id'       => 'test',
-        'client_secret'   => 'yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG',
-        'invoiceID'       => '1231312311',  // $request->invoiceId
-        'amount'          => 100,          // $request->amount
+        'client_id'       => $token['client_id'],
+        'client_secret'   => $token['client_secret'],
+        'invoiceID'       => $request->invoice_id,
+        'amount'          => $request->amount,
         'currency'        => "KZT",
-        'terminal'        => '67e34d63-102f-4bd1-898e-370781d0074d',
+        'terminal'        => $token['terminal_id'],
         'postLink'        => "",
         'failurePostLink' => "",
       ]
@@ -34,38 +32,25 @@ class PaymentController extends Controller
 
     $response = json_decode($request);
 
-    dd($response);
-  }
-
-  public function success()
-  {
-    //
+    if ($response) {
+      return $response;
+    } else {
+      return false;
+      // error
+    }
   }
 
   public function payment(Request $request)
   {
+    $response = json_decode($request);
 
+    return $response;
+  }
 
+  public function success()
+  {
+    $response = Http::get('http://vokzal.test/ru/payment');
 
-    // // response from bank
-    // $response = json_decode($request);
-
-    // dd($response);
-
-    // return $response;
-
-    // // session
-    // $transaction = session('transaction');
-
-    // // put response to session
-    // if (is_null($transaction)) {
-    //   Payment::create([
-    //     'id' => $response->id,
-    //     'amount' => $response->amount,
-    //     'invoice_id' => $response->invoiceId
-    //   ]);
-
-    //   session(['transaction' => $response]);
-    // }
+    dd($response);
   }
 }

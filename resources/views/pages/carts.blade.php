@@ -163,7 +163,9 @@
                   <input type="radio" class="payment-toggle" id="pay-cash" name="pay" value="2">
                   <p>{{ __('main.cash') }}</p>
                 </div>
+                <!-- способ оплаты -->
                 <input type="hidden" id="pay-output">
+                <!-- сумма заказа -->
                 <input type="hidden" id="total" value="{{ $order->getFullPrice() }}">
               </div>
             </div>
