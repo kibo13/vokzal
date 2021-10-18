@@ -59,40 +59,40 @@
           </div>
 
           <!-- /.note_ru -->
-          <h6 class="bk-form__title">{{ __('main.note') }} [RU]</h6>
+          {{-- <h6 class="bk-form__title">{{ __('main.note') }} [RU]</h6>
           <div class="bk-form__field-full mb-2">
             <textarea class="form-control tiny-mce" name="note_ru" placeholder="Введите примечание">{{ old('note_ru', isset($child) ? $child->note_ru : null) }}</textarea>
-          </div>
+          </div> --}}
 
           <!-- /.note_en -->
-          <h6 class="bk-form__title">{{ __('main.note') }} [EN]</h6>
+          {{-- <h6 class="bk-form__title">{{ __('main.note') }} [EN]</h6>
           <div class="bk-form__field-full mb-2">
             <textarea class="form-control tiny-mce" name="note_en" placeholder="Enter a note">{{ old('note_en', isset($child) ? $child->note_en : null) }}</textarea>
-          </div>
+          </div> --}}
 
           <!-- /.note_kk -->
-          <h6 class="bk-form__title">{{ __('main.note') }} [KK]</h6>
+          {{-- <h6 class="bk-form__title">{{ __('main.note') }} [KK]</h6>
           <div class="bk-form__field-full mb-2">
             <textarea class="form-control tiny-mce" name="note_kk" placeholder="Жазбаны енгізіңіз">{{ old('note_kk', isset($child) ? $child->note_kk : null) }}</textarea>
-          </div>
+          </div> --}}
 
           <!-- /.tip_ru -->
-          <h6 class="bk-form__title">{{ __('main.comment') }} [RU]</h6>
+          {{-- <h6 class="bk-form__title">{{ __('main.comment') }} [RU]</h6>
           <div class="bk-form__field-full mb-2">
             <textarea class="form-control tiny-mce" name="tip_ru" placeholder="Введите комментарий">{{ old('tip_ru', isset($child) ? $child->tip_ru : null) }}</textarea>
-          </div>
+          </div> --}}
 
           <!-- /.tip_en -->
-          <h6 class="bk-form__title">{{ __('main.comment') }} [EN]</h6>
+          {{-- <h6 class="bk-form__title">{{ __('main.comment') }} [EN]</h6>
           <div class="bk-form__field-full mb-2">
             <textarea class="form-control tiny-mce" name="tip_en" placeholder="Enter a comment">{{ old('tip_en', isset($child) ? $child->tip_en : null) }}</textarea>
-          </div>
+          </div> --}}
 
           <!-- /.tip_kk -->
-          <h6 class="bk-form__title">{{ __('main.comment') }} [KK]</h6>
+          {{-- <h6 class="bk-form__title">{{ __('main.comment') }} [KK]</h6>
           <div class="bk-form__field-full mb-2">
             <textarea class="form-control tiny-mce" name="tip_kk" placeholder="Пікіріңізді енгізіңіз">{{ old('tip_kk', isset($child) ? $child->tip_kk : null) }}</textarea>
-          </div>
+          </div> --}}
 
           <!-- /.image -->
           <h6 class="bk-form__title">{{ __('main.image') }}</h6>

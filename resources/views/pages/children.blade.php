@@ -19,11 +19,11 @@
 @section('section-content')
 <div class="children__section section">
   <div class="relative-container">
-    <div class="absolute__line--block">
+    {{-- <div class="absolute__line--block">
       <div class="line-left"></div>
       <div class="line-center"></div>
       <div class="line-right"></div>
-    </div>
+    </div> --}}
     <div class="container-md">
       <div class="row gy-3">
         <div class="col-12">
@@ -64,9 +64,10 @@
         <div class="col-12 col-sm-6 col-lg-3">
           <div class="children__item d-fle flex-column align-items-center">
             <div class="children__item--block">
-              <div class="children__item--image">
-                <img src="{{ asset('images/' . $feature->image) }}" alt="" />
-              </div>
+              <img
+                class="children__item--img"
+                src="{{ asset('images/' . $feature->image) }}"
+                alt="" />
             </div>
             <div class="children__item--content mt-4">
               <div class="children__item--title">
@@ -94,7 +95,7 @@
       </div>
     </div>
   </div>
-  <div class="container-md mt-5">
+  {{-- <div class="container-md mt-5">
     <div class="row mb-4">
       <div class="col-12">
         <div class="children-text__bottom">
@@ -132,7 +133,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 </div>
 @endsection
 

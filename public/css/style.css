@@ -1928,9 +1928,9 @@ h6 {
   background-position: center top !important;
   background-size: cover !important;
 }
-.children__section .relative-container {
+/* .children__section .relative-container {
   padding-bottom: 60px;
-}
+} */
 .children-title {
   font-size: 24px;
   line-height: 33px;
@@ -2011,9 +2011,25 @@ h6 {
   text-align: center;
   color: #989898;
 }
-.children__item--image img {
-  width: 65px;
-  height: 65px;
+.children__item--block {
+  display: flex;
+  overflow: hidden;
+}
+.children__item--block:hover {
+  overflow: visible;
+}
+.children__item--block:hover .children__item--img {
+  transform: scale(1.5);
+  border-radius: 0.25rem;
+  box-shadow: 0 0 4px;
+}
+.children__item--img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease-in-out;
+  z-index: 5;
+  cursor: pointer;
 }
 .children-text__bottom {
   font-family: Noto Sans;
