@@ -1710,6 +1710,9 @@ h6 {
   align-items: flex-start;
   height: 364px;
 }
+.team__image img {
+  object-fit: contain !important;
+}
 .team__item {
   min-width: 186px;
   max-width: 324px;
