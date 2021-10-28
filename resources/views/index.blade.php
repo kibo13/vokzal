@@ -59,6 +59,17 @@
           {{ getCategory('continents')->name_kk }}
         @endif
       </div>
+
+      <div style="margin-bottom: 50px;">
+      @if(getCurrentLang() === 'ru')
+        {!! $about->desc_ru !!}
+      @elseif(getCurrentLang() === 'en')
+        {!! $about->desc_en !!}
+      @else
+        {!! $about->desc_kk !!}
+      @endif
+      </div>
+
       <div class="row g-2 g-sm-4">
         @foreach ($continents as $continent)
         <a class="col-sm-6 col-12 taste__block" href="{{ route('deliveries.menu', $continent->id) }}">

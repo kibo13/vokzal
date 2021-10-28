@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use App\Models\Continent;
 use Illuminate\Http\Request;
 use App\Models\Home;
@@ -23,7 +24,10 @@ class HomeController extends Controller
     // continents
     $continents = Continent::where('id', '!=', 5)->get();
 
-    return view('index', compact('isGallery', 'category', 'continents'));
+    // about
+    $about = About::first();
+
+    return view('index', compact('isGallery', 'category', 'continents', 'about'));
   }
 
   // admin.home
