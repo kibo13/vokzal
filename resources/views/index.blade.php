@@ -9,17 +9,26 @@
 @section('section-title')
 <div class="first__screen">
   <div class="container-md">
-    @if(getCurrentLang() === 'ru')
-    {!! $category->intro_ru !!}
-    @elseif(getCurrentLang() === 'en')
-    {!! $category->intro_en !!}
-    @else
-    {!! $category->intro_kk !!}
-    @endif
+    <div class="main__title">
+      <span class="">VOKZAL</span>&nbsp;<br />gastrobar
+    </div>
+    <div class="main__text">
+      <div class="main__text--inner mb-4">
+          @if(getCurrentLang() === 'ru')
+          {!! $category->intro_ru !!}
+          @elseif(getCurrentLang() === 'en')
+          {!! $category->intro_en !!}
+          @else
+          {!! $category->intro_kk !!}
+          @endif
+      </div>
+    </div>
+
     <a href="{{ route('deliveries') }}" class="main__button button">
       <span>{{ __('main.food_delivery') }}</span>
       <img src="{{ asset('icons/delivery-truck.svg') }}" alt="" />
     </a>
+
     <div class="mobile__firstScreen--elements">
       <div class="header__location">
         <a href="#">
@@ -60,14 +69,14 @@
         @endif
       </div>
 
-      <div style="margin-bottom: 50px;">
-      @if(getCurrentLang() === 'ru')
-        {!! $about->desc_ru !!}
-      @elseif(getCurrentLang() === 'en')
-        {!! $about->desc_en !!}
-      @else
-        {!! $about->desc_kk !!}
-      @endif
+      <div class="bars-gallery__text" style="margin-bottom: 50px;">
+        @if(getCurrentLang() === 'ru')
+          {!! $about->desc_ru !!}
+        @elseif(getCurrentLang() === 'en')
+          {!! $about->desc_en !!}
+        @else
+          {!! $about->desc_kk !!}
+        @endif
       </div>
 
       <div class="row g-2 g-sm-4">
