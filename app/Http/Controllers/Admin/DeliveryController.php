@@ -28,6 +28,9 @@ class DeliveryController extends Controller
     // continent
     $continent = Continent::where('id', 3)->first();
 
+    // assortments
+    $assortments = getAssortmentsByContinent(3);
+
     // menu
     $menu = Dish::where('continent_id', 3)->get();
 
@@ -45,6 +48,7 @@ class DeliveryController extends Controller
         'category',
         'delivery',
         'continent',
+        'assortments',
         'menu',
         'order'
       )
@@ -69,6 +73,9 @@ class DeliveryController extends Controller
     // continent
     $continent = Continent::where('id', $id)->first();
 
+    // assortments
+    $assortments = getAssortmentsByContinent($id);
+
     // menu
     $menu = Dish::where('continent_id', $id)->get();
 
@@ -88,6 +95,7 @@ class DeliveryController extends Controller
         'category',
         'delivery',
         'continent',
+        'assortments',
         'menu',
         'is_age',
         'order'

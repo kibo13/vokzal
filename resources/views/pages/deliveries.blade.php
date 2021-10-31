@@ -101,18 +101,18 @@
 
 <!-- /.menu -->
 <div class="georgian__kitchen--section section">
-  @foreach ($continent->assortments as $assortment)
+  @foreach ($assortments as $assortment)
     @if($menu->where('assortment_id', $assortment->id)->count())
     <!-- /.title -->
     <div class="container-md">
       <div class="georgian__kitchen--inner">
         <div class="main__section--title">
           @if(getCurrentLang() === 'ru')
-          {{ $continent->name_ru }} - {{ $assortment->name_ru }}
+          {{ $assortment->continents_ru }} - {{ $assortment->assortment_ru }}
           @elseif(getCurrentLang() === 'en')
-          {{ $continent->name_en }} - {{ $assortment->name_en }}
+          {{ $assortment->continents_en }} - {{ $assortment->assortment_en }}
           @else
-          {{ $continent->name_kk }} - {{ $assortment->name_kk }}
+          {{ $assortment->continents_kk }} - {{ $assortment->assortment_kk }}
           @endif
         </div>
       </div>
