@@ -1027,6 +1027,21 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  height: auto;
+  min-height: 80px;
+}
+.kitchen-image {
+  width: 100%;
+  height: 150px;
+}
+.kitchen-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.georgian__kitchen--text {
   height: 120px;
 }
 .kitchen-price {
@@ -1048,7 +1063,6 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 180px;
 }
 .georgian__kitchen--section .container-md {
   padding-top: 5rem;
@@ -1729,6 +1743,9 @@ h6 {
   .team__item {
     max-width: 280px;
   }
+  .georgian__kitchen--item {
+    padding: 10px 20px !important;
+  }
 }
 @media only screen and (max-width: 600px) {
   .team-container-item {
@@ -1796,7 +1813,6 @@ h6 {
 
 .contacts__screen {
   color: #fff !important;
-  /* background: url(../img/contacts-bg.jpg); */
   background-repeat: no-repeat !important;
   background-position: center top !important;
   background-size: cover !important;
@@ -1860,7 +1876,6 @@ h6 {
 
 .study__screen {
   color: #fff !important;
-  /* background: url(../img/study-bg.jpg); */
   background-repeat: no-repeat !important;
   background-position: center top !important;
   background-size: cover !important;
@@ -1923,14 +1938,10 @@ h6 {
 
 .children__screen {
   color: #fff !important;
-  /* background: url(../img/children-bg.jpg); */
   background-repeat: no-repeat !important;
   background-position: center top !important;
   background-size: cover !important;
 }
-/* .children__section .relative-container {
-  padding-bottom: 60px;
-} */
 .children-title {
   font-size: 24px;
   line-height: 33px;
