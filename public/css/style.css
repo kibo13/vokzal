@@ -1030,7 +1030,7 @@ h6 {
   margin-top: 20px;
   margin-bottom: 10px;
   height: auto;
-  min-height: 80px;
+  min-height: 50px;
 }
 .kitchen-image {
   width: 100%;
@@ -1042,7 +1042,7 @@ h6 {
   object-fit: contain;
 }
 .georgian__kitchen--text {
-  height: 120px;
+  height: 60px;
 }
 .kitchen-price {
   font-size: 24px;
@@ -1745,6 +1745,9 @@ h6 {
   }
   .georgian__kitchen--item {
     padding: 10px 20px !important;
+  }
+  .georgian__kitchen--text {
+    height: 100px;
   }
 }
 @media only screen and (max-width: 600px) {
