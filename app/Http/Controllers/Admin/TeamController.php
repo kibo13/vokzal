@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Position;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -42,7 +43,10 @@ class TeamController extends Controller
     // category
     $category = getCategory(config('constants.slug.teams'));
 
-    return view('admin.pages.teams.form', compact('title', 'category'));
+    // positions
+    $positions = Position::get();
+
+    return view('admin.pages.teams.form', compact('title', 'category', 'positions'));
   }
 
   public function store(Request $request)
@@ -64,7 +68,10 @@ class TeamController extends Controller
     // title
     $title = getCategoryTitle(config('constants.slug.teams'));
 
-    return view('admin.pages.teams.form', compact('team', 'title'));
+    // positions
+    $positions = Position::get();
+
+    return view('admin.pages.teams.form', compact('team', 'title', 'positions'));
   }
 
   public function update(Request $request, Team $team)

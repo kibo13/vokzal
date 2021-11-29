@@ -38,7 +38,13 @@
             @endif
           </div>
           <div class="team-prof">
-            {{ __('main.t_chef') }}
+            @if(getCurrentLang() === 'ru')
+            {{ $team->position->name_ru }}
+            @elseif(getCurrentLang() === 'en')
+            {{ $team->position->name_en }}
+            @else
+            {{ $team->position->name_kk }}
+            @endif
           </div>
           <div class="team-desc">
             @if(getCurrentLang() === 'ru')

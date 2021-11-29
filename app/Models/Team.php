@@ -11,6 +11,7 @@ class Team extends Model
 
   protected $fillable = [
     'category_id',
+    'position_id',
     'name_ru',
     'name_kk',
     'name_en',
@@ -24,5 +25,10 @@ class Team extends Model
   public function category()
   {
     return $this->belongsTo(Category::class);
+  }
+
+  public function position()
+  {
+    return $this->belongsTo(Position::class);
   }
 }

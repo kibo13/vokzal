@@ -10,6 +10,9 @@
     <a class="btn btn-outline-primary" href="{{ route('teams.create') }}" >
       {{ __('main.create') }}
     </a>
+    <a class="btn btn-outline-secondary" href="{{ route('teams.positions.index') }}">
+      {{ __('main.positions') }}
+    </a>
   </div>
 
   <table
@@ -18,8 +21,9 @@
     <thead class="thead-light">
       <tr>
         <th scope="col">#</th>
-        <th scope="col" class="w-25">{{ __('main.t_chef') }}</th>
-        <th scope="col" class="w-75">{{ __('main.t_desc') }}</th>
+        <th scope="col" class="w-25">{{ __('main.worker') }}</th>
+        <th scope="col" class="w-25">{{ __('main.position') }}</th>
+        <th scope="col" class="w-50">{{ __('main.t_desc') }}</th>
         <th scope="col" class="no-sort">{{ __('main.t_action') }}</th></th>
       </tr>
     </thead>
@@ -34,6 +38,15 @@
           {{ $team->name_en }}
           @else
           {{ $team->name_kk }}
+          @endif
+        </td>
+        <td>
+          @if(getCurrentLang() === 'ru')
+          {{ $team->position->name_ru }}
+          @elseif(getCurrentLang() === 'en')
+          {{ $team->position->name_en }}
+          @else
+          {{ $team->position->name_kk }}
           @endif
         </td>
         <td>

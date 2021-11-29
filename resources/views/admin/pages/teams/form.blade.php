@@ -39,8 +39,33 @@
             value="{{ isset($team) ? $team->category_id : $category->id }}"
           >
 
+          <!-- /.position_id -->
+          <h6 class="bk-form__title">{{ __('main.positions') }}</h6>
+          <div class="bk-form__field-300 mb-2">
+            <select class="form-control" name="position_id">
+              <option disabled selected>{{ __('main.select_record') }}</option>
+              @foreach($positions as $position)
+              <option
+                value="{{ $position->id }}"
+                @isset($team)
+                  @if($team->position_id == $position->id)
+                    selected
+                  @endif
+                @endisset>
+                @if(getCurrentLang() === 'ru')
+                {{ $position->name_ru }}
+                @elseif(getCurrentLang() === 'en')
+                {{ $position->name_en }}
+                @else
+                {{ $position->name_kk }}
+                @endif
+              </option>
+              @endforeach
+            </select>
+          </div>
+
           <!-- /.name_ru -->
-          <h6 class="bk-form__title">{{ __('main.t_chef') }} [RU]</h6>
+          <h6 class="bk-form__title">{{ __('main.worker') }} [RU]</h6>
           <div class="bk-form__field-300 mb-2">
             <input
               class="form-control"
@@ -53,7 +78,7 @@
           </div>
 
           <!-- /.name_en -->
-          <h6 class="bk-form__title">{{ __('main.t_chef') }} [EN]</h6>
+          <h6 class="bk-form__title">{{ __('main.worker') }} [EN]</h6>
           <div class="bk-form__field-300 mb-2">
             <input
               class="form-control"
@@ -66,7 +91,7 @@
           </div>
 
           <!-- /.name_kk -->
-          <h6 class="bk-form__title">{{ __('main.t_chef') }} [KK]</h6>
+          <h6 class="bk-form__title">{{ __('main.worker') }} [KK]</h6>
           <div class="bk-form__field-300 mb-2">
             <input
               class="form-control"
