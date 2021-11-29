@@ -14,6 +14,10 @@ return [
   'bar'               => 'Bar',
   'cabins'            => 'Cabins',
   'config'            => 'Options',
+  'position'          => 'Position',
+  'positions'         => 'Positions',
+  'worker'            => 'Worker',
+  'select_record'     => 'Select record',
 
   // sections
   'home'              => 'Home',

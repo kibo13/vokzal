@@ -18,6 +18,10 @@ return [
   'bar'               => 'Бар',
   'cabins'            => 'Кабины',
   'config'            => 'Настройки',
+  'position'          => 'Позиция',
+  'positions'         => 'Позиции',
+  'worker'            => 'Сотрудник',
+  'select_record'     => 'Выбрать запись',
 
   // sections
   'home'              => 'Главная',

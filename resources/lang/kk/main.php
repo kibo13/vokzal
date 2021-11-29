@@ -18,6 +18,10 @@ return [
   'bar'               => 'Бар',
   'cabins'            => 'Кабиналар',
   'config'            => 'Параметрлер',
+  'position'          => 'Мамандық',
+  'positions'         => 'Мамандықтар',
+  'worker'            => 'Қызметкер',
+  'select_record'     => 'Жазбаны таңдаңыз',
 
   // sections
   'home'              => 'Басты',
