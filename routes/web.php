@@ -45,6 +45,7 @@ use App\Http\Controllers\Admin\NewsController;
 
 // options
 use App\Http\Controllers\Admin\OptionController;
+use App\Http\Controllers\Admin\PositionController;
 
 // profile
 use App\Http\Controllers\Admin\UserController;
@@ -122,6 +123,7 @@ Route::group(
       Route::resource('/features', FeatureController::class, ['as' => 'children']);
 
       // menu
+      Route::resource('/positions', PositionController::class, ['as' => 'teams']);
       Route::resource('/assortments', AssortmentController::class, ['as' => 'continents']);
       Route::resource('/dishes', DishController::class, ['as' => 'continents']);
       Route::get('/dishes/{continent}/create', [DishController::class, 'create'])->name('continents.dishes.create');

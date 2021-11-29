@@ -6,8 +6,8 @@ $(document).ready(function () {
     let url = $(location).attr("pathname");
 
     // cheking
-    // console.log(data_id);
-    // console.log(url);
+    console.log(data_id);
+    console.log(url);
 
     switch (data_tname) {
       case "category":
@@ -56,6 +56,10 @@ $(document).ready(function () {
 
       case "dish":
         $("#bk-delete-form").attr("action", `${url}/destroy/${data_id}`);
+        break;
+
+      case "position":
+        $("#bk-delete-form").attr("action", `${url}/${data_id}`);
         break;
 
       case "order":
