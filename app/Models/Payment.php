@@ -11,7 +11,21 @@ class Payment extends Model
 
   protected $fillable = [
     'code',
-    'invoice_id',
-    'amount'
+    'amount',
+    'currency',
+    'terminal',
+    'account_id',
+    'description',
+    'email',
+    'phone',
+    'ip_address',
+    'ip_country',
+    'ip_city',
+    'ip_region',
+    'ip_district',
+    'card_id',
+    'status',
+    'reason',
+    'reason_code',
   ];
 }

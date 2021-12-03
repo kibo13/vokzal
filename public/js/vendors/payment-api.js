@@ -122,6 +122,12 @@ var style = document.createElement("style");
         }
     }
 
+function p2p(params) { 
+        location.href = pageUrl + "?params=" + LZString.compressToEncodedURIComponent(encodeParams(params)) + '&isTransfer=true'; 
+    }
+
+halyk.p2p = p2p;
+
     halyk.pay = pay;
     halyk.showPaymentWidget = showPaymentWidget;
 

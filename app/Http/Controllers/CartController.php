@@ -143,11 +143,4 @@ class CartController extends Controller
 
     session()->forget('order_id');
   }
-
-  // payment
-  public function payment(Request $request)
-  {
-    // $response = Http::get('https://testepay.homebank.kz/api/payment/cryptopay')[$request];
-    // dd($response);
-  }
 }

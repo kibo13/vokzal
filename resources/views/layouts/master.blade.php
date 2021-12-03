@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- CSRF Token -->
-  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta id="post_token" name="csrf-token" content="{{ csrf_token() }}">
 
   <title>Vokzal - @yield('title')</title>
 
@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/media.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/fonts/font.css') }}" />
+  {{-- <link rel="stylesheet" href="{{ asset('css/fonts/font.css') }}" /> --}}
   <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/hamburger.css') }}">
   <link rel="stylesheet" href="{{ asset('css/slick.css') }}" />
@@ -90,6 +90,7 @@
   <script src="{{ asset('js/vendors/slick.min.js') }}"></script>
   <script src="{{ asset('js/vendors/imask.js') }}"></script>
   <script src="{{ asset('js/vendors/payment-api.js') }}"></script>
+  <script src="{{ asset('js/vendors/axios.min.js') }}"></script>
 
   <!-- General -->
   <script src="{{ asset('js/script.js') }}"></script>

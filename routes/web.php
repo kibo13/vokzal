@@ -86,9 +86,10 @@ Route::group(
     Route::get('carts/step_3/{order}', [CartController::class, 'step_3'])->name('carts.step_3');
 
     // payment
-    Route::get('/payment/token', [PaymentController::class, 'requestTokenAuth']);
-    Route::post('/payment', [PaymentController::class, 'payment']);
-    Route::get('/success', [PaymentController::class, 'success']);
+    Route::get('/token', [PaymentController::class, 'getTokenForPayment']);
+    Route::post('/success', [PaymentController::class, 'success']);
+    Route::post('/failure', [PaymentController::class, 'failure']);
+    Route::get('/test', [PaymentController::class, 'test']);
 
     Auth::routes([
       'reset' => false,

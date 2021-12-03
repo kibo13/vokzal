@@ -1,3 +1,10 @@
+// кнопка для оформления заказа
+const btnSubmit = document.getElementById("confirm-order");
+
+// поля
+const field_invoice = Math.floor(Math.random() * 100000000);
+const field_amount = $("#total").val();
+
 // способ оплаты
 $(document).on("change", ".payment-toggle", function (e) {
   $("#pay-output").val(this.value);
@@ -10,92 +17,44 @@ $(".payment-item").on("click", function (e) {
 });
 
 // оформление заказа
-$(document).on("click", "#confirm-order", function (e) {
-  let data = {
-    id: this.dataset.id,
-    pay: $("#pay-output").val(),
-    status: 1,
-    check: 0,
-    amount: $("#total").val(),
-    invoiceId: "62783248",
-  };
+btnSubmit.onclick = async function (e) {
+  var auth = await axios.get(
+    `/token/?order=${field_invoice}&amoun=${field_amount}`
+  );
 
-  // payment method is not selected selected
-  if (data.pay == "" || data.pay == null) {
-    alert("Необходимо выбрать способ оплаты");
-    return;
-  }
+  console.log(auth);
 
-  // payment is card
-  if (data.pay == 1) {
-    $.ajax({
-      url: getRouteName("payment/token"),
-      method: "GET",
-      data: {
-        amount: data.amount,
-        invoice_id: data.invoiceId,
-      },
-      success: (auth) => {
-        halyk.pay(createPaymentObject(auth, data.invoiceId, data.amount));
-      },
-    });
-  }
-  // payment is cash
-  else {
-    createOrder(data);
-  }
-});
+  halyk.pay(createPaymentObject(auth.data, field_invoice, field_amount));
+};
 
-// creating an object for payment
+// параметры для метода halyk.pay()
 var createPaymentObject = function (auth, invoiceId, amount) {
   var paymentObject = {
-    csrf_token: $('meta[name="csrf-token"]').attr("content"),
     invoiceId: invoiceId,
-    backLink: getRouteName("success"),
-    failureBackLink: "",
-    postLink: getRouteName("payment"),
-    failurePostLink: "",
+    backLink: getRouteName("test"),
+    failureBackLink: getRouteName("test"),
+    postLink: getRouteName("success"),
+    failurePostLink: getRouteName("failure"),
     language: "RU",
     description: "Оплата в интернет магазине",
-    accountId: "test",
+    accountId: "testuser1",
     terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
     amount: amount,
     currency: "KZT",
     phone: "77777777777",
-    email: "kimboris1310@gmail.com",
+    email: "example@example.com",
     cardSave: true,
   };
+
   paymentObject.auth = auth;
   return paymentObject;
 };
 
-// getRouteName
-function getRouteName(slug) {
+// получение полного пути
+function getRouteName(path) {
   let hostname = window.location.origin;
   let locale = "/" + $(".active__lang").data("locale");
-  let pathname = `/${slug}/`;
+  let pathname = `/${path}/`;
 
-  let postLink = hostname + locale + pathname;
-
-  return postLink;
-}
-
-// record information about the order in the database
-function createOrder(data) {
-  $.ajax({
-    url: `/carts/step_3/${data.id}`,
-    method: "GET",
-    headers: {
-      "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-    },
-    data: {
-      status: data.status,
-      pay: data.pay,
-      amount: data.amount,
-      check: data.check,
-    },
-    success: function (response) {
-      window.location.href = window.location.origin + "/deliveries";
-    },
-  });
+  return hostname + locale + pathname;
 }
