@@ -16,16 +16,14 @@ $(".payment-item").on("click", function (e) {
   $(this.parentNode).addClass("active-pay");
 });
 
-// оформление заказа
-btnSubmit.onclick = async function (e) {
-  var auth = await axios.get(
-    `/token/?order=${field_invoice}&amoun=${field_amount}`
-  );
-
-  console.log(auth);
+$(document).on("click", "#confirm-order", async function (e) {
+  var auth = await axios.post("/token", {
+    order: field_invoice,
+    amount: field_amount,
+  });
 
   halyk.pay(createPaymentObject(auth.data, field_invoice, field_amount));
-};
+});
 
 // параметры для метода halyk.pay()
 var createPaymentObject = function (auth, invoiceId, amount) {

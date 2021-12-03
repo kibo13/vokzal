@@ -86,7 +86,6 @@ Route::group(
     Route::get('carts/step_3/{order}', [CartController::class, 'step_3'])->name('carts.step_3');
 
     // payment
-    Route::get('/token', [PaymentController::class, 'getTokenForPayment']);
     Route::post('/success', [PaymentController::class, 'success']);
     Route::post('/failure', [PaymentController::class, 'failure']);
     Route::get('/test', [PaymentController::class, 'test']);
@@ -150,4 +149,8 @@ Route::group(
   }
 );
 
+// мультиязычность
 Route::get('/{locale}', [HomeController::class, 'changeLocale'])->name('locale');
+
+// получение токена для проведения оплаты
+Route::post('/token', [PaymentController::class, 'getTokenForPayment']);
