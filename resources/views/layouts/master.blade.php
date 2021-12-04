@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/media.css') }}" />
-  {{-- <link rel="stylesheet" href="{{ asset('css/fonts/font.css') }}" /> --}}
+  <link rel="stylesheet" href="{{ asset('css/fonts/font.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/hamburger.css') }}">
   <link rel="stylesheet" href="{{ asset('css/slick.css') }}" />

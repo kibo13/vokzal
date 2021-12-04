@@ -128,7 +128,13 @@ class CartController extends Controller
   // carts.step_3
   public function step_3(Request $request, Order $order)
   {
-    $order->code = getInvoiceId($order->id);
+    // mode = prod
+    // $order->code = $request->code;
+
+    // mode = test
+    $order->code = getInvoiceId($request->code);
+
+    // general
     $order->date_in = Carbon::now()->addHour(6)->format('Y-m-d');
     $order->time_in = Carbon::now()->addHour(6)->format('H:i');
     $order->status = $request->status;
@@ -137,10 +143,17 @@ class CartController extends Controller
     $order->check = $request->check;
     $order->save();
 
+    // поставить их email 
     Mail::to('kimboris1310@gmail.com')->send(
       new OrderFormed($order)
     );
 
-    session()->forget('order_id');
+    // session()->forget('order_id');
+
+    return $response = [
+      'method_pay' => $request->pay,
+      'invoice_id' => $request->code,
+      'amount' => $request->amount
+    ];
   }
 }

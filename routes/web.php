@@ -83,7 +83,6 @@ Route::group(
     Route::get('carts/destroy/{dish}', [CartController::class, 'destroy'])->name('carts.destroy');
     Route::post('carts/step_1/{order}', [CartController::class, 'step_1'])->name('carts.step_1');
     Route::post('carts/step_2/{order}', [CartController::class, 'step_2'])->name('carts.step_2');
-    Route::get('carts/step_3/{order}', [CartController::class, 'step_3'])->name('carts.step_3');
 
     // payment
     Route::get('/test', [PaymentController::class, 'test']);
@@ -156,3 +155,5 @@ Route::post('/token', [PaymentController::class, 'getTokenForPayment']);
 // роуты для получения ответа
 Route::post('/success', [PaymentController::class, 'success']);
 Route::post('/failure', [PaymentController::class, 'failure']);
+
+Route::post('carts/step_3/{order}', [CartController::class, 'step_3'])->name('carts.step_3');

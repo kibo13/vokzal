@@ -29,7 +29,6 @@ class AlterTablePayments extends Migration
       $table->string('status')->after('card_id');
       $table->string('reason')->after('status');
       $table->integer('reason_code')->after('reason');
-      $table->dropColumn('invoice_id');
     });
   }
 
@@ -41,7 +40,6 @@ class AlterTablePayments extends Migration
   public function down()
   {
     Schema::table('payments', function (Blueprint $table) {
-      $table->string('invoice_id');
       $table->dropColumn([
         'currency',
         'terminal',

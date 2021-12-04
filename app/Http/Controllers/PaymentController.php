@@ -46,6 +46,7 @@ class PaymentController extends Controller
   {
     Payment::create([
       'code'          => $request->id,
+      'invoice_id'    => $request->id,
       'amount'        => $request->amount,
       'currency'      => $request->currency,
       'terminal'      => $request->terminal,
@@ -69,6 +70,7 @@ class PaymentController extends Controller
   {
     Payment::create([
       'code'          => $request->id,
+      'invoice_id'    => $request->id,
       'amount'        => $request->amount,
       'currency'      => $request->currency,
       'terminal'      => $request->terminal,
