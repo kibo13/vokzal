@@ -143,12 +143,12 @@ class CartController extends Controller
     $order->check = $request->check;
     $order->save();
 
-    // поставить их email 
+    // поставить их email
     Mail::to('kimboris1310@gmail.com')->send(
       new OrderFormed($order)
     );
 
-    // session()->forget('order_id');
+    session()->forget('order_id');
 
     return $response = [
       'method_pay' => $request->pay,
