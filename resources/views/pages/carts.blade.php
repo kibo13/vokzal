@@ -154,14 +154,14 @@
                     @include('assets.icons.credit')
                   </label>
                   <input type="radio" class="payment-toggle" id="pay-card" name="pay" value="1">
-                  <p>{{ __('main.credit') }}</p>
+                  <p class="bk-text">{{ __('main.credit') }}</p>
                 </div>
                 <div class="form__payment--item position-relative">
                   <label class="payment-item" for="pay-cash">
                     @include('assets.icons.cash')
                   </label>
                   <input type="radio" class="payment-toggle" id="pay-cash" name="pay" value="2">
-                  <p>{{ __('main.cash') }}</p>
+                  <p class="bk-text">{{ __('main.cash') }}</p>
                 </div>
                 <!-- способ оплаты -->
                 <input type="hidden" id="pay-output">
@@ -174,6 +174,7 @@
               class="form__submit block-button"
               id="confirm-order"
               type="submit"
+              data-order="{{ getInvoiceId($order->id) }}"
               data-id="{{ $order->id }}"
               @if($order->step != 3)
               disabled="disabled"
