@@ -1,6 +1,3 @@
-// кнопка для оформления заказа
-const btnSubmit = document.getElementById("confirm-order");
-
 // поля
 const field_invoice = Math.floor(Math.random() * 100000000);
 const field_amount = $("#total").val();
@@ -16,6 +13,7 @@ $(".payment-item").on("click", function (e) {
   $(this.parentNode).addClass("active-pay");
 });
 
+// оформление заказа 
 $(document).on("click", "#confirm-order", async function (e) {
   var auth = await axios.post("/token", {
     order: field_invoice,
@@ -27,25 +25,25 @@ $(document).on("click", "#confirm-order", async function (e) {
 
 // параметры для метода halyk.pay()
 var createPaymentObject = function (auth, invoiceId, amount) {
-  var paymentObject = {
-    invoiceId: invoiceId,
-    backLink: getRouteName("test"),
-    failureBackLink: getRouteName("test"),
-    postLink: getRouteName("success"),
-    failurePostLink: getRouteName("failure"),
-    language: "RU",
-    description: "Оплата в интернет магазине",
-    accountId: "testuser1",
-    terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
-    amount: amount,
-    currency: "KZT",
-    phone: "77777777777",
-    email: "example@example.com",
-    cardSave: true,
-  };
+    var paymentObject = {
+        invoiceId: invoiceId,
+        backLink: getRouteName('test'),
+        failureBackLink: getRouteName('test'),
+        postLink: window.location.origin + "/success",
+        failurePostLink: window.location.origin + "/failure",
+        language: "RU",
+        description: "Оплата в интернет магазине",
+        accountId: "testuser1",
+        terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
+        amount: amount,
+        currency: "KZT",
+        phone: "77777777777",
+        email: "example@example.com",
+        cardSave: true,
+    };
 
-  paymentObject.auth = auth;
-  return paymentObject;
+    paymentObject.auth = auth;
+    return paymentObject;
 };
 
 // получение полного пути
