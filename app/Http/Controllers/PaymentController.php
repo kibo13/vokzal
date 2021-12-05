@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -35,17 +36,24 @@ class PaymentController extends Controller
     return json_decode($response);
   }
 
-  public function test()
+  public function index()
   {
-    $response = Payment::get();
+    // logs
+    $logs = Payment::get();
 
-    return view('test', compact('response'));
+    return view('admin.pages.logs.index', compact('logs'));
+  }
+
+  public function show(Payment $log)
+  {
+    return view('admin.pages.logs.form', compact('log'));
   }
 
   public function success(Request $request)
   {
-    Payment::create([
+    $payment = Payment::create([
       'code'          => $request->id,
+      'date_time'     => $request->dateTime,
       'invoice_id'    => $request->invoiceId,
       'amount'        => $request->amount,
       'currency'      => $request->currency,
@@ -64,12 +72,21 @@ class PaymentController extends Controller
       'reason'        => $request->reason,
       'reason_code'   => $request->reasonCode
     ]);
+
+    $order = Order::where('code', getInvoiceId($payment->invoice_id))->first();
+
+    if ($payment->reason_code == 0) {
+      $order->update([
+        'check' => 1
+      ]);
+    }
   }
 
   public function failure(Request $request)
   {
     Payment::create([
       'code'          => $request->id,
+      'date_time'     => $request->dateTime,
       'invoice_id'    => $request->invoiceId,
       'amount'        => $request->amount,
       'currency'      => $request->currency,
