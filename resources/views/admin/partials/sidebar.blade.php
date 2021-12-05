@@ -78,14 +78,14 @@
         </span>
       </a>
     </li>
-    <li @sbactive('news*')>
+    {{-- <li @sbactive('news*')>
       <a class="sidebar-list__link" href="{{ route('news.index') }}">
         @include('assets.icons.news')
         <span class="sidebar-tip">
           {{ __('main.news') }}
         </span>
       </a>
-    </li>
+    </li> --}}
     <li @sbactive('option*')>
       <a class="sidebar-list__link" href="{{ route('options.index') }}">
         @include('assets.icons.conf')
