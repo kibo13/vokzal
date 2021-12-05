@@ -84,9 +84,6 @@ Route::group(
     Route::post('carts/step_1/{order}', [CartController::class, 'step_1'])->name('carts.step_1');
     Route::post('carts/step_2/{order}', [CartController::class, 'step_2'])->name('carts.step_2');
 
-    // payment
-    Route::get('/test', [PaymentController::class, 'test']);
-
     Auth::routes([
       'reset' => false,
       'confirm' => false,
@@ -139,6 +136,10 @@ Route::group(
       // options
       Route::resource('/options', OptionController::class);
 
+      // logs
+      Route::get('/logs', [PaymentController::class, 'index'])->name('logs.index');
+      Route::get('/logs/{log}', [PaymentController::class, 'show'])->name('logs.show');
+
       // profile
       Route::get('/profile', [UserController::class, 'index'])->name('users.index');
       Route::put('/profile/{user}', [UserController::class, 'update'])->name('users.update');
@@ -156,4 +157,5 @@ Route::post('/token', [PaymentController::class, 'getTokenForPayment']);
 Route::post('/success', [PaymentController::class, 'success']);
 Route::post('/failure', [PaymentController::class, 'failure']);
 
+// оформление заказа на 3-м шаге
 Route::post('carts/step_3/{order}', [CartController::class, 'step_3'])->name('carts.step_3');

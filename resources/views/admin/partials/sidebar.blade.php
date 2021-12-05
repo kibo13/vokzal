@@ -86,6 +86,14 @@
         </span>
       </a>
     </li> --}}
+    <li @sbactive('log*')>
+      <a class="sidebar-list__link" href="{{ route('logs.index') }}">
+        @include('assets.icons.log')
+        <span class="sidebar-tip">
+          {{ __('main.log') }}
+        </span>
+      </a>
+    </li>
     <li @sbactive('option*')>
       <a class="sidebar-list__link" href="{{ route('options.index') }}">
         @include('assets.icons.conf')
