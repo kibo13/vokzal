@@ -29,6 +29,7 @@ class AlterTablePayments extends Migration
       $table->string('status')->after('card_id');
       $table->string('reason')->after('status');
       $table->integer('reason_code')->after('reason');
+      $table->string('date_time')->after('reason_code');
     });
   }
 
@@ -56,6 +57,7 @@ class AlterTablePayments extends Migration
         'status',
         'reason',
         'reason_code',
+        'date_time'
       ]);
     });
   }
