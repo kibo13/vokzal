@@ -5,7 +5,7 @@
 @section('content')
 <section id="order-form" class="section info-form">
   <h2 class="mb-3">
-    {{ __('main.order_more') }} #{{ $order->id }}
+    {{ __('main.order') }} №{{ $order->code }}
   </h2>
 
   <form class="bk-form" action="{{ route('orders.update', $order) }}" method="POST">
@@ -124,6 +124,12 @@
         <!-- /.status -->
         <h6 class="bk-form__title">{{ __('main.order_check') }}</h6>
         <div class="orders-control">
+        @if($order->pay == 1)
+          <p class="orders-text">
+            @if($order->check == 1) <span class="text-success">оплачено</span> @endif
+            @if($order->check == 0) <span class="text-danger">не оплачено</span> @endif
+          </p>
+        @else
           <input type="hidden" name="check" value="0">
           <input
               class="form-control orders-control__check"
@@ -133,7 +139,8 @@
               value="1"
               @if($order->check) checked @endif />
           <label class="orders-control__label" for="check">оплачено</label>
-        </div>
+        @endif
+      </div>
 
       </div>
     </div>
