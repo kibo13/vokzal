@@ -9,14 +9,23 @@ use Illuminate\Support\Facades\Http;
 
 class PaymentController extends Controller
 {
+  // ===============================================================
+  // TEST
+  // ===============================================================
 
-  // merchant
-  private $terminalID   = '67e34d63-102f-4bd1-898e-370781d0074d';
-  private $clientID     = 'test';
-  private $clientSecret = 'yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG';
+  // private $terminalID   = '67e34d63-102f-4bd1-898e-370781d0074d';
+  // private $clientID     = 'test';
+  // private $clientSecret = 'yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG';
+  // private $url          = 'https://testoauth.homebank.kz/epay2/oauth2/token';
 
-  // auth-token
-  private $url = 'https://testoauth.homebank.kz/epay2/oauth2/token';
+  // ===============================================================
+  // PROD
+  // ===============================================================
+
+  private $terminalID      = '97e570a2-6a46-45a6-a71d-e312d385db64';
+  private $clientID        = 'VOKZALGASTROBAR.KZ';
+  private $clientSecret    = 'hfFQP&2dq7QuqYMG';
+  private $url             = 'https://epay-oauth.homebank.kz/oauth2/token';
 
   public function getTokenForPayment(Request $request)
   {

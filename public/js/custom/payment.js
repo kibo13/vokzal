@@ -11,11 +11,11 @@ $(".payment-item").on("click", function (e) {
 
 // оформление заказа
 $(document).on("click", "#confirm-order", async function (e) {
-  // для prod
-  // const _INVOICE_ID = this.dataset.order;
+  // TEST
+  // const _INVOICE_ID = Math.floor(Math.random() * 100000000);
 
-  // для test
-  const _INVOICE_ID = Math.floor(Math.random() * 100000000);
+  // PROD
+  const _INVOICE_ID = this.dataset.order;
 
   // общие настройки полей
   const _ID = this.dataset.id;
@@ -68,12 +68,17 @@ var createPaymentObject = function (auth, invoiceId, amount) {
     language: "RU",
     description: "Оплата в ресторане VOKZAL GASTROBAR",
     accountId: "VOKZALGASTROBAR.KZ",
-    terminal: "67e34d63-102f-4bd1-898e-370781d0074d", // prod
     amount: amount,
     currency: "KZT",
     phone: $("#phone").val(),
     email: "example@example.com",
     cardSave: true,
+
+    // TEST
+    // terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
+
+    // PROD
+    terminal: "97e570a2-6a46-45a6-a71d-e312d385db64",
   };
 
   paymentObject.auth = auth;

@@ -86,10 +86,10 @@
   </div>
 
   <!-- Vendors -->
+  <script src="https://epay.homebank.kz/payform/payment-api.js"></script>
   <script src="{{ asset('js/vendors/jquery.min.js') }}"></script>
   <script src="{{ asset('js/vendors/slick.min.js') }}"></script>
   <script src="{{ asset('js/vendors/imask.js') }}"></script>
-  <script src="{{ asset('js/vendors/payment-api.js') }}"></script>
   <script src="{{ asset('js/vendors/axios.min.js') }}"></script>
 
   <!-- General -->
