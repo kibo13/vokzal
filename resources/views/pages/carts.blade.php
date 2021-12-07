@@ -51,6 +51,7 @@
                         id="first_name"
                         type="text"
                         value="{{ $order->first_name ?? null }}"
+                        autocomplete="off"
                         placeholder="{{ __('main.fn_hint') }}"
                         required />
                     </div>
@@ -62,6 +63,7 @@
                         type="text"
                         value="{{ $order->last_name ?? null }}"
                         placeholder="{{ __('main.ln_hint') }}"
+                        autocomplete="off"
                         required />
                     </div>
                     <div class="input__wrapper col-12 col-lg-6 d-flex flex-column" >
@@ -72,6 +74,7 @@
                         type="text"
                         value="{{ $order->phone ?? null }}"
                         placeholder="{{ __('main.input_phone') }}"
+                        autocomplete="off"
                         required />
                     </div>
                     <input type="hidden" name="step" value="2">
@@ -97,6 +100,7 @@
                         type="text"
                         placeholder="{{ __('main.atyrau') }}"
                         value="{{ $order->city ?? null }}"
+                        autocomplete="off"
                         required />
                     </div>
                     <div class="input__wrapper col-12 col-lg-6 d-flex flex-column">
@@ -107,6 +111,7 @@
                         type="text"
                         value="{{ $order->street ?? null }}"
                         placeholder="{{ __('main.address_delivery') }}"
+                        autocomplete="off"
                         required />
                     </div>
                     <div class="input__wrapper col-12 col-lg-4 d-flex flex-column">
@@ -117,6 +122,7 @@
                         type="text"
                         value="{{ $order->dom ?? null }}"
                         placeholder="{{ __('main.house') }}"
+                        autocomplete="off"
                         required />
                     </div>
                     <div class="input__wrapper col-12 col-lg-4 d-flex flex-column">
@@ -126,6 +132,7 @@
                         id="corp"
                         type="text"
                         value="{{ $order->corp ?? null }}"
+                        autocomplete="off"
                         placeholder="{{ __('main.corp') }}" />
                     </div>
                     <div class="input__wrapper col-12 col-lg-4 d-flex flex-column">
@@ -135,6 +142,7 @@
                         id="flat"
                         type="number"
                         value="{{ $order->flat ?? null }}"
+                        autocomplete="off"
                         placeholder="{{ __('main.flat') }}" />
                     </div>
                     <input type="hidden" name="step" value="3">
