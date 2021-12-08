@@ -22,7 +22,7 @@ class PaymentController extends Controller
   // PROD
   // ===============================================================
 
-  private $terminalID      = '97e570a2-6a46-45a6-a71d-e312d385db64';
+  private $terminalID      = '746ce546-2838-44a5-8bea-3475dbb42702';
   private $clientID        = 'VOKZALGASTROBAR.KZ';
   private $clientSecret    = 'hfFQP&2dq7QuqYMG';
   private $url             = 'https://epay-oauth.homebank.kz/oauth2/token';

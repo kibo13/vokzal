@@ -78,7 +78,7 @@ var createPaymentObject = function (auth, invoiceId, amount) {
     // terminal: "67e34d63-102f-4bd1-898e-370781d0074d",
 
     // PROD
-    terminal: "97e570a2-6a46-45a6-a71d-e312d385db64",
+    terminal: "746ce546-2838-44a5-8bea-3475dbb42702",
   };
 
   paymentObject.auth = auth;
