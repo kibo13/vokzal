@@ -144,9 +144,10 @@ class CartController extends Controller
     $order->save();
 
     // поставить их email
-    // Mail::to('kimboris1310@gmail.com')->send(
-    //   new OrderFormed($order)
-    // );
+    // Vokzal_zakaz@mail.ru
+    Mail::to('karina@corp.mail.kz')->send(
+      new OrderFormed($order)
+    );
 
     session()->forget('order_id');
 
