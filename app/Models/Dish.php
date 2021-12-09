@@ -19,6 +19,7 @@ class Dish extends Model
     'desc_en',
     'desc_kk',
     'price',
+    'is_active',
     'image',
     'note'
   ];

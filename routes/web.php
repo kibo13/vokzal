@@ -159,3 +159,6 @@ Route::post('/failure', [PaymentController::class, 'failure']);
 
 // оформление заказа на 3-м шаге
 Route::post('carts/step_3/{order}', [CartController::class, 'step_3'])->name('carts.step_3');
+
+// активность блюда на странице
+Route::get('/dishes/active/{dish}', [DishController::class, 'is_active'])->name('dishes.active');

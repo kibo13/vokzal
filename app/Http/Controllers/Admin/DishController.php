@@ -74,6 +74,13 @@ class DishController extends Controller
     return redirect()->route('continents.dishes.show', $request->continent_id);
   }
 
+  public function is_active(Request $request, Dish $dish)
+  {
+    $dish->update($request->all());
+
+    return redirect()->route('continents.dishes.show', $request->continent_id);
+  }
+
   public function destroy(Continent $continent, Dish $dish)
   {
     $dish->delete();

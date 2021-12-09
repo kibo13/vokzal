@@ -123,7 +123,7 @@
       <div class="container-md">
         <div class="row g-4">
         @foreach ($menu as $item)
-          @if($assortment->id == $item->assortment_id)
+          @if($assortment->id == $item->assortment_id && $item->is_active == 1)
             <div class="col-sm-4 col-12">
               <div class="georgian__kitchen--item">
                 <div class="kitchen-image">

@@ -22,6 +22,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col" class="w-100" style="min-width: 300px;">{{ __('main.menu') }}</th>
+        <th scope="col" class="no-sort" style="min-width: 120px;">{{ __('main.active') }}</th>
         <th scope="col" class="" style="min-width: 120px;">{{ __('main.price') }}</th>
         <th scope="col" class="no-sort" style="min-width: 120px;">{{ __('main.photo') }}</th>
         <th scope="col" class="no-sort">{{ __('main.t_action') }}</th></th>
@@ -61,6 +62,22 @@
               @endif
             </li>
           </ul>
+        </td>
+        <td>
+          <form class="d-flex justify-content-center" action="{{ route('dishes.active', $dish) }}" method="GET">
+            @csrf
+            <input type="hidden" name="continent_id" value="{{ $dish->continent_id }}">
+            <input type="hidden" name="is_active" value="0">
+            <input
+                class="form-control is_active"
+                style="cursor: pointer; width: 30px; height: 30px;"
+                id="is_active"
+                type="checkbox"
+                name="is_active"
+                data-dish="{{ $dish->id }}"
+                value="1"
+                @if($dish->is_active) checked @endif />
+          </form>
         </td>
         <td>
           {{ number_format($dish->price, 2, ',', ' '); }} &#8376;

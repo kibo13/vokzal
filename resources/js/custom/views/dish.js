@@ -1,7 +1,14 @@
 const dish_form = document.getElementById("dish-form");
+const dish_index = document.getElementById("dish-index");
 
 // if active dish-form
-if (dish_form) {
+if (dish_index) {
+  $(document).on("click", ".is_active", function (e) {
+    this.parentNode.submit();
+  });
+}
+// if active dish-form
+else if (dish_form) {
   // getting a category by continent_id
   $("#continent_id").on("change", (e) => {
     let continent_id = $(e.target).val();
