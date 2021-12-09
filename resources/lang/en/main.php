@@ -19,6 +19,7 @@ return [
   'positions'         => 'Positions',
   'worker'            => 'Worker',
   'select_record'     => 'Select record',
+  'active'            => 'Active',
 
   // sections
   'home'              => 'Home',

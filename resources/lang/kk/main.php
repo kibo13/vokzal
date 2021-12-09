@@ -23,6 +23,7 @@ return [
   'positions'         => 'Мамандықтар',
   'worker'            => 'Қызметкер',
   'select_record'     => 'Жазбаны таңдаңыз',
+  'active'            => 'Белсенділік',
 
   // sections
   'home'              => 'Басты',

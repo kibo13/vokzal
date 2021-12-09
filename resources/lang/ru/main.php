@@ -23,6 +23,7 @@ return [
   'positions'         => 'Позиции',
   'worker'            => 'Сотрудник',
   'select_record'     => 'Выбрать запись',
+  'active'            => 'Активность',
 
   // sections
   'home'              => 'Главная',
