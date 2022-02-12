@@ -78,14 +78,6 @@
         </span>
       </a>
     </li>
-    {{-- <li @sbactive('news*')>
-      <a class="sidebar-list__link" href="{{ route('news.index') }}">
-        @include('assets.icons.news')
-        <span class="sidebar-tip">
-          {{ __('main.news') }}
-        </span>
-      </a>
-    </li> --}}
     <li @sbactive('log*')>
       <a class="sidebar-list__link" href="{{ route('logs.index') }}">
         @include('assets.icons.log')
@@ -94,19 +86,11 @@
         </span>
       </a>
     </li>
-    <li @sbactive('option*')>
-      <a class="sidebar-list__link" href="{{ route('options.index') }}">
+    <li @sbactive('setting*')>
+      <a class="sidebar-list__link" href="{{ route('settings.index') }}">
         @include('assets.icons.conf')
         <span class="sidebar-tip">
           {{ __('main.config') }}
-        </span>
-      </a>
-    </li>
-    <li @sbactive('user*')>
-      <a class="sidebar-list__link" href="{{ route('users.index') }}">
-        @include('assets.icons.user')
-        <span class="sidebar-tip">
-          {{ __('main.profile') }}
         </span>
       </a>
     </li>

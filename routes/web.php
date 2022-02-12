@@ -133,16 +133,18 @@ Route::group(
       // news
       Route::resource('/news', NewsController::class);
 
-      // options
-      Route::resource('/options', OptionController::class);
-
       // logs
       Route::get('/logs', [PaymentController::class, 'index'])->name('logs.index');
       Route::get('/logs/{log}', [PaymentController::class, 'show'])->name('logs.show');
 
-      // profile
-      Route::get('/profile', [UserController::class, 'index'])->name('users.index');
-      Route::put('/profile/{user}', [UserController::class, 'update'])->name('users.update');
+      // settings
+      Route::get('/settings', [OptionController::class, 'allOptions'])->name('settings.index');
+
+      Route::get('/age-limit', [OptionController::class, 'ageLimit'])->name('settings.agelimit.index');
+      Route::put('/age-limit/{option}', [OptionController::class, 'ageLimitUpdate'])->name('settings.agelimit.update');
+
+      Route::get('/profile', [UserController::class, 'index'])->name('settings.users.index');
+      Route::put('/profile/{user}', [UserController::class, 'update'])->name('settings.users.update');
     });
   }
 );

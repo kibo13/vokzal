@@ -30,6 +30,6 @@ class UserController extends Controller
     $user->save();
 
     $request->session()->flash('success', __('auth.save_data'));
-    return redirect()->route('users.index');
+    return redirect()->route('settings.users.index');
   }
 }

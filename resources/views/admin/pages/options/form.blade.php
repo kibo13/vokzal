@@ -15,7 +15,7 @@
   <form
     class="bk-form"
     method="POST"
-    action="{{ route('options.update', $option) }}" >
+    action="{{ route('settings.agelimit.update', $option) }}" >
     @csrf
     <div>
       @method('PUT')
@@ -48,6 +48,11 @@
         <button
           class="btn btn-outline-success"
           type="submit">{{ __('main.save') }}</button>
+        <a
+          class="btn btn-outline-secondary"
+          href="{{ route('settings.index') }}">
+          {{ __('main.back') }}
+        </a>
       </div>
     </div>
   </form>
