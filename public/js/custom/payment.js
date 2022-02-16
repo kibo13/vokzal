@@ -53,7 +53,7 @@ $(document).on("click", "#confirm-order", async function (e) {
 
   // если оплата наличкой
   if (response.method_pay == 2) {
-    window.location.href = window.location.origin + "/deliveries";
+    window.location.href = window.location.origin + "/payment/" + _INVOICE_ID;
   }
 });
 
@@ -61,7 +61,7 @@ $(document).on("click", "#confirm-order", async function (e) {
 var createPaymentObject = function (auth, invoiceId, amount) {
   var paymentObject = {
     invoiceId: invoiceId,
-    backLink: window.location.origin,
+    backLink: window.location.origin + "/payment/" + invoiceId,
     failureBackLink: window.location.origin,
     postLink: window.location.origin + "/success",
     failurePostLink: window.location.origin + "/failure",

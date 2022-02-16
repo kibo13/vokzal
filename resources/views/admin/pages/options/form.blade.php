@@ -15,7 +15,7 @@
   <form
     class="bk-form"
     method="POST"
-    action="{{ route('settings.agelimit.update', $option) }}" >
+    action="{{ route('settings.update', $option) }}" >
     @csrf
     <div>
       @method('PUT')
@@ -26,19 +26,19 @@
           <!-- /.desc_ru -->
           <h6 class="bk-form__title">{{ __('main.t_desc') }} [RU]</h6>
           <div class="bk-form__field-full mb-2">
-            <textarea class="form-control tiny-mce" name="desc_ru" placeholder="Введите описание">{{ old('desc_ru', isset($option) ? $option->desc_ru : null) }}</textarea>
+            <textarea class="form-control" name="desc_ru" placeholder="Введите описание">{{ old('desc_ru', isset($option) ? $option->desc_ru : null) }}</textarea>
           </div>
 
           <!-- /.desc_en -->
           <h6 class="bk-form__title">{{ __('main.t_desc') }} [EN]</h6>
           <div class="bk-form__field-full mb-2">
-            <textarea class="form-control tiny-mce" name="desc_en" placeholder="Enter a description">{{ old('desc_en', isset($option) ? $option->desc_en : null) }}</textarea>
+            <textarea class="form-control" name="desc_en" placeholder="Enter a description">{{ old('desc_en', isset($option) ? $option->desc_en : null) }}</textarea>
           </div>
 
           <!-- /.desc_kk -->
           <h6 class="bk-form__title">{{ __('main.t_desc') }} [KK]</h6>
           <div class="bk-form__field-full">
-            <textarea class="form-control tiny-mce" name="desc_kk" placeholder="Сипаттаманы енгізіңіз">{{ old('desc_kk', isset($option) ? $option->desc_kk : null) }}</textarea>
+            <textarea class="form-control" name="desc_kk" placeholder="Сипаттаманы енгізіңіз">{{ old('desc_kk', isset($option) ? $option->desc_kk : null) }}</textarea>
           </div>
 
         </div>

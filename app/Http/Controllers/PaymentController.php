@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Option;
 use App\Models\Order;
 use App\Models\Payment;
 use Illuminate\Http\Request;
@@ -43,6 +44,13 @@ class PaymentController extends Controller
     ]);
 
     return json_decode($response);
+  }
+
+  public function thxForOrder($order)
+  {
+    $message = Option::where('slug', 'thx')->first();
+
+    return view('thanks', compact('order', 'message'));
   }
 
   public function index()

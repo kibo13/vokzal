@@ -4,6 +4,9 @@
 
 return [
 
+  'thx'               => 'Thanks for order',
+  'ready'             => 'Ready',
+
   // options
   'app'               => 'Gastrobar Vokzal',
   'admin'             => 'Admin panel',

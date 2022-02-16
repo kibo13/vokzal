@@ -84,6 +84,9 @@ Route::group(
     Route::post('carts/step_1/{order}', [CartController::class, 'step_1'])->name('carts.step_1');
     Route::post('carts/step_2/{order}', [CartController::class, 'step_2'])->name('carts.step_2');
 
+    // thanks for order
+    Route::get('/payment/{order}', [PaymentController::class, 'thxForOrder']);
+
     Auth::routes([
       'reset' => false,
       'confirm' => false,
@@ -139,11 +142,12 @@ Route::group(
 
       // settings
       Route::get('/settings', [OptionController::class, 'allOptions'])->name('settings.index');
+      Route::put('/settings/{option}', [OptionController::class, 'update'])->name('settings.update');
 
-      Route::get('/age-limit', [OptionController::class, 'ageLimit'])->name('settings.agelimit.index');
-      Route::put('/age-limit/{option}', [OptionController::class, 'ageLimitUpdate'])->name('settings.agelimit.update');
+      Route::get('/age-limit', [OptionController::class, 'ageLimit'])->name('settings.agelimit');
+      Route::get('/thanks', [OptionController::class, 'thanks'])->name('settings.thanks');
 
-      Route::get('/profile', [UserController::class, 'index'])->name('settings.users.index');
+      Route::get('/profile', [UserController::class, 'index'])->name('settings.users');
       Route::put('/profile/{user}', [UserController::class, 'update'])->name('settings.users.update');
     });
   }
