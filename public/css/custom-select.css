@@ -1,0 +1,32 @@
+.bk-wrapper {
+  position: relative;
+}
+.bk-select {
+  padding: 1px 2px;
+  padding-left: 14px;
+  width: 100%;
+  height: 45px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #616161;
+  border: 1px solid #bababa;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  z-index: 2;
+}
+.bk-input {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 70px !important;
+  opacity: 0;
+  z-index: 1;
+}

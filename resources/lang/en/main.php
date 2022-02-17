@@ -6,6 +6,8 @@ return [
 
   'thx'               => 'Thanks for order',
   'ready'             => 'Ready',
+  'areas'             => 'Areas',
+  'areas'             => 'Area',
 
   // options
   'app'               => 'Gastrobar Vokzal',
@@ -48,6 +50,7 @@ return [
   'select_kitchen'    => 'Select kitchen',
   'select_cat'        => 'Select category',
   'select_cabin'      => 'Select cabine',
+  'select_area'       => 'Select area',
   'compound'          => 'Compound',
   'price'             => 'Price',
 

@@ -33,10 +33,10 @@
         </div>
 
         <!-- /.address -->
-        <h6 class="bk-form__title">{{ __('main.city') }} / {{ __('main.address') }}</h6>
+        <h6 class="bk-form__title">{{ __('main.area') }} / {{ __('main.address') }}</h6>
         <div class="bk-form__field-full mb-2">
           <p class="orders-text">
-            {{ $order->city }} / {{ $order->street }} {{ $order->dom }}-{{ $order->flat }}
+            {{ $order->area_id ? $order->area->name_ru : '-' }} / {{ $order->street }} {{ $order->dom }}-{{ $order->flat }}
           </p>
         </div>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Mail\OrderFormed;
+use App\Models\Area;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
@@ -24,7 +25,10 @@ class CartController extends Controller
     // order
     $order = Order::find($order_id);
 
-    return view('pages.carts', compact('isCart', 'order'));
+    // areas
+    $areas = Area::where('is_active', 1)->get();
+
+    return view('pages.carts', compact('isCart', 'order', 'areas'));
   }
 
   public function create($id)

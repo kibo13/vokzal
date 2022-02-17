@@ -19,6 +19,7 @@ class Order extends Model
     'last_name',
     'phone',
     'city',
+    'area_id',
     'street',
     'dom',
     'corp',
@@ -31,6 +32,11 @@ class Order extends Model
   public function dishes()
   {
     return $this->belongsToMany(Dish::class)->withPivot('count')->withTimestamps();
+  }
+
+  public function area()
+  {
+    return $this->belongsTo(Area::class);
   }
 
   public function getFullPrice()

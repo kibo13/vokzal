@@ -58,6 +58,10 @@ $(document).ready(function () {
         $("#bk-delete-form").attr("action", `${url}/destroy/${data_id}`);
         break;
 
+      case "area":
+        $("#bk-delete-form").attr("action", `${url}/${data_id}`);
+        break;
+
       case "position":
         $("#bk-delete-form").attr("action", `${url}/${data_id}`);
         break;

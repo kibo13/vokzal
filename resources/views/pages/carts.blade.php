@@ -92,15 +92,27 @@
                 <div class="form-title">2. {{ __('main.delivery') }}</div>
                 <div class="form__delivery--block">
                   <div class="row gx-4 gy-3">
-                    <div class="input__wrapper col-12 col-lg-6 d-flex flex-column">
-                      <label for="city">{{ __('main.city') }}</label>
+                    <div class="input__wrapper col-12 col-lg-6 d-flex flex-column bk-wrapper">
+                      <label for="area">{{ __('main.area') }}</label>
+                      <select class="bk-select" id="select-area">
+                        <option disabled selected>{{ __('main.select_area') }}</option>
+                        @foreach($areas as $area)
+                        <option value="{{ $area->id }}">
+                          @if(getCurrentLang() === 'ru')
+                          {{ $area->name_ru }}
+                          @elseif(getCurrentLang() === 'en')
+                          {{ $area->name_en }}
+                          @else
+                          {{ $area->name_kk }}
+                          @endif
+                        </option>
+                        @endforeach
+                      </select>
                       <input
-                        name="city"
-                        id="city"
+                        class="bk-input"
                         type="text"
-                        placeholder="{{ __('main.atyrau') }}"
-                        value="{{ $order->city ?? null }}"
-                        autocomplete="off"
+                        id="area_id"
+                        name="area_id"
                         required />
                     </div>
                     <div class="input__wrapper col-12 col-lg-6 d-flex flex-column">
@@ -174,7 +186,10 @@
                 <!-- способ оплаты -->
                 <input type="hidden" id="pay-output">
                 <!-- сумма заказа -->
-                <input type="hidden" id="total" value="{{ $order->getFullPrice() }}">
+                <input
+                  type="hidden"
+                  id="total"
+                  value="{{ $order->area_id ? $order->getFullPrice() + $order->area->margin : $order->getFullPrice() }}">
               </div>
             </div>
 
@@ -247,10 +262,22 @@
                 <div class="sum-text">{{ __('main.total') }}</div>
                 <div class="sum-num">{{ number_format($order->getFullPrice(), 0, ',', ' ') }} тг</div>
               </div>
+              @isset($order->area_id)
+              <div class="price__sum">
+                <div class="sum-text">{{ __('main.delivery') }}</div>
+                <div class="sum-num">{{ number_format($order->area->margin, 0, ',', ' ') }} тг</div>
+              </div>
+              @endisset
             </div>
             <div class="cart__price--pay">
               <div class="pay-text">{{ __('main.to_pay') }}</div>
-              <div class="pay-num">{{ number_format($order->getFullPrice(), 0, ',', ' ') }} тг</div>
+              <div class="pay-num">
+                {{
+                  $order->area_id
+                    ? number_format($order->getFullPrice() + $order->area->margin, 0, ',', ' ')
+                    : number_format($order->getFullPrice(), 0, ',', ' ')
+                }} тг
+              </div>
             </div>
           </div>
         </div>

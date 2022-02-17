@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="{{ asset('css/slick.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/localization.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/loader.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/custom-select.css') }}" />
 </head>
 
 <body>
@@ -86,7 +87,7 @@
   </div>
 
   <!-- Vendors -->
-  <script src="https://epay.homebank.kz/payform/payment-api.js"></script>
+ <script src="https://epay.homebank.kz/payform/payment-api.js"></script>
   <script src="{{ asset('js/vendors/jquery.min.js') }}"></script>
   <script src="{{ asset('js/vendors/slick.min.js') }}"></script>
   <script src="{{ asset('js/vendors/imask.js') }}"></script>

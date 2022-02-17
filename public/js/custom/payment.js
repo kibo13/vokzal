@@ -9,6 +9,11 @@ $(".payment-item").on("click", function (e) {
   $(this.parentNode).addClass("active-pay");
 });
 
+// выбрать район доставки
+$(document).on("change", "#select-area", function (e) {
+  $("#area_id").val(this.value);
+});
+
 // оформление заказа
 $(document).on("click", "#confirm-order", async function (e) {
   // TEST

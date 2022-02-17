@@ -6,6 +6,8 @@ return [
 
   'thx'               => 'Спасибо за заказ',
   'ready'             => 'Готово',
+  'areas'             => 'Районы',
+  'area'              => 'Район',
 
   // options
   'app'               => 'Гастробар Vokzal',
@@ -48,6 +50,7 @@ return [
   'select_kitchen'    => 'Выберите кухню',
   'select_cat'        => 'Выберите категорию',
   'select_cabin'      => 'Выберите кабину',
+  'select_area'       => 'Выберите район',
   'compound'          => 'Состав',
   'price'             => 'Цена',
 

@@ -49,6 +49,7 @@ use App\Http\Controllers\Admin\PositionController;
 
 // profile
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AreaController;
 
 Route::group(
   [
@@ -149,6 +150,8 @@ Route::group(
 
       Route::get('/profile', [UserController::class, 'index'])->name('settings.users');
       Route::put('/profile/{user}', [UserController::class, 'update'])->name('settings.users.update');
+
+      Route::resource('/areas', AreaController::class, ['as' => 'settings']);
     });
   }
 );

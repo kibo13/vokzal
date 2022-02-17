@@ -37,7 +37,7 @@
             <div class="bk-btn-info">
               <span class="font-weight-bold">{{ $order->first_name }} {{ $order->last_name }}</span><br />
               <span class="font-weight-bold">тел:</span> {{ $order->phone }}<br />
-              <span class="font-weight-bold">город:</span> {{ $order->city }} <br />
+              <span class="font-weight-bold">район:</span> {{ $order->area_id ? $order->area->name_ru : '-' }} <br />
               <span class="font-weight-bold">адрес:</span> {{ $order->street }} {{ $order->dom }} - {{ $order->corp }} {{ $order->flat }}
               <button
                 class="bk-btn-info__triangle bk-btn-info__triangle--down"

@@ -13,3 +13,4 @@ require("./modals/destroy");
 // views
 require("./views/contact");
 require("./views/dish");
+require("./views/area");
