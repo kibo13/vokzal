@@ -11,7 +11,9 @@ class OptionController extends Controller
   // general settings
   public function allOptions()
   {
-    return view('admin.pages.options.index');
+    $options = config('constants.options');
+
+    return view('admin.pages.options.index', compact('options'));
   }
 
   public function update(Request $request, Option $option)
