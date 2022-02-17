@@ -22,10 +22,13 @@
 .header__lang-list > li {
   padding: 0;
   height: 34px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
 }
 
 .header__lang-list > li:hover {
+  -webkit-box-shadow: inset 0 0 10px 0 rgba(255, 255, 255, 0.31);
   box-shadow: inset 0 0 10px 0 rgba(255, 255, 255, 0.31);
 }
 
