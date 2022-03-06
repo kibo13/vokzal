@@ -147,11 +147,9 @@ class CartController extends Controller
     $order->check = $request->check;
     $order->save();
 
-    // поставить их email
-    // Vokzal_zakaz@mail.ru
-    Mail::to('karina@corp.mail.kz')->send(
-      new OrderFormed($order)
-    );
+    foreach (['vokzal_zakaz@mail.com', 'b-kim@mail.com'] as $recipient) {
+      Mail::to($recipient)->send(new OrderFormed($order));
+    }
 
     session()->forget('order_id');
 
