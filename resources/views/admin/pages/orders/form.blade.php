@@ -130,20 +130,19 @@
 
         <!-- /.pay -->
         <h6 class="bk-form__title">{{ __('main.pay') }}</h6>
-        <div class="bk-form__field-full mb-2">
-          <p class="orders-text">
-            @if($order->pay == 1) {{ __('main.order_card') }} @endif
-            @if($order->pay == 2) {{ __('main.order_cash') }} @endif
-          </p>
+        <div class="bk-form__field-300 mb-2">
+          <select class="form-control" id="pay" name="pay">
+            <option value="1" @if($order->pay == 1) selected @endif>{{ __('main.order_card')}}</option>
+            <option value="2" @if($order->pay == 2) selected @endif>{{ __('main.order_cash')}}</option>
+          </select>
         </div>
 
         <!-- /.status -->
         <h6 class="bk-form__title">{{ __('main.order_check') }}</h6>
         <div class="orders-control">
-        @if($order->pay == 1)
+        @if($order->check > 0)
           <p class="orders-text">
-            @if($order->check == 1) <span class="text-success">оплачено</span> @endif
-            @if($order->check == 0) <span class="text-danger">не оплачено</span> @endif
+            <span class="text-success">оплачено</span>
           </p>
         @else
           <input type="hidden" name="check" value="0">
