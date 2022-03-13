@@ -139,8 +139,8 @@ class CartController extends Controller
     $order->code = getInvoiceId($request->code);
 
     // general
-    $order->date_in = Carbon::now()->addHour(6)->format('Y-m-d');
-    $order->time_in = Carbon::now()->addHour(6)->format('H:i');
+    $order->date_in = Carbon::now()->addHour(5)->format('Y-m-d');
+    $order->time_in = Carbon::now()->addHour(5)->format('H:i');
     $order->status = $request->status;
     $order->pay = $request->pay;
     $order->total = $request->amount;
