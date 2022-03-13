@@ -104,6 +104,22 @@
           </table>
         </div>
 
+        <!-- /.order -->
+        <h6 class="bk-form__title">{{ __('main.order') }}</h6>
+        <div class="bk-form__field-full mb-2">
+          <p class="orders-text">
+            {{ number_format($order->total - $order->area->margin, 2, ',', ' ') }} тг
+          </p>
+        </div>
+
+        <!-- /.delivery -->
+        <h6 class="bk-form__title">{{ __('main.delivery') }}</h6>
+        <div class="bk-form__field-full mb-2">
+          <p class="orders-text">
+            {{ number_format($order->area->margin, 2, ',', ' ') }} тг
+          </p>
+        </div>
+
         <!-- /.total -->
         <h6 class="bk-form__title">{{ __('main.total') }}</h6>
         <div class="bk-form__field-full mb-2">
