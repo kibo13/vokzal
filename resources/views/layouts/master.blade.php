@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="{{ asset('css/localization.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/loader.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/custom-select.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
 </head>
 
 <body>
@@ -85,6 +86,31 @@
       @endisset
     </div>
   </div>
+
+  @isset($delivery)
+  <div id="bk-modal" class="bk-modal">
+    <div class="bk-modal-wrapper">
+      <div class="bk-modal-header">
+        <button class="bk-modal-close">
+          @include('assets.icons.close')
+        </button>
+      </div>
+      <div class="bk-modal-body">
+        <h3 class="bk-modal-title">{{ __('main.delivery') }}</h3>
+        <p class="bk-modal-text">
+        @if(getCurrentLang() === 'ru')
+          {!! $delivery->desc_ru !!}
+        @elseif(getCurrentLang() === 'en')
+          {!! $delivery->desc_en !!}
+        @else
+          {!! $delivery->desc_kk !!}
+        @endif
+        </p>
+      </div>
+    </div>
+  </div>
+  @endisset
+
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

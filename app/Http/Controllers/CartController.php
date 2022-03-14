@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Order;
 use App\Mail\OrderFormed;
 use App\Models\Area;
+use App\Models\Contact;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
@@ -33,31 +32,38 @@ class CartController extends Controller
 
   public function create($id)
   {
-    // session
-    $order_id = session('order_id');
+    $timeOpen = Contact::first()->time_from;
+    $timeClose = Contact::first()->time_to;
+    $timeNow = Carbon::now()->addHours(5)->format('H:i');
+    $isWorkTime = ($timeNow > $timeOpen && $timeNow < $timeClose) ? true : false;
 
-    // order
-    $order = Order::find($order_id);
+    if ($isWorkTime) {
+      // session
+      $order_id = session('order_id');
 
-    // order doesn't exist
-    if (is_null($order)) {
-      $order = Order::create();
-      session(['order_id' => $order->id]);
+      // order
+      $order = Order::find($order_id);
+
+      // order doesn't exist
+      if (is_null($order)) {
+        $order = Order::create();
+        session(['order_id' => $order->id]);
+      }
+
+      // order exists with dish_id
+      if ($order->dishes->contains($id)) {
+        $dish = $order->dishes()->where('dish_id', $id)->first();
+        $dish->pivot->count += 1;
+        $dish->pivot->update();
+      } // order doesn't exists with dish_id
+      else {
+        $order->dishes()->attach($id, ['count' => 1]);
+      }
+
+      return 'open';
     }
 
-    // order exists with dish_id
-    if ($order->dishes->contains($id)) {
-      $dish = $order->dishes()->where('dish_id', $id)->first();
-      $dish->pivot->count += 1;
-      $dish->pivot->update();
-    }
-    // order doesn't exists with dish_id
-    else {
-      $order->dishes()->attach($id, ['count' => 1]);
-    }
-
-    // for test
-    return session('order');
+    return 'close';
   }
 
   // carts.age
