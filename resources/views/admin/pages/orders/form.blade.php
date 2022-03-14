@@ -131,10 +131,16 @@
         <!-- /.pay -->
         <h6 class="bk-form__title">{{ __('main.pay') }}</h6>
         <div class="bk-form__field-300 mb-2">
+          @if($order->check > 0)
+            <p class="orders-text">
+              {{ $order->pay == 1 ? __('main.order_card') : __('main.order__cash') }}
+            </p>
+          @else
           <select class="form-control" id="pay" name="pay">
             <option value="1" @if($order->pay == 1) selected @endif>{{ __('main.order_card')}}</option>
             <option value="2" @if($order->pay == 2) selected @endif>{{ __('main.order_cash')}}</option>
           </select>
+          @endif
         </div>
 
         <!-- /.status -->
