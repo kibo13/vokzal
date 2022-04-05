@@ -153,7 +153,7 @@ class CartController extends Controller
     $order->check = $request->check;
     $order->save();
 
-    foreach (['vokzal_zakaz@mail.com', 'b-kim@mail.com'] as $recipient) {
+    foreach (['vokzal_zakaz@mail.ru', 'b-kim@bk.ru'] as $recipient) {
       Mail::to($recipient)->send(new OrderFormed($order));
     }
 
